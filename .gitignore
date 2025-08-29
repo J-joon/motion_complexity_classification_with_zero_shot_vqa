@@ -1,0 +1,14 @@
+SpatialLM
+checkpoints
+config
+assets
+plots
+videos
+utils
+ws
+trash
+
+uv.lock
+
+
+__pycache__/
