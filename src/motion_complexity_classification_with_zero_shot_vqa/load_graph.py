@@ -8,19 +8,18 @@ from numpy.typing import NDArray
 
 with open("./ws/2.grounding_dino/result.json", "r") as file:
     boxes = json.load(file)
-    id2label = { object_id: label for object_id, label in enumerate(boxes) }
+id2label = { object_id: label for object_id, label in enumerate(boxes) }
+print(id2label)
 
 with open("./object_states.pkl", "rb") as file:
     object_states = pickle.load(file)
 
-@dataclass(frozen=True)
-class ObjectState:
-    mask: NDArray[np.bool]
-    point: Point
+without_mask = dict()
+for frame_index, frame_information in object_states.items():
+    new_frame_information = dict()
+    for object_index, object_information in frame_information.items():
+        new_frame_information[object_index] = object_information["point"]
+    without_mask[frame_index] = new_frame_information
 
-def frame_information2point(frame_information: dict[int, dict) -> Point:
-
-points = dict(map(lambda frame_index, frame_information: (frame_information, frame_information2point(frame_information)), object_states))
-print(points)
-"""
-print(object_states[0][0]['box'])
+with open("./object_graph.json", "w") as file:
+    json.dump(without_mask, file)

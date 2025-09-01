@@ -21,6 +21,7 @@ import math
 import numpy as np
 import torch
 import torchvision.transforms as T
+from itertools import islice
 from decord import VideoReader, cpu
 from PIL import Image
 from torchvision.transforms.functional import InterpolationMode, to_pil_image
@@ -77,7 +78,7 @@ class LenGenerator(Iterator[T]):
     def __len__(self):
         return self._length
 
-
+"""
 def sliding_window(iterable: Iterable[T], n: int) -> Iterator[tuple[T, ...]]:
     it = iter(iterable)
     window = deque((next(it) for _ in range(n)), maxlen=n)  # initialize first window
@@ -85,13 +86,44 @@ def sliding_window(iterable: Iterable[T], n: int) -> Iterator[tuple[T, ...]]:
     for x in it:
         window.append(x)
         yield tuple(window)
+"""
+
+T = TypeVar("T")
+
+def sliding_window(iterable: Iterable[T], n: int, step: int = 1) -> Iterator[tuple[T, ...]]:
+    """
+    Yield size-n windows over `iterable`, moving the start by `step` each time.
+    Stops when fewer than `step` new items remain.
+
+    Example:
+      list(sliding_window(range(10), 3, step=2))
+      -> [(0,1,2), (2,3,4), (4,5,6), (6,7,8)]
+    """
+    if n <= 0:
+        raise ValueError("n must be >= 1")
+    if step <= 0:
+        raise ValueError("step must be >= 1")
+
+    it = iter(iterable)
+    window = deque(islice(it, n), maxlen=n)
+    if len(window) < n:
+        return  # not enough to form the first window
+
+    yield tuple(window)
+
+    while True:
+        chunk = list(islice(it, step))
+        if len(chunk) < step:
+            return  # can't advance by a full step -> stop
+        window.extend(chunk)  # drops `step` leftmost items automatically
+        yield tuple(window)
 
 
 def map_then_window(
-    iterable: Iterable[T], f: Callable[[T], V], n: int
+        iterable: Iterable[T], f: Callable[[T], V], n: int, step: int
 ) -> Iterator[tuple[V, ...]]:
     """Convert each item T -> V, then apply sliding window of size n."""
-    return sliding_window((f(x) for x in iterable), n)
+    return sliding_window((f(x) for x in iterable), n, step)
 
 
 @dataclass(frozen=True)
@@ -108,20 +140,19 @@ class LeRobotDatasetConfig(ConfigProvider):
         prompts: dict[str, str],
         output_path: Path,
         model: str,
+        step: int,
     ) -> Result[Config, str]:
         dataset = LeRobotDataset(repo_id, episodes=[episode_index])
         iterable = map_then_window(
-            dataset, lambda frame: to_pil_image(frame["image"]), window_size
+            dataset, lambda frame: to_pil_image(frame["image"]), window_size, step
         )
         return LeRobotDatasetConfig(
             iterable=LenGenerator(
                 (
                     (x, prompts)
-                    for x in map_then_window(
-                        dataset, lambda frame: to_pil_image(frame["image"]), window_size
-                    )
+                    for x in iterable
                 ),
-                len(dataset) - window_size + 1,
+                (len(dataset) - window_size + 1)//step,
             ),
             output_path=output_path,
             model=model,
@@ -138,7 +169,6 @@ def vqa(vlm, iterable: Iterable) -> Result[dict[int, dict[str, str]], str]:
                     result[i] = frame_information
                 case Err(error=e):
                     return Err(e)
-            break
         return Ok(result)
     except Exception as e:
         return Err(e)
@@ -171,12 +201,14 @@ def main(config: ConfigProvider):
         .inspect_err(print)
         .and_then(lambda vlm: vqa(vlm, tqdm(config.iterable)))
         .inspect(partial(write_down, output_path=config.output_path))
+        .inspect_err(print)
     )
     print("done")
 
 
 def entrypoint():
     set_seed(42)
+    '''
     libero_config = LeRobotDatasetConfig.create(
         "physical-intelligence/libero",
         9,
@@ -200,26 +232,23 @@ def entrypoint():
         Path("./ws/4_movement_vqa/result.json"),
         "OpenGVLab/InternVL3-2B",
     )
+    '''
 
-    def get_size_test_config(size: int) -> LeRobotDatasetConfig:
+    def get_simple_config(size: int, output_path: Path, step: int, prompt: str) -> LeRobotDatasetConfig:
         return LeRobotDatasetConfig.create(
             "physical-intelligence/libero",
             9,
             16,
-            {
-                "scene": "Briefly describe the scene. And then describe what motion did the robot take to change the scene."
-            },
-            Path(f"./ws/vlm_size_test/{size}B.json"),
+            { "scene": prompt },
+            output_path,
             f"OpenGVLab/InternVL3-{size}B",
+            step
         )
+    get_movement_description_config = partial(get_simple_config, prompt = "Briefly describe the scene. And then describe what motion did the robot take to change the scene.")
 
-    main(get_size_test_config(1))
-    main(get_size_test_config(2))
-    main(get_size_test_config(8))
-    main(get_size_test_config(9))
-    main(get_size_test_config(14))
-    main(get_size_test_config(38))
-    main(get_size_test_config(78))
+    main(get_movement_description_config(14, Path("./ws/movement_description/14B/0009_2.json"), 2))
+    main(get_movement_description_config(14, Path("./ws/movement_description/14B/0009_4.json"), 4))
+    main(get_movement_description_config(14, Path("./ws/movement_description/14B/0009_8.json"), 8))
 
 # libero_config = Config.create("physical-intelligence/libero", 9, Path("assets/gripper_box_sam2/0009.pt"))
 if __name__ == "__main__":

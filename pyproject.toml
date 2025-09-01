@@ -23,6 +23,7 @@ dependencies = [
     "timm",
     "accelerate",
     "vqa-pipeline",
+    "sentencepiece",
 ]
 
 [tool.hatch.metadata]
