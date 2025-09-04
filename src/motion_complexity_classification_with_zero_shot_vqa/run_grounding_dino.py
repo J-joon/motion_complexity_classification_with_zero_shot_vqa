@@ -30,7 +30,6 @@ def set_seed(seed: int = 42):
     if torch.cuda.is_available():
         torch.cuda.manual_seed(seed)
         torch.cuda.manual_seed_all(seed)
-        # 옵션: 완전 재현성을 위해
         torch.backends.cudnn.deterministic = True
         torch.backends.cudnn.benchmark = False
 
@@ -90,6 +89,7 @@ class Config(ConfigProvider):
     device: Literal["cuda", "cpu"] = "cuda"
     rank: int = 0
     model_id: Literal["base", "tiny"] = "tiny"
+    image_column:str = "image"
 
     def get_model(self) -> Result[str, str]:
         return Ok(f"IDEA-Research/grounding-dino-{self.model_id}")
@@ -106,6 +106,7 @@ class Config(ConfigProvider):
         return Ok(self.output_dir)
 
     def get_dataloader(self) -> DataLoader:
+        image_column = self.image_column
         class LiberoDataLoader(DataLoader):
             dataset: LeRobotDataset
             query_list: list[str]
@@ -118,7 +119,7 @@ class Config(ConfigProvider):
             def __next__(self) -> Data:
                 frame = next(iter(self.dataset))
                 query = next(iter(query_list))
-                image = to_pil_image(frame["image"])
+                image = to_pil_image(frame[image_column])
                 self.idx += 1
                 return Data(image=image, query=query)
             def __iter__(self) -> Iterator[Data]:
@@ -131,13 +132,13 @@ class Config(ConfigProvider):
             query_list = json.load(query_list_file)
 
         my_list = [ "" for _ in range(302) ]
-        my_list[0] = ".".join([f"{key} {value}" for key, value in query_list["dict"].items()])
+        my_list[0] = ".".join([f"{value}" for key, value in query_list["dict"].items()])
         query_list = my_list
 
         return LiberoDataLoader(dataset = dataset, query_list = query_list, batch_size = 1)
 
 
-my_config = Config(
+libero_config = Config(
         episode_range = (9, 10),
         output_dir = Path("./ws/2.grounding_dino"),
         query_list_path = Path("./ws/1.object_detection/result.json"),
@@ -145,6 +146,17 @@ my_config = Config(
         device = "cuda",
         rank = 0,
         model_id = "base"
+        )
+
+aloha_config = Config(
+        episode_range = (0, 1),
+        output_dir = Path("./aloha/2.grounding_dino"),
+        query_list_path = Path("./aloha/1.object_detection/result.json"),
+        repo_id = "J-joon/sim_insertion_scripted",
+        device = "cuda",
+        rank = 0,
+        model_id = "base",
+        image_column = "observation.images.top"
         )
 
 
@@ -174,8 +186,8 @@ def main(config: ConfigProvider):
     results = processor.post_process_grounded_object_detection(
         outputs,
         inputs.input_ids,
-        threshold=0.4,
-        text_threshold=0.3,
+        threshold=0.3,
+        text_threshold=0.4,
         target_sizes=[image.size[::-1]],
     )
     result = results[0]
@@ -187,5 +199,12 @@ def main(config: ConfigProvider):
     output = { label: box.tolist() for box, label in zip(result["boxes"], result["labels"]) }
     with open(output_dir / "result.json", "w") as file:
         json.dump(output, file)
+def entrypoint():
+    _CONFIGS = {
+            "libero": ("libero", libero_config),
+            "aloha": ("aloha", aloha_config),
+            }
+    config = tyro.extras.overridable_config_cli(_CONFIGS)
+    main(config)
 if __name__=="__main__":
-    main(my_config)
+    entrypoint()

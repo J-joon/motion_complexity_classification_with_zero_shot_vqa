@@ -35,7 +35,6 @@ import tyro
 from pathlib import Path
 from vqa_pipeline.vlm import InternVL3
 
-
 def write_down(result, output_path):
     with open(output_path, "w") as file:
         json.dump(result, file)
@@ -78,6 +77,7 @@ class LenGenerator(Iterator[T]):
     def __len__(self):
         return self._length
 
+
 """
 def sliding_window(iterable: Iterable[T], n: int) -> Iterator[tuple[T, ...]]:
     it = iter(iterable)
@@ -90,7 +90,10 @@ def sliding_window(iterable: Iterable[T], n: int) -> Iterator[tuple[T, ...]]:
 
 T = TypeVar("T")
 
-def sliding_window(iterable: Iterable[T], n: int, step: int = 1) -> Iterator[tuple[T, ...]]:
+
+def sliding_window(
+    iterable: Iterable[T], n: int, step: int = 1
+) -> Iterator[tuple[T, ...]]:
     """
     Yield size-n windows over `iterable`, moving the start by `step` each time.
     Stops when fewer than `step` new items remain.
@@ -120,7 +123,7 @@ def sliding_window(iterable: Iterable[T], n: int, step: int = 1) -> Iterator[tup
 
 
 def map_then_window(
-        iterable: Iterable[T], f: Callable[[T], V], n: int, step: int
+    iterable: Iterable[T], f: Callable[[T], V], n: int, step: int
 ) -> Iterator[tuple[V, ...]]:
     """Convert each item T -> V, then apply sliding window of size n."""
     return sliding_window((f(x) for x in iterable), n, step)
@@ -131,6 +134,7 @@ class LeRobotDatasetConfig(ConfigProvider):
     iterable: Iterator[tuple[list[Image.Image], dict[str, str]]]
     output_path: Path
     model: str
+    image_column: str = "image"
 
     @staticmethod
     def create(
@@ -141,21 +145,23 @@ class LeRobotDatasetConfig(ConfigProvider):
         output_path: Path,
         model: str,
         step: int,
+        image_column: str = "image",
+        factor: int = 4
     ) -> Result[Config, str]:
         dataset = LeRobotDataset(repo_id, episodes=[episode_index])
+        def get_pil_image(image: Image.Image) -> Image.Image:
+            return image.resize((image.width // factor, image.height // factor), Image.BILINEAR)
         iterable = map_then_window(
-            dataset, lambda frame: to_pil_image(frame["image"]), window_size, step
+                dataset, lambda frame: get_pil_image(to_pil_image(frame[image_column])), window_size, step
         )
         return LeRobotDatasetConfig(
             iterable=LenGenerator(
-                (
-                    (x, prompts)
-                    for x in iterable
-                ),
-                (len(dataset) - window_size + 1)//step,
+                ((x, prompts) for x in iterable),
+                (len(dataset) - window_size + 1) // step,
             ),
             output_path=output_path,
             model=model,
+            image_column = image_column
         )
 
 
@@ -198,7 +204,7 @@ def main(config: ConfigProvider):
     """
     result = (
         InternVL3.create(config.model)
-        .inspect_err(print)
+        .inspect_err(lambda error: print(f"error to create InternVL3: {error}"))
         .and_then(lambda vlm: vqa(vlm, tqdm(config.iterable)))
         .inspect(partial(write_down, output_path=config.output_path))
         .inspect_err(print)
@@ -223,7 +229,8 @@ def entrypoint():
             Your goal is to **analyze and describe the action chunk** performed by the robot across the given 16 consecutive frames.  
 
             When answering, provide two parts:
-            1. **High-level description** – Summarize the overall action and intention, considering not only the given frames but also what may follow after them. Explain the reasoning and intention behind the action.  
+            1. **High-level description** – Summarize the overall action and intention, considering not only the given frames but also what may follow after them.
+                Explain the reasoning and intention behind the action.  
             2. **Low-level description** – Provide a strict, detailed motion description limited to the given 16 frames (without speculating beyond them).  
 
             Make sure your answer reflects both the **intended goal** and the **observed movement**.
@@ -234,22 +241,84 @@ def entrypoint():
     )
     '''
 
-    def get_simple_config(size: int, output_path: Path, step: int, prompt: str) -> LeRobotDatasetConfig:
+    def get_simple_libero_config(
+            size: int, output_path: Path, step: int, episode_index: int = 9
+    ) -> LeRobotDatasetConfig:
         return LeRobotDatasetConfig.create(
             "physical-intelligence/libero",
-            9,
+            episode_index,
             16,
-            { "scene": prompt },
+            {
+                "scene": "Briefly describe the scene. And then descirbe what motion did the robot take to change the scene.",
+                "motion": """
+                        You are the **System 2** of a robot in the scene.  
+
+                        The assigned task is: {task}.  
+                        You have already executed the action, and now you are reviewing the replay of your execution.  
+                        Your goal is to **analyze and describe the action chunk** performed by the robot across the given 16 consecutive frames.  
+
+                        When answering, provide two parts:
+                        1. **High-level description** – Summarize the overall action and intention, considering not only the given frames but also what may follow after them. Explain the reasoning and intention behind the action.  
+                        2. **Low-level description** – Provide a strict, detailed motion description limited to the given 16 frames (without speculating beyond them).  
+
+                        Make sure your answer reflects both the **intended goal** and the **observed movement**.
+                        """,
+            },
             output_path,
             f"OpenGVLab/InternVL3-{size}B",
-            step
+            step,
         )
-    get_movement_description_config = partial(get_simple_config, prompt = "Briefly describe the scene. And then describe what motion did the robot take to change the scene.")
 
-    main(get_movement_description_config(14, Path("./ws/movement_description/14B/0009_2.json"), 2))
-    main(get_movement_description_config(14, Path("./ws/movement_description/14B/0009_4.json"), 4))
-    main(get_movement_description_config(14, Path("./ws/movement_description/14B/0009_8.json"), 8))
+    def get_aloha_sim_insertion_scripted(
+        size: int, output_path: Path, episode_index: int, step: int
+    ) -> LeRobotDatasetConfig:
+        return LeRobotDatasetConfig.create(
+            repo_id = "J-joon/sim_insertion_scripted",
+            episode_index = episode_index,
+            window_size = 4,
+            prompts = {
+                "scene": "Briefly describe the scene. And then descirbe what motion did the robot take to change the scene.",
+                "motion": """
+                        You are the **System 2** of a bimanual robot in the scene.  
 
-# libero_config = Config.create("physical-intelligence/libero", 9, Path("assets/gripper_box_sam2/0009.pt"))
+                        The assigned task is: "pick red block by right arm and blue block by left arm, then insert red block into blue block".  
+                        You have already executed the action, and now you are reviewing the replay of your execution.  
+                        Your goal is to **analyze and describe the action chunk** performed by the robot across the given 16 consecutive frames.  
+
+                        When answering, provide two parts:
+                        1. **High-level description** – Summarize the overall action and intention, considering not only the given frames but also what may follow after them. Explain the reasoning and intention behind the action.  
+                        2. **Low-level description** – Provide a strict, detailed motion description limited to the given 16 frames (without speculating beyond them).  
+
+                        Make sure your answer reflects both the **intended goal** and the **observed movement**.
+                        """,
+            },
+            output_path = output_path,
+            #model = "OpenGVLab/InternVL3_5-241B-A28B",
+            #model = f"OpenGVLab/InternVL3-{size}B",
+            model = f"OpenGVLab/InternVL3_5-{size}B",
+            step = step,
+            image_column = "observation.images.top",
+            factor = 1,
+        )
+    """
+    get_movement_description_config = partial(
+        get_simple_libero_config,
+        prompt="Briefly describe the scene. And then describe what motion did the robot take to change the scene.",
+    )
+    """
+    aloha_sim_insertion_scripted_0 = get_aloha_sim_insertion_scripted(
+        size=1,
+        output_path=Path("./aloha_sim_insertion_scripted/4.movement_vqa/aloha_sim_insertion_scripted_0_78B.json"),
+        episode_index=0,
+        step=1,
+    )
+    _CONFIGS = {
+            "aloha": ("aloha", aloha_sim_insertion_scripted_0),
+            }
+    for episode_index in [ 7, 9, 25, 29, 30, 41, 63, 74, 82, 83, 96, 98, 124, 135, 148, 160, 161, 163, 171, 174, 188, 195, 196, 205, 208, 221, 222, 223, 237, 246, 250, 256, 265, 266, 275, 281, 286, 289, 293, 297, 318, 331, 373]:
+        _CONFIGS[f"libero_{episode_index}"] = (f"libero {episode_index}", get_simple_libero_config(78, Path(f"./ws/movement_description/78B/{episode_index:04d}.json"), 8, episode_index))
+    config = tyro.extras.overridable_config_cli(_CONFIGS)
+    main(config)
+
 if __name__ == "__main__":
     entrypoint()

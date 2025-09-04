@@ -1,4 +1,3 @@
-from __future__ import annotations
 import math
 from dataclasses import dataclass
 import os
@@ -16,9 +15,14 @@ from transformers import AutoModel, AutoTokenizer, AutoConfig
 from lerobot.datasets.lerobot_dataset import LeRobotDatasetMetadata, LeRobotDataset
 from tqdm import tqdm
 import tyro
-from typing import Protocol, runtime_checkable, Optional, Literal
+from typing import Protocol
 from pathlib import Path
 
+class ConfigProvider(Protocol):
+    task: str
+    images: list[Image.Image]
+    prompt: str
+    output_path: Path
 
 def set_seed(seed: int = 42):
     random.seed(seed)
@@ -30,6 +34,7 @@ def set_seed(seed: int = 42):
     torch.backends.cudnn.benchmark = False
     os.environ["PYTHONHASHSEED"] = str(seed)
 
+set_seed(42)
 
 
 IMAGENET_MEAN = (0.485, 0.456, 0.406)
@@ -134,100 +139,42 @@ def split_model(model_path):
 # If you set `load_in_8bit=True`, you will need two 80GB GPUs.
 # If you set `load_in_8bit=False`, you will need at least three 80GB GPUs.
 
-@runtime_checkable
-class ConfigProvider(Protocol):
+@dataclass
+class Config:
     task: str
     images: list[Image.Image]
     prompt: str
     output_path: Path
 
-def to_pil_resized(tensor, factor=4):
-    img = to_pil_image(tensor)
-    w, h = img.size
-    return img.resize((w // factor, h // factor), resample=Image.BILINEAR)
+dataset = LeRobotDataset("physical-intelligence/libero", episodes=[9])
+config_libero = Config(
+        task = dataset.meta.episodes[9]["tasks"][0],
+        images = [ to_pil_image(frame["image"]) for frame in dataset ],
+        prompt = """
+            Describe things in this scene and their spatial relations briefly.
+            And then list up them in the following json format strictly:
+            { "tag_id": detail description, "tag2_id": detail description, ... }
+            note tat tag_id should be unique, it's for internal use to identify objects.
+            descriptions should include details on appearance for object detection.
+            e.g. { "can 1": blue can, ... }
+            """,
+        output_path = Path("./ws/1.object_detection/result.json")
+        )
 
-@dataclass(frozen=True)
-class LiberoConfig:
-    episode_index: int = tyro.MISSING
-    _is_cached: bool = False
-    _task: Optional(str) = None
-    _images: Optional(list[Image.Image]) = None
-    prompt: str = """
-        Describe things in this scene and their spatial relations briefly.
-        And then list up them in the following json format strictly:
-        { "tag_id": detail description, "tag2_id": detail description, ... }
-        note tat tag_id should be unique, it's for internal use to identify objects.
-        descriptions should include details on appearance for object detection.
-        e.g. { "can 1": blue can, ... }
-        """
-    output_path: Path = tyro.MISSING
-
-    def cache(self):
-        if self._is_cached:
-            return
-        dataset = LeRobotDataset("physical-intelligence/libero", episodes=[self.episode_index])
-        self._images = [ to_pil_image(frame["image"]) for frame in dataset ]
-        self._task = dataset.meta.episodes[self.episode_index]['tasks'][0]
-        self._is_cached = True
-        return
-
-
-    @property
-    def images(self) -> list[Image.Image]:
-        if self._ is None:
-            self.cache()
-        return self._images
-
-    @property
-    def task(self) -> str:
-        if self._task is None:
-            self.cache()
-        return self._task
-
-@dataclass
-class AlohaConfig:
-    episode_index: int = tyro.MISSING
-    task_name: str = tyro.MISSING
-    output_path: Path = tyro.MISSING
-    _task: Optional[str] = None
-    _images: Optional[list[Image.Image]] = None
-
-    @property
-    def images(self) -> list[Image.Image]:
-        if self._images is None:
-            dataset = LeRobotDataset(self._repo_id, episodes=[self.episode_index])
-            images = [ to_pil_resized(frame["observation.images.top"]) for frame in dataset ]
-            self._images = images
-        return self._images
-
-    @property
-    def _repo_id(self) -> str:
-        return f"J-joon/{self.task_name}"
-
-    @property
-    def task(self) -> str:
-        if self._task is None:
-            match self.task_name:
-                case "sim_insertion_scripted":
-                    task = "insert red rectangular object inside of blue rectangular object"
-                case "sim_transfer_cube_scripted":
-                    task = "pick red cube by right arm then pass it to left arm"
-                case _:
-                    raise ValueError(f"Invalid Task: {self._task}. Must be either 'sim_insertion_scripted' or 'siim_transfer_cube_scripted'")
-            self._task = task
-        return self._task
-
-    @property
-    def prompt(self) -> str:
-        return """
-        Describe things in this scene and their spatial relations briefly.
-        And then list up them in the following json format strictly:
-        { "tag_id": detail description, "tag2_id": detail description, ... }
-        note tat tag_id should be unique, it's for internal use to identify objects.
-        descriptions should include details on appearance for object detection.
-        e.g. { "can 1": blue can, ... }
-        """
-
+dataset = LeRobotDataset("J-joon/sim_insertion_scripted", episodes=[0])
+config_aloha = Config(
+        task = dataset.meta.episodes[0]["tasks"][0],
+        images = [ to_pil_image(frame["observation.images.top"]) for frame in dataset ],
+        prompt = """
+            Describe things in this scene and their spatial relations briefly.
+            And then list up them in the following json format strictly:
+            { "tag_id": detail description, "tag2_id": detail description, ... }
+            note tat tag_id should be unique, it's for internal use to identify objects.
+            descriptions should be a noun phrase which contains details on appearance, shape, colour or texture exclusively for object detection.
+            e.g. { "can 1": blue can, ... }
+            """,
+        output_path = Path("./aloha/1.object_detection/result.json")
+        )
 def extract_json_from_response(response: str) -> dict:
     """
     Extract JSON block inside ```json ... ``` and return as Python dict.
@@ -242,7 +189,6 @@ def extract_json_from_response(response: str) -> dict:
     except json.JSONDecodeError as e:
         print(f"[ERROR] Failed to parse JSON: {e}")
         return {}
-
 
 def main(config: ConfigProvider):
     path = 'OpenGVLab/InternVL3-78B'
@@ -273,11 +219,9 @@ def main(config: ConfigProvider):
         json.dump(result, file)
 
 def entrypoint():
-    set_seed(42)
     _CONFIGS = {
-            "libero": ("libero", LiberoConfig()),
-            "aloha_sim_insertion_scripted": ("aloha sim insertion scripted", AlohaConfig(task_name = "sim_insertion_scripted")),
-            "aloha_sim_transfer_cube_scripted": ("aloha sim transfer cube scripted", AlohaConfig(task_name = "sim_transfer_cube")),
+            "libero": ("libero", config_libero),
+            "aloha": ("aloha", config_aloha),
             }
     config = tyro.extras.overridable_config_cli(_CONFIGS)
     main(config)
