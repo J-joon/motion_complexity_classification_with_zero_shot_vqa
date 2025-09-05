@@ -1,5 +1,5 @@
 from __future__ import annotations
-from mote_itertools import (
+from more_itertools import (
     windowed,
 )
 from collections.abc import Iterator, Sequence
@@ -19,8 +19,7 @@ from static_error_handler import *
 from collections import deque
 from typing import Iterable, Iterator, TypeVar, Tuple
 from collections import deque
-from scripts.vlm import *
-from functools import reduce, partial
+from functools import reduce, partial, cache
 import math
 import numpy as np
 import torch
@@ -37,8 +36,8 @@ import random
 import os
 import tyro
 from pathlib import Path
-from vqa_pipeline.vlm import InternVL3, T_Image, ImageLabelProvider
-from jaxtyping import PyTree
+from vqa_pipeline.vlm import VLM, InternVL3
+from vqa_pipeline.vlm.vlms import ImageLabelProvider
 
 
 def write_down(result, output_path):
@@ -57,8 +56,8 @@ def set_seed(seed: int = 42):
     os.environ["PYTHONHASHSEED"] = str(seed)
 
 
-T_InferenceState = TypeVar("T_InferenceState", covariance=True)
-T_Input = TypeVar("T_Input", covariance=True)
+T_InferenceState = TypeVar("T_InferenceState", covariant=True)
+T_Input = TypeVar("T_Input", covariant=True)
 
 
 @runtime_checkable
@@ -98,66 +97,63 @@ class AIWorkerData:
     camera_type: str
     frame_index: int
 
-    @static_method
+    @staticmethod
     def from_frame(frame) -> list[AIWorkerData]:
         image_columns = {
-            "observation.images.cam_head": "Frame-{frame_index}_HEAD",
-            "observation.images.cam_wrist_left": "Frame-{frame_index}_LEFT_WRIST",
-            "observation.images.cam_wrist_right": "Frame-{frame_index}_RIGHT_WRIST",
+                "observation.images.cam_head": "Frame-{frame_index}_HEAD: <image>",
+                "observation.images.cam_wrist_left": "Frame-{frame_index}_LEFT_WRIST: <image>",
+                "observation.images.cam_wrist_right": "Frame-{frame_index}_RIGHT_WRIST: <image>",
         }
         frame_index = frame["frame_index"].item()
         data = [
             AIWorkerData(
-                image=frame[column_name],
-                camera_type=image_columns[column_name],
+                image=to_pil_image(frame[column_name]),
+                camera_type=image_columns[column_name].format(frame_index=frame_index),
                 frame_index=frame_index,
             )
             for column_name in image_columns
         ]
         return data
 
-
 @dataclass(frozen=True)
 class AIWorkerConfig(
     InferenceConfig[
         Result[VLM, str],
-        tuple[list[ImageLabelProvider], dict[str, str]],
-        Result[dict[str, str], str],
+        tuple[list[ImageLabelProvider], tuple[tuple[str, str],...]],
     ]
 ):
     repo_id: str
     episode_index: int
+    prompt: tuple[tuple[str, str], ...]
     step: int = 1
     window_size: int = 4
-    prompt: dict[str, str]
-    _cached_data_stream: Optional[
-        Iterable[tuple[list[ImageLabelProvider], dict[str, str]]]
-    ] = None
 
     @property
     def initial_state(self) -> Result[VLM, str]:
         return InternVL3.create(config.model)
 
-    @property
-    def data_stream(self) -> Iterable[tuple[list[ImageLabelProvider], dict[str, str]]]:
-        if self._cached_data_stream is None:
-            self._cached_data_stream = (
-                (sum(win, ()), self.prompt)
-                for win in windowed(
-                    [
-                        AIWorkerData.from_frame(frame)
-                        for frame in LeRobotDataset(
-                            self.repo_id, episodes=[self.episode_index]
-                        )
-                    ],
-                    self.window_size,
-                    self.step,
-                )
+    @cache
+    def _load_data_stream(self) -> Iterable[tuple[list[ImageLabelProvider], tuple[tuple[str, str], ...]]]:
+        return (
+            (sum(win, []), self.prompt)
+            for win in windowed(
+                [
+                    AIWorkerData.from_frame(frame)
+                    for frame in LeRobotDataset(
+                        self.repo_id, episodes=[self.episode_index]
+                    )
+                ],
+                self.window_size,
+                self.step,
             )
-        return self._cached_data_stream
+        )
+
+    @property
+    def data_stream(self) -> Iterable[tuple[list[ImageLabelProvider], tuple[tuple[str, str], ...]]]:
+        return self._load_data_stream()
 
     def inference(
-        self, state: VLM, input_data: tuple[list[ImageLabelProvider], dict[str, str]]
+        self, state: VLM, input_data: tuple[list[ImageLabelProvider], tuple[tuple[str, str], ...]]
     ) -> VLM:
         vlm = state
         images, prompts = input_data
@@ -219,6 +215,7 @@ if __name__ == "__main__":
     conveyor_config = AIWorkerConfig(
         repo_id="noisyduck/ffw_bg2_rev4_tr_conveyor_250830_06",
         episode_index=1,
+        prompt = (( "test",  "test")),
     )
     test_AIWorkerConfig(conveyor_config)
     # entrypoint()

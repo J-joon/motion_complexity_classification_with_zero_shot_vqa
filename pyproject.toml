@@ -22,13 +22,15 @@ dependencies = [
     "decord",
     "timm",
     "accelerate",
-    #"vqa-pipeline",
     "sentencepiece",
     "more-itertools",
+    #"flash-attn",
 ]
 
 [tool.hatch.metadata]
 allow-direct-references = true
+[tool.uv.extra-build-dependencies]
+flash-attn = [ "ninja", "torch", "packaging"]
 
 [[tool.uv.index]]
 name = "pytorch-cu118"
