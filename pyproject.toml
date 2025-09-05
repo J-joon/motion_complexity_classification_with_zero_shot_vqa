@@ -16,14 +16,15 @@ dependencies = [
     "tqdm",
     "lerobot @ git+https://github.com/huggingface/lerobot.git@577cd10974b84bea1f06b6472eb9e5e74e07f77a",
     "sam-2 @ git+https://github.com/facebookresearch/sam2.git@2b90b9f5ceec907a1c18123530e92e794ad901a4",
-    #"vqa_pipeline @ git+https://github.com/J-joon/vqa_pipeline@main",
+    "vqa_pipeline @ git+https://github.com/J-joon/vqa_pipeline@main",
     "h5py",
     "transformers",
     "decord",
     "timm",
     "accelerate",
-    "vqa-pipeline",
+    #"vqa-pipeline",
     "sentencepiece",
+    "more-itertools",
 ]
 
 [tool.hatch.metadata]
@@ -42,7 +43,6 @@ torch = [
 torchvision = [
   { index = "pytorch-cu118" },
   ]
-vqa-pipeline = { path = "../../vqa_pipeline", editable = true }
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/motion_complexity_classification_with_zero_shot_vqa"]
