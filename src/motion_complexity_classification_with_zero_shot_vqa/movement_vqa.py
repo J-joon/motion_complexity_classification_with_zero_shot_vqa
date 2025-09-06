@@ -1,6 +1,7 @@
 from __future__ import annotations
 from more_itertools import (
     windowed,
+    take,
 )
 from collections.abc import Iterator, Sequence
 from dataclasses import dataclass
@@ -58,6 +59,7 @@ def set_seed(seed: int = 42):
 
 T_InferenceState = TypeVar("T_InferenceState", covariant=True)
 T_Input = TypeVar("T_Input", covariant=True)
+T_Output = TypeVar("T_Output", covariant=True)
 
 
 @runtime_checkable
@@ -66,13 +68,18 @@ class InferenceFn(Protocol[T_InferenceState, T_Input]):
         self, state: T_InferenceState, input_data: T_Input
     ) -> T_InferenceState: ...
 
+@runtime_checkable
+class ConsumeFn(Protocol[T_InferenceState, T_Output]):
+    def __call__(
+            self, state: T_InferenceState
+            ) -> T_Output: ...
 
 @runtime_checkable
 class InferenceConfig(Protocol[T_InferenceState, T_Input]):
     initial_state: T_InferenceState
     data_stream: Iterable[T_Input]
     inference: InferenceFn[T_InferenceState, T_Input]
-
+    consume: OutputFn(T_InferenceState, T_Output]
 
 def vqa(
     vlm, iterable: Iterable[tuple[list[T_Image], dict[str, str]]]
@@ -132,6 +139,7 @@ class AIWorkerConfig(
     episode_index: int
     model: str
     prompt: tuple[tuple[str, str], ...]
+    output_file: Path
     step: int = 1
     window_size: int = 4
 
@@ -179,6 +187,15 @@ class AIWorkerConfig(
             return state.vlm.question(*input_data).inspect(print).map(partial(update_state, state=state))
         return state.and_then(handle_state)
 
+    def consume(
+            self,
+            state: Result[InferenceState, str]
+            ):
+        def save(state: InferenceState):
+            with open(self.output_file, "w") as file:
+                json.dump(state.data, file)
+        state.inspect(save)
+
 
 def entrypoint():
     set_seed(42)
@@ -195,6 +212,7 @@ def entrypoint():
                         "4 consecutive frames each of which consists of three image: Top camera, Left wrist camera, Right wrist camera. Briefly explain the scene.",
                     ),
                 ),
+                output_file = Path("./test_conveyor.json"),
             ),
         ),
     }
@@ -214,8 +232,10 @@ def entrypoint():
 def main(config: InferenceConfig):
     initial_state = config.initial_state
     inference = config.inference
+    consume = config.consume
     data_stream = config.data_stream
-    result = reduce(inference, data_stream, initial_state)
+    result = reduce(inference, take(4, data_stream), initial_state)
+    consume(result)
     print("done")
 
 
