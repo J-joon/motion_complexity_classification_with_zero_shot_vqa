@@ -16,7 +16,7 @@ dependencies = [
     "tqdm",
     "lerobot @ git+https://github.com/huggingface/lerobot.git@577cd10974b84bea1f06b6472eb9e5e74e07f77a",
     "sam-2 @ git+https://github.com/facebookresearch/sam2.git@2b90b9f5ceec907a1c18123530e92e794ad901a4",
-    "vqa_pipeline @ git+https://github.com/J-joon/vqa_pipeline@e31dfe5bd5f5cbcda3cebb30bfec4f36c84853d1",
+    "vqa_pipeline @ git+https://github.com/J-joon/vqa_pipeline@d19cc42f61a281abfd7cedfd1c33cda36418a9cc",
     "h5py",
     "transformers",
     "decord",
