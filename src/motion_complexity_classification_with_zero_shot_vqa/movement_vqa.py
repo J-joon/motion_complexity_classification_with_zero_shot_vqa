@@ -118,19 +118,20 @@ class AIWorkerData:
 @dataclass(frozen=True)
 class AIWorkerConfig(
     InferenceConfig[
-        Result[VLM, str],
+        Result[InternVL3, str],
         tuple[list[ImageLabelProvider], tuple[tuple[str, str],...]],
     ]
 ):
     repo_id: str
     episode_index: int
+    model: str
     prompt: tuple[tuple[str, str], ...]
     step: int = 1
     window_size: int = 4
 
     @property
-    def initial_state(self) -> Result[VLM, str]:
-        return InternVL3.create(config.model)
+    def initial_state(self) -> Result[InternVL3, str]:
+        return InternVL3.create(model)
 
     @cache
     def _load_data_stream(self) -> Iterable[tuple[list[ImageLabelProvider], tuple[tuple[str, str], ...]]]:
@@ -152,13 +153,13 @@ class AIWorkerConfig(
     def data_stream(self) -> Iterable[tuple[list[ImageLabelProvider], tuple[tuple[str, str], ...]]]:
         return self._load_data_stream()
 
+    @property
     def inference(
-        self, state: VLM, input_data: tuple[list[ImageLabelProvider], tuple[tuple[str, str], ...]]
-    ) -> VLM:
+        self, state: Result[InternVL3, str], input_data: tuple[list[ImageLabelProvider], tuple[tuple[str, str], ...]]
+    ) -> Result[InternVL3, str]:
         vlm = state
         images, prompts = input_data
-        result = vlm.question(images, prompts)
-        result.inspect(foo)
+        result = vlm.map(lambda vlm: vlm.question(images, prompts)).inspect(result)
         return vlm
 
 
@@ -167,15 +168,15 @@ def entrypoint():
     _CONFIGS = {
         "conveyor": (
             "conveyor",
-            AIWorkerConfig.create(
-                repo_id="noisyduck/ffw_bg2_rev4_tr_conveyor_250830_06",
-                episode_index=0,
-                prompt={"ask": "ask"},
-                output_path=Path("./test.json"),
-                model="OpenGVLab/InternVL3_5-241B-A28B",
-            ),
-        ),
+
+    conveyor_config = AIWorkerConfig(
+        repo_id="noisyduck/ffw_bg2_rev4_tr_conveyor_250830_06",
+        episode_index=1,
+        model="InternVL3.5-1B",
+        prompt = (( "test",  "4 consecutive frames each of which consists of three image: Top camera, Left wrist camera, Right wrist camera. Briefly explain the scene.")),
+    )),
     }
+    """
     result = (
         InternVL3.create(config.model)
         .inspect_err(lambda error: print(f"error to create InternVL3: {error}"))
@@ -183,6 +184,7 @@ def entrypoint():
         .inspect(partial(write_down, output_path=config.output_path))
         .inspect_err(print)
     )
+    """
     config = tyro.extras.overridable_config_cli(_CONFIGS)
     main(config)
 
@@ -212,10 +214,4 @@ def test_AIWorkerConfig(config: AIWorkerConfig):
 
 
 if __name__ == "__main__":
-    conveyor_config = AIWorkerConfig(
-        repo_id="noisyduck/ffw_bg2_rev4_tr_conveyor_250830_06",
-        episode_index=1,
-        prompt = (( "test",  "test")),
-    )
-    test_AIWorkerConfig(conveyor_config)
-    # entrypoint()
+    entrypoint()
