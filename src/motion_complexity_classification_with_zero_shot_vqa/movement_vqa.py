@@ -215,46 +215,74 @@ class LeRobotConfig(
 
 def entrypoint():
     set_seed(42)
+    AIWorkerColumns = (
+        (
+            "observation.images.cam_head",
+            "Frame-{frame_index}_HEAD: <image>",
+        ),
+        (
+            "observation.images.cam_wrist_left",
+            "Frame-{frame_index}_LEFT_WRIST: <image>",
+        ),
+        (
+            "observation.images.cam_wrist_right",
+            "Frame-{frame_index}_RIGHT_WRIST: <image>",
+        ),
+    )
+    AlohaColumns = (
+        (
+            "observation.images.top",
+            "Frame-{frame_index}: <image>",
+        ),
+    )
+    LiberoColumns = (
+        (
+            "image",
+            "Frame-{frame_index}: <image>",
+        ),
+    )
+    test_prompt = (
+        (
+            "test",
+            "briefly describe the scene",
+        ),
+    )
+    test_model = "OpenGVLab/InternVL3_5-1B"
     _CONFIGS = {
+        "aloha-sim-insertion-scripted": (
+            "aloha sim insertion scripted",
+            LeRobotConfig(
+                repo_id="J-joon/sim_insertion_scripted",
+                episode_index=0,
+                model=test_model,
+                prompt=test_prompt,
+                image_columns=AlohaColumns,
+                output_file=Path("./test_sim_insertion_scripted.json"),
+            ),
+        ),
+        "libero": (
+            "aloha sim insertion scripted",
+            LeRobotConfig(
+                repo_id="physical-intelligence/libero",
+                episode_index=7,
+                model=test_model,
+                prompt=test_prompt,
+                image_columns=LiberoColumns,
+                output_file=Path("./test_libero_7.json"),
+            ),
+        ),
         "conveyor": (
             "conveyor",
             LeRobotConfig(
                 repo_id="noisyduck/ffw_bg2_rev4_tr_conveyor_250830_06",
                 episode_index=0,
-                model="OpenGVLab/InternVL3_5-1B",
-                prompt=(
-                    (
-                        "test",
-                        "4 consecutive frames each of which consists of three image: Top camera, Left wrist camera, Right wrist camera. Briefly explain the scene.",
-                    ),
-                ),
+                model=test_model,
+                prompt=test_prompt,
+                image_columns=AIWorkerColumns,
                 output_file=Path("./test_conveyor.json"),
-                image_columns=(
-                    (
-                        "observation.images.cam_head",
-                        "Frame-{frame_index}_HEAD: <image>",
-                    ),
-                    (
-                        "observation.images.cam_wrist_left",
-                        "Frame-{frame_index}_LEFT_WRIST: <image>",
-                    ),
-                    (
-                        "observation.images.cam_wrist_right",
-                        "Frame-{frame_index}_RIGHT_WRIST: <image>",
-                    ),
-                ),
             ),
         ),
     }
-    """
-    result = (
-        InternVL3.create(config.model)
-        .inspect_err(lambda error: print(f"error to create InternVL3: {error}"))
-        .and_then(lambda vlm: vqa(vlm, tqdm(config.iterable)))
-        .inspect(partial(write_down, output_path=config.output_path))
-        .inspect_err(print)
-    )
-    """
     config = tyro.extras.overridable_config_cli(_CONFIGS)
     main(config)
 
