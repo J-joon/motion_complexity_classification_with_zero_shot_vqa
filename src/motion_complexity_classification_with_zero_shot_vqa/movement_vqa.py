@@ -247,6 +247,25 @@ def entrypoint():
             "briefly describe the scene",
         ),
     )
+    aloha_transfer_cube_prompt = (
+        (
+            "motion",
+            """
+        You are the **System 2** of a bimanual robot in the scene.
+        Briefly describe the scene. And then descirbe what motion did the each arm take to change the scene.
+
+        The assigned task is: "pick red block by right arm and blue block by left arm, then insert red block into blue block".
+        You have already executed the action, and now you are reviewing the replay of your execution.
+        Your goal is to **analyze and describe the action chunk** performed by the robot across the given 4 consecutive frames.
+
+        Provide a strict, detailed motion description limited to the given 4 frames (without speculating beyond them).
+
+        Make sure your answer reflects only the **observed movement**.
+        output should be the format of following json: {{ 'scene': 'scene description', 'right arm motion': 'motion description', 'left arm motion': 'motion description' }}, ..."}
+        """,
+        ),
+    )
+
     test_model = "OpenGVLab/InternVL3_5-1B"
     _CONFIGS = {
         "aloha-sim-insertion-scripted": (
@@ -258,6 +277,17 @@ def entrypoint():
                 prompt=test_prompt,
                 image_columns=AlohaColumns,
                 output_file=Path("./test_sim_insertion_scripted.json"),
+            ),
+        ),
+        "aloha-sim-transfer-cube-scripted": (
+            "aloha sim insertion scripted",
+            LeRobotConfig(
+                repo_id="J-joon/sim_transfer_cube_scripted",
+                episode_index=0,
+                model=test_model,
+                prompt=aloha_prompt,
+                image_columns=AlohaColumns,
+                output_file=Path("./test_sim_transfer_cube_scripted.json"),
             ),
         ),
         "libero": (
@@ -286,13 +316,13 @@ def entrypoint():
     config = tyro.extras.overridable_config_cli(_CONFIGS)
     main(config)
 
-
+_TEST = True
 def main(config: InferenceConfig):
     initial_state = config.initial_state
     inference = config.inference
     consume = config.consume
-    data_stream = config.data_stream
-    result = reduce(inference, take(4, data_stream), initial_state)
+    data_stream = config.data_stream if not _TEST else take(4, config.data_stream)
+    result = reduce(inference, data_stream, initial_state)
     consume(result)
     print("done")
 
