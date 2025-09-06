@@ -100,9 +100,9 @@ class AIWorkerData:
     @staticmethod
     def from_frame(frame) -> list[AIWorkerData]:
         image_columns = {
-                "observation.images.cam_head": "Frame-{frame_index}_HEAD: <image>",
-                "observation.images.cam_wrist_left": "Frame-{frame_index}_LEFT_WRIST: <image>",
-                "observation.images.cam_wrist_right": "Frame-{frame_index}_RIGHT_WRIST: <image>",
+            "observation.images.cam_head": "Frame-{frame_index}_HEAD: <image>",
+            "observation.images.cam_wrist_left": "Frame-{frame_index}_LEFT_WRIST: <image>",
+            "observation.images.cam_wrist_right": "Frame-{frame_index}_RIGHT_WRIST: <image>",
         }
         frame_index = frame["frame_index"].item()
         data = [
@@ -116,10 +116,16 @@ class AIWorkerData:
         return data
 
 @dataclass(frozen=True)
+class InferenceState:
+    vlm: VLM
+    frame_index: int
+    data: tuple[tuple[int, tuple[tuple[str, str], ...]],...]
+
+@dataclass(frozen=True)
 class AIWorkerConfig(
     InferenceConfig[
         Result[InternVL3, str],
-        tuple[list[ImageLabelProvider], tuple[tuple[str, str],...]],
+        tuple[list[ImageLabelProvider], tuple[tuple[str, str], ...]],
     ]
 ):
     repo_id: str
@@ -130,11 +136,18 @@ class AIWorkerConfig(
     window_size: int = 4
 
     @property
-    def initial_state(self) -> Result[InternVL3, str]:
-        return InternVL3.create(self.model).inspect(lambda _: print(f"{self.model} created successfully")).inspect_err(print)
+    def initial_state(self) -> Result[InferenceState, str]:
+        return (
+            InternVL3.create(self.model)
+            .inspect(lambda _: print(f"{self.model} created successfully"))
+            .inspect_err(print)
+            .map(lambda vlm: InferenceState(vlm, -1, ()))
+        )
 
     @cache
-    def _load_data_stream(self) -> Iterable[tuple[list[ImageLabelProvider], tuple[tuple[str, str], ...]]]:
+    def _load_data_stream(
+        self,
+    ) -> Iterable[tuple[list[ImageLabelProvider], tuple[tuple[str, str], ...]]]:
         return (
             (sum(win, []), self.prompt)
             for win in windowed(
@@ -150,16 +163,21 @@ class AIWorkerConfig(
         )
 
     @property
-    def data_stream(self) -> Iterable[tuple[list[ImageLabelProvider], tuple[tuple[str, str], ...]]]:
+    def data_stream(
+        self,
+    ) -> Iterable[tuple[list[ImageLabelProvider], tuple[tuple[str, str], ...]]]:
         return self._load_data_stream()
 
     def inference(
-        self, state: Result[InternVL3, str], input_data: tuple[list[ImageLabelProvider], tuple[tuple[str, str], ...]]
-    ) -> Result[InternVL3, str]:
-        vlm = state
-        images, prompts = input_data
-        result = vlm.map(lambda vlm: vlm.question(images, prompts)).inspect(print)
-        return vlm
+        self,
+        state: Result[InferenceState, str],
+        input_data: tuple[list[ImageLabelProvider], tuple[tuple[str, str], ...]],
+    ) -> Result[InferenceState, str]:
+        def update_state(result: tuple[tuple[str, str], ...], state: InferenceState) -> InferenceState:
+            return InferenceState(state.vlm, state.frame_index + 1, state.data + ((state.frame_index + 1, result),))
+        def handle_state(state: Result[InferenceState, str]) -> Result[InferenceState, str]:
+            return state.vlm.question(*input_data).inspect(print).map(partial(update_state, state=state))
+        return state.and_then(handle_state)
 
 
 def entrypoint():
@@ -167,13 +185,18 @@ def entrypoint():
     _CONFIGS = {
         "conveyor": (
             "conveyor",
-
-    AIWorkerConfig(
-        repo_id="noisyduck/ffw_bg2_rev4_tr_conveyor_250830_06",
-        episode_index=0,
-        model="OpenGVLab/InternVL3_5-1B",
-        prompt = (( "test",  "4 consecutive frames each of which consists of three image: Top camera, Left wrist camera, Right wrist camera. Briefly explain the scene."),),
-    )),
+            AIWorkerConfig(
+                repo_id="noisyduck/ffw_bg2_rev4_tr_conveyor_250830_06",
+                episode_index=0,
+                model="OpenGVLab/InternVL3_5-1B",
+                prompt=(
+                    (
+                        "test",
+                        "4 consecutive frames each of which consists of three image: Top camera, Left wrist camera, Right wrist camera. Briefly explain the scene.",
+                    ),
+                ),
+            ),
+        ),
     }
     """
     result = (
@@ -191,19 +214,9 @@ def entrypoint():
 def main(config: InferenceConfig):
     initial_state = config.initial_state
     inference = config.inference
-
     data_stream = config.data_stream
     result = reduce(inference, data_stream, initial_state)
     print("done")
-
-
-def test_AIWorkerConfig(config: AIWorkerConfig):
-    cnt = 0
-    for data in config.data_stream:
-        print(data)
-        cnt += 1
-        if cnt == 4:
-            break
 
 
 if __name__ == "__main__":
