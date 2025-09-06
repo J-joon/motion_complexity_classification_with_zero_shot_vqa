@@ -79,7 +79,7 @@ class InferenceConfig(Protocol[T_InferenceState, T_Input]):
     initial_state: T_InferenceState
     data_stream: Iterable[T_Input]
     inference: InferenceFn[T_InferenceState, T_Input]
-    consume: OutputFn[T_InferenceState, T_Output]
+    consume: ConsumeFn[T_InferenceState, T_Output]
 
 
 def vqa(
@@ -140,7 +140,6 @@ class LeRobotConfig(
     model: str
     prompt: tuple[tuple[str, str], ...]
     output_file: Path
-    G
     image_columns: tuple[tuple[str, str], ...]
     step: int = 1
     window_size: int = 4
