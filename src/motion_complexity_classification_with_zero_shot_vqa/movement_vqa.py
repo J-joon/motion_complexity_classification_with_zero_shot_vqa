@@ -131,7 +131,7 @@ class AIWorkerConfig(
 
     @property
     def initial_state(self) -> Result[InternVL3, str]:
-        return InternVL3.create(model)
+        return InternVL3.create(self.model).inspect(lambda _: print(f"{self.model} created successfully")).inspect_err(print)
 
     @cache
     def _load_data_stream(self) -> Iterable[tuple[list[ImageLabelProvider], tuple[tuple[str, str], ...]]]:
@@ -153,13 +153,12 @@ class AIWorkerConfig(
     def data_stream(self) -> Iterable[tuple[list[ImageLabelProvider], tuple[tuple[str, str], ...]]]:
         return self._load_data_stream()
 
-    @property
     def inference(
         self, state: Result[InternVL3, str], input_data: tuple[list[ImageLabelProvider], tuple[tuple[str, str], ...]]
     ) -> Result[InternVL3, str]:
         vlm = state
         images, prompts = input_data
-        result = vlm.map(lambda vlm: vlm.question(images, prompts)).inspect(result)
+        result = vlm.map(lambda vlm: vlm.question(images, prompts)).inspect(print)
         return vlm
 
 
@@ -169,11 +168,11 @@ def entrypoint():
         "conveyor": (
             "conveyor",
 
-    conveyor_config = AIWorkerConfig(
+    AIWorkerConfig(
         repo_id="noisyduck/ffw_bg2_rev4_tr_conveyor_250830_06",
-        episode_index=1,
-        model="InternVL3.5-1B",
-        prompt = (( "test",  "4 consecutive frames each of which consists of three image: Top camera, Left wrist camera, Right wrist camera. Briefly explain the scene.")),
+        episode_index=0,
+        model="OpenGVLab/InternVL3_5-1B",
+        prompt = (( "test",  "4 consecutive frames each of which consists of three image: Top camera, Left wrist camera, Right wrist camera. Briefly explain the scene."),),
     )),
     }
     """
@@ -193,14 +192,8 @@ def main(config: InferenceConfig):
     initial_state = config.initial_state
     inference = config.inference
 
-    def inference_step(state: T_InferenceState, input_data: T_Data) -> T_InferenceState:
-        next_state, inference_output = inference(state, input_data)
-        return next_state
-
     data_stream = config.data_stream
-    consume_result = config.consume_result
-    result = reduce(inference_step, data_stream, initial_state)
-    consume_result(result)
+    result = reduce(inference, data_stream, initial_state)
     print("done")
 
 
