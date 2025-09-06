@@ -24,7 +24,7 @@ dependencies = [
     "accelerate",
     "sentencepiece",
     "more-itertools",
-    #"flash-attn",
+    "flash-attn",
 ]
 
 [tool.hatch.metadata]
