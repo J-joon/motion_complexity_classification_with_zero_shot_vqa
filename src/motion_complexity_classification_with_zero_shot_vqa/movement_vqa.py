@@ -285,7 +285,7 @@ def entrypoint():
                 repo_id="J-joon/sim_transfer_cube_scripted",
                 episode_index=0,
                 model=test_model,
-                prompt=aloha_cube_transfer_prompt,
+                prompt=aloha_transfer_cube_prompt,
                 image_columns=AlohaColumns,
                 output_file=Path("./test_sim_transfer_cube_scripted.json"),
             ),
