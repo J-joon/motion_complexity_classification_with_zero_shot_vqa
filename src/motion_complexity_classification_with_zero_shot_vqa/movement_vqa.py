@@ -68,18 +68,19 @@ class InferenceFn(Protocol[T_InferenceState, T_Input]):
         self, state: T_InferenceState, input_data: T_Input
     ) -> T_InferenceState: ...
 
+
 @runtime_checkable
 class ConsumeFn(Protocol[T_InferenceState, T_Output]):
-    def __call__(
-            self, state: T_InferenceState
-            ) -> T_Output: ...
+    def __call__(self, state: T_InferenceState) -> T_Output: ...
+
 
 @runtime_checkable
 class InferenceConfig(Protocol[T_InferenceState, T_Input]):
     initial_state: T_InferenceState
     data_stream: Iterable[T_Input]
     inference: InferenceFn[T_InferenceState, T_Input]
-    consume: OutputFn(T_InferenceState, T_Output]
+    consume: OutputFn[T_InferenceState, T_Output]
+
 
 def vqa(
     vlm, iterable: Iterable[tuple[list[T_Image], dict[str, str]]]
@@ -99,37 +100,36 @@ def vqa(
 
 
 @dataclass(frozen=True)
-class AIWorkerData:
+class ImageLabelProviderImpl(ImageLabelProvider):
     image: Image.Image
     camera_type: str
     frame_index: int
 
     @staticmethod
-    def from_frame(frame) -> list[AIWorkerData]:
-        image_columns = {
-            "observation.images.cam_head": "Frame-{frame_index}_HEAD: <image>",
-            "observation.images.cam_wrist_left": "Frame-{frame_index}_LEFT_WRIST: <image>",
-            "observation.images.cam_wrist_right": "Frame-{frame_index}_RIGHT_WRIST: <image>",
-        }
+    def from_frame(
+        frame, image_columns: tuple[tuple[str, str], ...]
+    ) -> list[ImageLabelProviderImpl]:
         frame_index = frame["frame_index"].item()
         data = [
-            AIWorkerData(
+            ImageLabelProviderImpl(
                 image=to_pil_image(frame[column_name]),
-                camera_type=image_columns[column_name].format(frame_index=frame_index),
+                camera_type=label.format(frame_index=frame_index),
                 frame_index=frame_index,
             )
-            for column_name in image_columns
+            for column_name, label in image_columns
         ]
         return data
+
 
 @dataclass(frozen=True)
 class InferenceState:
     vlm: VLM
     frame_index: int
-    data: tuple[tuple[int, tuple[tuple[str, str], ...]],...]
+    data: tuple[tuple[int, tuple[tuple[str, str], ...]], ...]
+
 
 @dataclass(frozen=True)
-class AIWorkerConfig(
+class LeRobotConfig(
     InferenceConfig[
         Result[InternVL3, str],
         tuple[list[ImageLabelProvider], tuple[tuple[str, str], ...]],
@@ -140,6 +140,8 @@ class AIWorkerConfig(
     model: str
     prompt: tuple[tuple[str, str], ...]
     output_file: Path
+    G
+    image_columns: tuple[tuple[str, str], ...]
     step: int = 1
     window_size: int = 4
 
@@ -160,7 +162,10 @@ class AIWorkerConfig(
             (sum(win, []), self.prompt)
             for win in windowed(
                 [
-                    AIWorkerData.from_frame(frame)
+                    ImageLabelProviderImpl.from_frame(
+                        frame,
+                        self.image_columns,
+                    )
                     for frame in LeRobotDataset(
                         self.repo_id, episodes=[self.episode_index]
                     )
@@ -181,19 +186,31 @@ class AIWorkerConfig(
         state: Result[InferenceState, str],
         input_data: tuple[list[ImageLabelProvider], tuple[tuple[str, str], ...]],
     ) -> Result[InferenceState, str]:
-        def update_state(result: tuple[tuple[str, str], ...], state: InferenceState) -> InferenceState:
-            return InferenceState(state.vlm, state.frame_index + 1, state.data + ((state.frame_index + 1, result),))
-        def handle_state(state: Result[InferenceState, str]) -> Result[InferenceState, str]:
-            return state.vlm.question(*input_data).inspect(print).map(partial(update_state, state=state))
+        def update_state(
+            result: tuple[tuple[str, str], ...], state: InferenceState
+        ) -> InferenceState:
+            return InferenceState(
+                state.vlm,
+                state.frame_index + 1,
+                state.data + ((state.frame_index + 1, result),),
+            )
+
+        def handle_state(
+            state: Result[InferenceState, str],
+        ) -> Result[InferenceState, str]:
+            return (
+                state.vlm.question(*input_data)
+                .inspect(print)
+                .map(partial(update_state, state=state))
+            )
+
         return state.and_then(handle_state)
 
-    def consume(
-            self,
-            state: Result[InferenceState, str]
-            ):
+    def consume(self, state: Result[InferenceState, str]):
         def save(state: InferenceState):
             with open(self.output_file, "w") as file:
                 json.dump(state.data, file)
+
         state.inspect(save)
 
 
@@ -202,7 +219,7 @@ def entrypoint():
     _CONFIGS = {
         "conveyor": (
             "conveyor",
-            AIWorkerConfig(
+            LeRobotConfig(
                 repo_id="noisyduck/ffw_bg2_rev4_tr_conveyor_250830_06",
                 episode_index=0,
                 model="OpenGVLab/InternVL3_5-1B",
@@ -212,7 +229,21 @@ def entrypoint():
                         "4 consecutive frames each of which consists of three image: Top camera, Left wrist camera, Right wrist camera. Briefly explain the scene.",
                     ),
                 ),
-                output_file = Path("./test_conveyor.json"),
+                output_file=Path("./test_conveyor.json"),
+                image_columns=(
+                    (
+                        "observation.images.cam_head",
+                        "Frame-{frame_index}_HEAD: <image>",
+                    ),
+                    (
+                        "observation.images.cam_wrist_left",
+                        "Frame-{frame_index}_LEFT_WRIST: <image>",
+                    ),
+                    (
+                        "observation.images.cam_wrist_right",
+                        "Frame-{frame_index}_RIGHT_WRIST: <image>",
+                    ),
+                ),
             ),
         ),
     }
