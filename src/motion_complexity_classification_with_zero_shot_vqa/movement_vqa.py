@@ -247,24 +247,66 @@ def entrypoint():
             "briefly describe the scene",
         ),
     )
-    aloha_transfer_cube_prompt = (
+
+    def ai_worker_prompt(task: str) -> tuple[tuple[str, str], ...]:
+        return (
+            (
+                "motion",
+                f"""
+            You are the **System 2** of a bimanual humanoid robot in the scene.
+            Briefly describe the scene. And then descirbe what motion did the each arm take to change the scene.
+
+            The assigned task is: "{task}".
+            You have already executed the action, and now you are reviewing the replay of your execution.
+            Your goal is to **analyze and describe the action chunk** performed by the robot across the given 4 consecutive frames, each of which consists of head camera, left wrist camera, and right wrist camera.
+
+            Provide a strict, detailed motion description limited to the given 4 frames (without speculating beyond them).
+
+            Make sure your answer reflects only the **observed movement**.
+            output should be the format of following json: {{ 'scene': 'scene description', 'right arm motion': 'motion description', 'left arm motion': 'motion description' }}
+            """,
+            ),
+        )
+    def libero_prompt(task: str) -> tuple[tuple[str, str], ...]:
+        return (
         (
             "motion",
-            """
+            f"""
         You are the **System 2** of a bimanual robot in the scene.
         Briefly describe the scene. And then descirbe what motion did the each arm take to change the scene.
 
-        The assigned task is: "pick red block by right arm and blue block by left arm, then insert red block into blue block".
+        The assigned task is: "{task}".
+
         You have already executed the action, and now you are reviewing the replay of your execution.
         Your goal is to **analyze and describe the action chunk** performed by the robot across the given 4 consecutive frames.
 
         Provide a strict, detailed motion description limited to the given 4 frames (without speculating beyond them).
 
         Make sure your answer reflects only the **observed movement**.
-        output should be the format of following json: {{ 'scene': 'scene description', 'right arm motion': 'motion description', 'left arm motion': 'motion description' }}, ..."}
+
+        output should be the format of following json: {{ 'scene': 'scene description', 'right arm motion': 'motion description', 'left arm motion': 'motion description' }}
         """,
         ),
     )
+    def aloha_prompt(task: str) -> tuple[tuple[str, str], ...]:
+        return (
+            (
+                "motion",
+                f"""
+            You are the **System 2** of a bimanual robot in the scene.
+            Briefly describe the scene. And then descirbe what motion did the each arm take to change the scene.
+
+            The assigned task is: "{task}".
+            You have already executed the action, and now you are reviewing the replay of your execution.
+            Your goal is to **analyze and describe the action chunk** performed by the robot across the given 4 consecutive frames.
+
+            Provide a strict, detailed motion description limited to the given 4 frames (without speculating beyond them).
+
+            Make sure your answer reflects only the **observed movement**.
+            output should be the format of following json: {{ 'scene': 'scene description', 'right arm motion': 'motion description', 'left arm motion': 'motion description' }}
+            """,
+            ),
+        )
 
     test_model = "OpenGVLab/InternVL3_5-1B"
     _CONFIGS = {
@@ -274,7 +316,9 @@ def entrypoint():
                 repo_id="J-joon/sim_insertion_scripted",
                 episode_index=0,
                 model=test_model,
-                prompt=test_prompt,
+                prompt=aloha_prompt(
+                    "pick red block by right arm and blue block by left arm, then insert red block into blue block"
+                    ),
                 image_columns=AlohaColumns,
                 output_file=Path("./test_sim_insertion_scripted.json"),
             ),
@@ -285,7 +329,9 @@ def entrypoint():
                 repo_id="J-joon/sim_transfer_cube_scripted",
                 episode_index=0,
                 model=test_model,
-                prompt=aloha_transfer_cube_prompt,
+                prompt=aloha_prompt(
+                    "pick red block by right arm and transfer it to left arm"
+                    ),
                 image_columns=AlohaColumns,
                 output_file=Path("./test_sim_transfer_cube_scripted.json"),
             ),
@@ -316,7 +362,7 @@ def entrypoint():
     config = tyro.extras.overridable_config_cli(_CONFIGS)
     main(config)
 
-_TEST = True
+_TEST = False
 def main(config: InferenceConfig):
     initial_state = config.initial_state
     inference = config.inference
