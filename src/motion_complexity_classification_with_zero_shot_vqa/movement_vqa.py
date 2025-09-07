@@ -1,6 +1,7 @@
 from __future__ import annotations
 from more_itertools import (
     windowed,
+    take,
 )
 from collections.abc import Iterator, Sequence
 from dataclasses import dataclass
@@ -58,6 +59,7 @@ def set_seed(seed: int = 42):
 
 T_InferenceState = TypeVar("T_InferenceState", covariant=True)
 T_Input = TypeVar("T_Input", covariant=True)
+T_Output = TypeVar("T_Output", covariant=True)
 
 
 @runtime_checkable
@@ -68,10 +70,16 @@ class InferenceFn(Protocol[T_InferenceState, T_Input]):
 
 
 @runtime_checkable
+class ConsumeFn(Protocol[T_InferenceState, T_Output]):
+    def __call__(self, state: T_InferenceState) -> T_Output: ...
+
+
+@runtime_checkable
 class InferenceConfig(Protocol[T_InferenceState, T_Input]):
     initial_state: T_InferenceState
     data_stream: Iterable[T_Input]
     inference: InferenceFn[T_InferenceState, T_Input]
+    consume: ConsumeFn[T_InferenceState, T_Output]
 
 
 def vqa(
@@ -92,53 +100,71 @@ def vqa(
 
 
 @dataclass(frozen=True)
-class AIWorkerData:
+class ImageLabelProviderImpl(ImageLabelProvider):
     image: Image.Image
     camera_type: str
     frame_index: int
 
     @staticmethod
-    def from_frame(frame) -> list[AIWorkerData]:
-        image_columns = {
-                "observation.images.cam_head": "Frame-{frame_index}_HEAD: <image>",
-                "observation.images.cam_wrist_left": "Frame-{frame_index}_LEFT_WRIST: <image>",
-                "observation.images.cam_wrist_right": "Frame-{frame_index}_RIGHT_WRIST: <image>",
-        }
+    def from_frame(
+        frame, image_columns: tuple[tuple[str, str], ...]
+    ) -> list[ImageLabelProviderImpl]:
         frame_index = frame["frame_index"].item()
         data = [
-            AIWorkerData(
+            ImageLabelProviderImpl(
                 image=to_pil_image(frame[column_name]),
-                camera_type=image_columns[column_name].format(frame_index=frame_index),
+                camera_type=label.format(frame_index=frame_index),
                 frame_index=frame_index,
             )
-            for column_name in image_columns
+            for column_name, label in image_columns
         ]
         return data
 
+
 @dataclass(frozen=True)
-class AIWorkerConfig(
+class InferenceState:
+    vlm: VLM
+    frame_index: int
+    data: tuple[tuple[int, tuple[tuple[str, str], ...]], ...]
+
+
+@dataclass(frozen=True)
+class LeRobotConfig(
     InferenceConfig[
-        Result[VLM, str],
-        tuple[list[ImageLabelProvider], tuple[tuple[str, str],...]],
+        Result[InternVL3, str],
+        tuple[list[ImageLabelProvider], tuple[tuple[str, str], ...]],
     ]
 ):
     repo_id: str
     episode_index: int
+    model: str
     prompt: tuple[tuple[str, str], ...]
+    output_file: Path
+    image_columns: tuple[tuple[str, str], ...]
     step: int = 1
     window_size: int = 4
 
     @property
-    def initial_state(self) -> Result[VLM, str]:
-        return InternVL3.create(config.model)
+    def initial_state(self) -> Result[InferenceState, str]:
+        return (
+            InternVL3.create(self.model)
+            .inspect(lambda _: print(f"{self.model} created successfully"))
+            .inspect_err(print)
+            .map(lambda vlm: InferenceState(vlm, -1, ()))
+        )
 
     @cache
-    def _load_data_stream(self) -> Iterable[tuple[list[ImageLabelProvider], tuple[tuple[str, str], ...]]]:
+    def _load_data_stream(
+        self,
+    ) -> Iterable[tuple[list[ImageLabelProvider], tuple[tuple[str, str], ...]]]:
         return (
             (sum(win, []), self.prompt)
             for win in windowed(
                 [
-                    AIWorkerData.from_frame(frame)
+                    ImageLabelProviderImpl.from_frame(
+                        frame,
+                        self.image_columns,
+                    )
                     for frame in LeRobotDataset(
                         self.repo_id, episodes=[self.episode_index]
                     )
@@ -149,73 +175,157 @@ class AIWorkerConfig(
         )
 
     @property
-    def data_stream(self) -> Iterable[tuple[list[ImageLabelProvider], tuple[tuple[str, str], ...]]]:
+    def data_stream(
+        self,
+    ) -> Iterable[tuple[list[ImageLabelProvider], tuple[tuple[str, str], ...]]]:
         return self._load_data_stream()
 
     def inference(
-        self, state: VLM, input_data: tuple[list[ImageLabelProvider], tuple[tuple[str, str], ...]]
-    ) -> VLM:
-        vlm = state
-        images, prompts = input_data
-        result = vlm.question(images, prompts)
-        result.inspect(foo)
-        return vlm
+        self,
+        state: Result[InferenceState, str],
+        input_data: tuple[list[ImageLabelProvider], tuple[tuple[str, str], ...]],
+    ) -> Result[InferenceState, str]:
+        def update_state(
+            result: tuple[tuple[str, str], ...], state: InferenceState
+        ) -> InferenceState:
+            return InferenceState(
+                state.vlm,
+                state.frame_index + 1,
+                state.data + ((state.frame_index + 1, result),),
+            )
+
+        def handle_state(
+            state: Result[InferenceState, str],
+        ) -> Result[InferenceState, str]:
+            return (
+                state.vlm.question(*input_data)
+                .inspect(print)
+                .map(partial(update_state, state=state))
+            )
+
+        return state.and_then(handle_state)
+
+    def consume(self, state: Result[InferenceState, str]):
+        def save(state: InferenceState):
+            with open(self.output_file, "w") as file:
+                json.dump(state.data, file)
+
+        state.inspect(save)
 
 
 def entrypoint():
     set_seed(42)
+    AIWorkerColumns = (
+        (
+            "observation.images.cam_head",
+            "Frame-{frame_index}_HEAD: <image>",
+        ),
+        (
+            "observation.images.cam_wrist_left",
+            "Frame-{frame_index}_LEFT_WRIST: <image>",
+        ),
+        (
+            "observation.images.cam_wrist_right",
+            "Frame-{frame_index}_RIGHT_WRIST: <image>",
+        ),
+    )
+    AlohaColumns = (
+        (
+            "observation.images.top",
+            "Frame-{frame_index}: <image>",
+        ),
+    )
+    LiberoColumns = (
+        (
+            "image",
+            "Frame-{frame_index}: <image>",
+        ),
+    )
+    test_prompt = (
+        (
+            "test",
+            "briefly describe the scene",
+        ),
+    )
+    aloha_transfer_cube_prompt = (
+        (
+            "motion",
+            """
+        You are the **System 2** of a bimanual robot in the scene.
+        Briefly describe the scene. And then descirbe what motion did the each arm take to change the scene.
+
+        The assigned task is: "pick red block by right arm and blue block by left arm, then insert red block into blue block".
+        You have already executed the action, and now you are reviewing the replay of your execution.
+        Your goal is to **analyze and describe the action chunk** performed by the robot across the given 4 consecutive frames.
+
+        Provide a strict, detailed motion description limited to the given 4 frames (without speculating beyond them).
+
+        Make sure your answer reflects only the **observed movement**.
+        output should be the format of following json: {{ 'scene': 'scene description', 'right arm motion': 'motion description', 'left arm motion': 'motion description' }}, ..."}
+        """,
+        ),
+    )
+
+    test_model = "OpenGVLab/InternVL3_5-1B"
     _CONFIGS = {
+        "aloha-sim-insertion-scripted": (
+            "aloha sim insertion scripted",
+            LeRobotConfig(
+                repo_id="J-joon/sim_insertion_scripted",
+                episode_index=0,
+                model=test_model,
+                prompt=test_prompt,
+                image_columns=AlohaColumns,
+                output_file=Path("./test_sim_insertion_scripted.json"),
+            ),
+        ),
+        "aloha-sim-transfer-cube-scripted": (
+            "aloha sim insertion scripted",
+            LeRobotConfig(
+                repo_id="J-joon/sim_transfer_cube_scripted",
+                episode_index=0,
+                model=test_model,
+                prompt=aloha_transfer_cube_prompt,
+                image_columns=AlohaColumns,
+                output_file=Path("./test_sim_transfer_cube_scripted.json"),
+            ),
+        ),
+        "libero": (
+            "aloha sim insertion scripted",
+            LeRobotConfig(
+                repo_id="physical-intelligence/libero",
+                episode_index=7,
+                model=test_model,
+                prompt=test_prompt,
+                image_columns=LiberoColumns,
+                output_file=Path("./test_libero_7.json"),
+            ),
+        ),
         "conveyor": (
             "conveyor",
-            AIWorkerConfig.create(
+            LeRobotConfig(
                 repo_id="noisyduck/ffw_bg2_rev4_tr_conveyor_250830_06",
                 episode_index=0,
-                prompt={"ask": "ask"},
-                output_path=Path("./test.json"),
-                model="OpenGVLab/InternVL3_5-241B-A28B",
+                model=test_model,
+                prompt=test_prompt,
+                image_columns=AIWorkerColumns,
+                output_file=Path("./test_conveyor.json"),
             ),
         ),
     }
-    result = (
-        InternVL3.create(config.model)
-        .inspect_err(lambda error: print(f"error to create InternVL3: {error}"))
-        .and_then(lambda vlm: vqa(vlm, tqdm(config.iterable)))
-        .inspect(partial(write_down, output_path=config.output_path))
-        .inspect_err(print)
-    )
     config = tyro.extras.overridable_config_cli(_CONFIGS)
     main(config)
 
-
+_TEST = True
 def main(config: InferenceConfig):
     initial_state = config.initial_state
     inference = config.inference
-
-    def inference_step(state: T_InferenceState, input_data: T_Data) -> T_InferenceState:
-        next_state, inference_output = inference(state, input_data)
-        return next_state
-
-    data_stream = config.data_stream
-    consume_result = config.consume_result
-    result = reduce(inference_step, data_stream, initial_state)
-    consume_result(result)
+    consume = config.consume
+    data_stream = config.data_stream if not _TEST else take(4, config.data_stream)
+    result = reduce(inference, data_stream, initial_state)
+    consume(result)
     print("done")
 
 
-def test_AIWorkerConfig(config: AIWorkerConfig):
-    cnt = 0
-    for data in config.data_stream:
-        print(data)
-        cnt += 1
-        if cnt == 4:
-            break
-
-
 if __name__ == "__main__":
-    conveyor_config = AIWorkerConfig(
-        repo_id="noisyduck/ffw_bg2_rev4_tr_conveyor_250830_06",
-        episode_index=1,
-        prompt = (( "test",  "test")),
-    )
-    test_AIWorkerConfig(conveyor_config)
-    # entrypoint()
+    entrypoint()
