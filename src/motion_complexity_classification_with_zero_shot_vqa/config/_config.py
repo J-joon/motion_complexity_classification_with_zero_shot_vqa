@@ -1,4 +1,5 @@
 from typing import Protocol, TypeVar, runtime_checkable, Iterable
+import json
 from more_itertools import windowed
 from dataclasses import dataclass
 import tyro
@@ -34,6 +35,7 @@ class InferenceConfig(Protocol[T_InferenceState, T_Input]):
     inference: InferenceFn[T_InferenceState, T_Input]
     consume: ConsumeFn[T_InferenceState, T_Output]
 
+
 @dataclass(frozen=True)
 class ImageLabelProviderImpl(ImageLabelProvider):
     image: Image.Image
@@ -66,7 +68,7 @@ class InferenceState:
 @dataclass(frozen=True)
 class LeRobotConfig(
     InferenceConfig[
-        Result[InternVL3, str],
+        Result[InferenceState, str],
         tuple[list[ImageLabelProvider], tuple[tuple[str, str], ...]],
     ]
 ):
@@ -133,7 +135,7 @@ class LeRobotConfig(
             state: Result[InferenceState, str],
         ) -> Result[InferenceState, str]:
             return (
-                state.vlm.question(*input_data)
+                state.and_then(lambda state: state.vlm.question(*input_data))
                 .inspect(print)
                 .map(partial(update_state, state=state))
             )
@@ -146,6 +148,7 @@ class LeRobotConfig(
                 json.dump(state.data, file)
 
         state.inspect(save)
+
 
 @cache
 def get_configs() -> dict[str, tuple[str, InferenceConfig]]:
@@ -201,11 +204,12 @@ def get_configs() -> dict[str, tuple[str, InferenceConfig]]:
             """,
             ),
         )
+
     def libero_prompt(task: str) -> tuple[tuple[str, str], ...]:
         return (
-        (
-            "motion",
-            f"""
+            (
+                "motion",
+                f"""
         You are the **System 2** of a bimanual robot in the scene.
         Briefly describe the scene. And then descirbe what motion did the each arm take to change the scene.
 
@@ -220,8 +224,9 @@ def get_configs() -> dict[str, tuple[str, InferenceConfig]]:
 
         output should be the format of following json: {{ 'scene': 'scene description', 'right arm motion': 'motion description', 'left arm motion': 'motion description' }}
         """,
-        ),
-    )
+            ),
+        )
+
     def aloha_prompt(task: str) -> tuple[tuple[str, str], ...]:
         return (
             (
@@ -252,7 +257,7 @@ def get_configs() -> dict[str, tuple[str, InferenceConfig]]:
                 model=test_model,
                 prompt=aloha_prompt(
                     "pick red block by right arm and blue block by left arm, then insert red block into blue block"
-                    ),
+                ),
                 image_columns=AlohaColumns,
                 output_file=Path("./test_sim_insertion_scripted.json"),
             ),
@@ -265,7 +270,7 @@ def get_configs() -> dict[str, tuple[str, InferenceConfig]]:
                 model=test_model,
                 prompt=aloha_prompt(
                     "pick red block by right arm and transfer it to left arm"
-                    ),
+                ),
                 image_columns=AlohaColumns,
                 output_file=Path("./test_sim_transfer_cube_scripted.json"),
             ),
@@ -276,7 +281,9 @@ def get_configs() -> dict[str, tuple[str, InferenceConfig]]:
                 repo_id="physical-intelligence/libero",
                 episode_index=7,
                 model=test_model,
-                prompt=libero_prompt("put both the alphabet soup and the cream cheese box in the basket"),
+                prompt=libero_prompt(
+                    "put both the alphabet soup and the cream cheese box in the basket"
+                ),
                 image_columns=LiberoColumns,
                 output_file=Path("./test_libero_7.json"),
             ),
@@ -287,7 +294,9 @@ def get_configs() -> dict[str, tuple[str, InferenceConfig]]:
                 repo_id="noisyduck/ffw_bg2_rev4_tr_conveyor_250830_06",
                 episode_index=0,
                 model=test_model,
-                prompt=ai_worker_prompt("Pick up items from the conveyor belt, scan their barcodes, and put them into the basket."),
+                prompt=ai_worker_prompt(
+                    "Pick up items from the conveyor belt, scan their barcodes, and put them into the basket."
+                ),
                 image_columns=AIWorkerColumns,
                 output_file=Path("./test_conveyor.json"),
             ),
