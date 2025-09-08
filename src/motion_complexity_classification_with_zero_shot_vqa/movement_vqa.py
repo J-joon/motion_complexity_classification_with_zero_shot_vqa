@@ -20,6 +20,7 @@ def main(config: Config) -> None:
 def entrypoint() -> int:
     set_seed()
     config = tyro.extras.overridable_config_cli(get_configs())
+    print(config)
     main(config.movement_vqa_config)
     return 0
 

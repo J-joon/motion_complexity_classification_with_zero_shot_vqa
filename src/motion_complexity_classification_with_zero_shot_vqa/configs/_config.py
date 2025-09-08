@@ -80,11 +80,7 @@ class MovementVQAConfigImpl(
         Result[InferenceState, str], tuple[list[ImageLabelProviderImpl], tuple[tuple[str, str], ...]], None
     ]
 ):
-    def __init__(
-        self,
-        parent: ConfigImpl,
-    ):
-        self._parent = parent
+    _parent: ConfigImpl
 
     @property
     def initial_state(
@@ -184,4 +180,8 @@ class ConfigImpl(
     movement_vqa_step: int
     image_columns: tuple[tuple[str, str], ...]
     output_file: Path
-    movement_vqa_config: MovementVQAConfigImpl
+
+    @property
+    @cache
+    def movement_vqa_config(self,) ->  MovementVQAConfigImpl:
+        return MovementVQAConfigImpl(_parent = self)

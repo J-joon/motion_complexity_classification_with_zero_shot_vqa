@@ -14,7 +14,7 @@ from PIL import Image
 from vqa_pipeline.vlm import VLM, ImageLabelProvider, InternVL3
 from lerobot.datasets.lerobot_dataset import LeRobotDataset
 from . import _movement_vqa_protocol
-from . import VLMProtocol
+from ._vlm_protocol import VLMProtocol
 
 @runtime_checkable
 class MovementVQAConfig[T_State, T_Input, T_Output](VLMProtocol[T_State, T_Input, T_Output], Protocol):

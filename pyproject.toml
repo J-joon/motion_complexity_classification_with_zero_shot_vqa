@@ -26,7 +26,7 @@ dependencies = [
     "more-itertools",
     "black",
     "mypy",
-    #"flash-attn",
+    "flash-attn",
 ]
 
 [tool.hatch.metadata]
