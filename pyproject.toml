@@ -49,6 +49,14 @@ torchvision = [
 [tool.hatch.build.targets.wheel]
 packages = ["src/motion_complexity_classification_with_zero_shot_vqa"]
 
+[tool.mypy]
+python_version = "3.11"
+strict = true
+
+[[tool.mypy.overrides]]
+module = ["torchvision.*", "lerobot.*"]
+ignore_missing_imports = true
+
 [project.scripts]
 1_object_detection = "motion_complexity_classification_with_zero_shot_vqa.object_detection:entrypoint"
 1_object_detection_new = "motion_complexity_classification_with_zero_shot_vqa.object_detection_new:entrypoint"

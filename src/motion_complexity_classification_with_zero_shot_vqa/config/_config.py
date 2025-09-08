@@ -1,4 +1,4 @@
-from typing import Protocol, TypeVar, runtime_checkable, Iterable
+from typing import Protocol, TypeVar, runtime_checkable, Iterable, Generic
 import json
 from more_itertools import windowed
 from dataclasses import dataclass
@@ -11,25 +11,25 @@ from static_error_handler import Ok, Err, Result
 from pathlib import Path
 from lerobot.datasets.lerobot_dataset import LeRobotDataset
 
-T_InferenceState = TypeVar("T_InferenceState", contravariant = True)
-T_Input = TypeVar("T_Input", contravariant = True)
-T_Output = TypeVar("T_Output", covariant=True)
+T_InferenceState = TypeVar("T_InferenceState")
+T_Input = TypeVar("T_Input")
+T_Output = TypeVar("T_Output")
 
 
 @runtime_checkable
-class InferenceFn(Protocol[T_InferenceState, T_Input]):
+class InferenceFn(Protocol, Generic[T_InferenceState, T_Input]):
     def __call__(
         self, state: T_InferenceState, input_data: T_Input
     ) -> T_InferenceState: ...
 
 
 @runtime_checkable
-class ConsumeFn(Protocol[T_InferenceState, T_Output]):
+class ConsumeFn(Protocol, Generic[T_InferenceState, T_Output]):
     def __call__(self, state: T_InferenceState) -> T_Output: ...
 
 
 @runtime_checkable
-class InferenceConfig(Protocol[T_InferenceState, T_Input]):
+class InferenceConfig(Protocol, Generic[T_InferenceState, T_Input, T_Output]):
     @property
     def initial_state(self) -> T_InferenceState: ...
     @property
@@ -72,6 +72,7 @@ class LeRobotConfig(
     InferenceConfig[
         Result[InferenceState, str],
         tuple[list[ImageLabelProvider], tuple[tuple[str, str], ...]],
+        None
     ]
 ):
     repo_id: str
@@ -137,9 +138,7 @@ class LeRobotConfig(
             state: Result[InferenceState, str],
         ) -> Result[InferenceState, str]:
             return (
-                state.and_then(lambda state: state.vlm.question(*input_data))
-                .inspect(print)
-                .map(partial(update_state, state=state))
+                state.and_then(lambda state: state.vlm.question(*input_data).inspect(print).map(partial(update_state, state=state)))
             )
 
         return state.and_then(handle_state)
@@ -152,9 +151,8 @@ class LeRobotConfig(
         state.inspect(save)
 
 
-T_InferenceConfig = TypeVar("T_InferenceConfig", bound = InferenceConfig[T_InferenceState, T_Input])
 @cache
-def get_configs() -> dict[str, tuple[str, T_InferenceConfig]]:
+def get_configs() -> dict[str, tuple[str, InferenceConfig[T_InferenceState, T_Input, T_Output]]]:
     AIWorkerColumns = (
         (
             "observation.images.cam_head",
