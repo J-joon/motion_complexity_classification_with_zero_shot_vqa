@@ -7,7 +7,7 @@ name = "motion_complexity_classification_with_zero_shot_vqa"
 version = "0.1.0"
 description = "motion complexity classification with zero-shot vqa"
 readme = "README.md"
-requires-python = ">=3.10,<3.12"
+requires-python = ">=3.13"
 dependencies = [
     "torch",
     "torchvision",
@@ -24,7 +24,9 @@ dependencies = [
     "accelerate",
     "sentencepiece",
     "more-itertools",
-    "flash-attn",
+    "black",
+    "mypy",
+    #"flash-attn",
 ]
 
 [tool.hatch.metadata]
@@ -50,7 +52,7 @@ torchvision = [
 packages = ["src/motion_complexity_classification_with_zero_shot_vqa"]
 
 [tool.mypy]
-python_version = "3.11"
+python_version = "3.13"
 strict = true
 
 [[tool.mypy.overrides]]

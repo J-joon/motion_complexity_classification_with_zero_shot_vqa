@@ -1,31 +1,13 @@
-from .config import set_seed, get_configs, InferenceConfig
+from .configs import set_seed, get_configs, Config
 from functools import reduce
-from typing import TypeVar
 from more_itertools import take
 import tyro
 
-T_Input = TypeVar("T_Input")
-T_Output = TypeVar("T_Output")
-T_State = TypeVar("T_State")
-
-
-def entrypoint() -> int:
-    set_seed()
-    config = tyro.extras.overridable_config_cli(get_configs())
-    main(config)
-    return 0
-
-
+# Input Definition
 _TEST = True
 
 
-def main(
-    config: InferenceConfig[
-        T_State,
-        T_Input,
-        T_Output,
-    ],
-) -> None:
+def main(config: Config) -> None:
     initial_state = config.initial_state
     inference = config.inference
     consume = config.consume
@@ -34,6 +16,12 @@ def main(
     consume(result)
     print("done")
 
+
+def entrypoint() -> int:
+    set_seed()
+    config = tyro.extras.overridable_config_cli(get_configs())
+    main(config.movement_vqa_config)
+    return 0
 
 if __name__ == "__main__":
     entrypoint()

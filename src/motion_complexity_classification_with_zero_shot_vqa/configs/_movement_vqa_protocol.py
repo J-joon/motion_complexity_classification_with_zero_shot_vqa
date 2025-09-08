@@ -1,6 +1,9 @@
 from __future__ import annotations
-from typing import Protocol, TypeVar, runtime_checkable, Iterable, Generic, Any, Callable
+from pathlib import Path
+from collections.abc import Mapping
+from static_error_handler import Ok, Err, Result
 import json
+from typing import Protocol, TypeVar, runtime_checkable, Iterable, Generic, Any, Callable, TypeAlias
 from more_itertools import windowed
 from itertools import chain
 from dataclasses import dataclass
@@ -9,24 +12,26 @@ from functools import cache, partial
 from torchvision.transforms.functional import to_pil_image
 from PIL import Image
 from vqa_pipeline.vlm import VLM, ImageLabelProvider, InternVL3
-from static_error_handler import Ok, Err, Result
-from pathlib import Path
 from lerobot.datasets.lerobot_dataset import LeRobotDataset
+from . import _movement_vqa_protocol
 
-T_State = TypeVar("T_State")
+
+__all__ = ["MovementVQAConfig", "MovementVQAConfigGenerics", "T_Input", "T_Output", "T_State"]
+
 T_Input = TypeVar("T_Input")
 T_Output = TypeVar("T_Output")
-
+T_State = TypeVar("T_State")
 
 @runtime_checkable
-class InferenceConfig(Protocol, Generic[T_State, T_Input, T_Output]):
+class MovementVQAConfig[T_State, T_Input, T_Output](Protocol):
     @property
-    def initial_state(self) -> T_State: ...
+    def initial_state(self,) -> T_State: ...
     @property
-    def data_stream(self) -> Iterable[T_Input]: ...
-    inference: Callable[[T_State, T_Input], T_State]
-    consume: Callable[[T_State],T_Output]
-
+    def data_stream(self,) -> Iterable[T_Input]: ...
+    @property
+    def inference(self,) -> Callable[[T_State, T_Input], T_State]: ...
+    @property
+    def consume(self,) -> Callable[[T_State],T_Output]: ...
 
 @dataclass(frozen=True)
 class ImageLabelProviderImpl(ImageLabelProvider):
@@ -59,7 +64,7 @@ class InferenceState:
 
 @dataclass(frozen=True)
 class LeRobotConfig(
-    InferenceConfig[
+    MovementVQAConfig[
         Result[InferenceState, str],
         tuple[list[ImageLabelProvider], tuple[tuple[str, str], ...]],
         None
@@ -110,7 +115,7 @@ class LeRobotConfig(
     ) -> Iterable[tuple[list[ImageLabelProvider], tuple[tuple[str, str], ...]]]:
         return self._load_data_stream()
 
-    def inference(
+    def _inference(
         self,
         state: Result[InferenceState, str],
         input_data: tuple[list[ImageLabelProvider], tuple[tuple[str, str], ...]],
@@ -130,17 +135,28 @@ class LeRobotConfig(
                     )
         return state.and_then(run)
 
-    def consume(self, state: Result[InferenceState, str]) -> None:
+    @property
+    def inference(self,) -> Callable[[Result[InferenceState, str], tuple[list[ImageLabelProvider], tuple[tuple[str, str], ...]]], Result[InferenceState, str]]:
+        return self._inference
+
+    @property
+    def consume(self,) ->  Callable[[Result[InferenceState, str]], None]:
+        return self._consume
+
+    def _consume(self, state: Result[InferenceState, str]) -> None:
         def save(state: InferenceState) -> None:
             with open(self.output_file, "w") as file:
                 json.dump(state.data, file)
 
         state.inspect(save)
 
-
+"""
+def get_movement_vqa_configs[S, I, O]() -> Mapping[
+            str, tuple[str, MovementVQAConfig[Result[InferenceState, str], tuple[list[ImageLabelProvider], tuple[tuple[str, str], ...]], None]]
+            ]:
+"""
 @cache
-#def get_configs() -> dict[str, tuple[str, InferenceConfig[Result[T_InferenceState, str], tuple[list[ImageLabelProvider], tuple[tuple[str, str],...]],None],],]:
-def get_configs() -> dict[str, tuple[str, LeRobotConfig]]:
+def get_movement_vqa_configs[S, I, O]() -> Mapping[str, tuple[str, MovementVQAConfig[S, I, O]]]:
     AIWorkerColumns = (
         (
             "observation.images.cam_head",
