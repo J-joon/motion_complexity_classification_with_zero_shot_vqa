@@ -342,7 +342,7 @@ def entrypoint():
                 repo_id="physical-intelligence/libero",
                 episode_index=7,
                 model=test_model,
-                prompt=test_prompt,
+                prompt=libero_prompt("put both the alphabet soup and the cream cheese box in the basket"),
                 image_columns=LiberoColumns,
                 output_file=Path("./test_libero_7.json"),
             ),
