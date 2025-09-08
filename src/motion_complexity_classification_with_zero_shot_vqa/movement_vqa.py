@@ -353,7 +353,7 @@ def entrypoint():
                 repo_id="noisyduck/ffw_bg2_rev4_tr_conveyor_250830_06",
                 episode_index=0,
                 model=test_model,
-                prompt=test_prompt,
+                prompt=ai_worker_prompt("Pick up items from the conveyor belt, scan their barcodes, and put them into the basket."),
                 image_columns=AIWorkerColumns,
                 output_file=Path("./test_conveyor.json"),
             ),
