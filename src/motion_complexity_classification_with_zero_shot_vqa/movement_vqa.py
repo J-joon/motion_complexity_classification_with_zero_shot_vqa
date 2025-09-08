@@ -81,24 +81,6 @@ class InferenceConfig(Protocol[T_InferenceState, T_Input]):
     inference: InferenceFn[T_InferenceState, T_Input]
     consume: ConsumeFn[T_InferenceState, T_Output]
 
-
-def vqa(
-    vlm, iterable: Iterable[tuple[list[T_Image], dict[str, str]]]
-) -> Result[dict[int, dict[str, str]], str]:
-    result = dict()
-    try:
-        for i, (images, prompts) in enumerate(iterable):
-            frame_information = vlm.question(images, prompts)
-            match frame_information:
-                case Ok(value=frame_information):
-                    result[i] = frame_information
-                case Err(error=e):
-                    return Err(e)
-        return Ok(result)
-    except Exception as e:
-        return Err(e)
-
-
 @dataclass(frozen=True)
 class ImageLabelProviderImpl(ImageLabelProvider):
     image: Image.Image
