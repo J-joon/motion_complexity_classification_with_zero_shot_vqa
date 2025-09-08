@@ -11,9 +11,9 @@ from static_error_handler import Ok, Err, Result
 from pathlib import Path
 from lerobot.datasets.lerobot_dataset import LeRobotDataset
 
-T_InferenceState = TypeVar("T_InferenceState", covariant=True)
-T_Input = TypeVar("T_Input", covariant=True)
-T_Output = TypeVar("T_Output", covariant=True)
+T_InferenceState = TypeVar("T_InferenceState")
+T_Input = TypeVar("T_Input")
+T_Output = TypeVar("T_Output")
 
 
 @runtime_checkable
@@ -137,7 +137,7 @@ class LeRobotConfig(
             return (
                 state.and_then(lambda state: state.vlm.question(*input_data))
                 .inspect(print)
-                .map(partial(update_state, state=state))
+                .and_then(partial(update_state, state=state))
             )
 
         return state.and_then(handle_state)
