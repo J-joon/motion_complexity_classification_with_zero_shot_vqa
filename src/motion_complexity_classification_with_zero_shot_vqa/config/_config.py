@@ -150,7 +150,7 @@ class LeRobotConfig(
         state.inspect(save)
 
 
-T_InferecneConfig = TypeVar("T_InferenceConfig", bound = InferenceConfig[T_InferenceState, T_Input])
+T_InferenceConfig = TypeVar("T_InferenceConfig", bound = InferenceConfig[T_InferenceState, T_Input])
 @cache
 def get_configs() -> dict[str, tuple[str, T_InferenceConfig]]:
     AIWorkerColumns = (
