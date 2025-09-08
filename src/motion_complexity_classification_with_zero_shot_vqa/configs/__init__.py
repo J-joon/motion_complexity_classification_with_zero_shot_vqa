@@ -5,23 +5,13 @@ from functools import cache
 from typing import Generic
 from dataclasses import dataclass
 from collections.abc import Mapping
+from ._vlm_protocol import VLMProtocol
 
 __all__ = [
     "get_configs",
     "set_seed",
     "InferenceConfig",
     "MovementVQAConfig",
+    "VLMProtocol",
 ]
 
-
-@cache
-def get_configs[S, I, O]() -> Mapping[str, tuple[str, Config[S, I, O]]]:
-    _configs: Mapping[str, tuple[str, Config[S, I, O]]] = {
-        "test": (
-            "test",
-            ConfigImpl(
-                movement_vqa_config = get_movement_vqa_configs()["test"][1],
-                ),
-            ),
-    }
-    return _configs
