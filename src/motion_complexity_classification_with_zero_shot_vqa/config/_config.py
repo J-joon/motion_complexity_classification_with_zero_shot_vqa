@@ -3,7 +3,7 @@ import json
 from more_itertools import windowed
 from dataclasses import dataclass
 import tyro
-from functools import cache
+from functools import cache, partial
 from torchvision.transforms.functional import to_pil_image
 from PIL import Image
 from vqa_pipeline.vlm import VLM, ImageLabelProvider, InternVL3
@@ -152,7 +152,7 @@ class LeRobotConfig(
 
 T_InferecneConfig = TypeVar("T_InferenceConfig", bound = InferenceConfig[T_InferenceState, T_Input])
 @cache
-def get_configs() -> dict[str, tuple[str, I_InferenceConfig]]:
+def get_configs() -> dict[str, tuple[str, T_InferenceConfig]]:
     AIWorkerColumns = (
         (
             "observation.images.cam_head",
