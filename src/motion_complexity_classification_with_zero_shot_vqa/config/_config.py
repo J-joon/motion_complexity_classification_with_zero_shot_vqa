@@ -150,8 +150,9 @@ class LeRobotConfig(
         state.inspect(save)
 
 
+T_InferecneConfig = TypeVar("T_InferenceConfig", bound = InferenceConfig[T_InferenceState, T_Input])
 @cache
-def get_configs() -> dict[str, tuple[str, InferenceConfig]]:
+def get_configs() -> dict[str, tuple[str, I_InferenceConfig]]:
     AIWorkerColumns = (
         (
             "observation.images.cam_head",
