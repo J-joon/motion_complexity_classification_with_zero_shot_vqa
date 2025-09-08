@@ -1,6 +1,8 @@
-from typing import Protocol, TypeVar, runtime_checkable, Iterable, Generic
+from __future__ import annotations
+from typing import Protocol, TypeVar, runtime_checkable, Iterable, Generic, Any, Callable
 import json
 from more_itertools import windowed
+from itertools import chain
 from dataclasses import dataclass
 import tyro
 from functools import cache, partial
@@ -11,31 +13,19 @@ from static_error_handler import Ok, Err, Result
 from pathlib import Path
 from lerobot.datasets.lerobot_dataset import LeRobotDataset
 
-T_InferenceState = TypeVar("T_InferenceState")
+T_State = TypeVar("T_State")
 T_Input = TypeVar("T_Input")
 T_Output = TypeVar("T_Output")
 
 
 @runtime_checkable
-class InferenceFn(Protocol, Generic[T_InferenceState, T_Input]):
-    def __call__(
-        self, state: T_InferenceState, input_data: T_Input
-    ) -> T_InferenceState: ...
-
-
-@runtime_checkable
-class ConsumeFn(Protocol, Generic[T_InferenceState, T_Output]):
-    def __call__(self, state: T_InferenceState) -> T_Output: ...
-
-
-@runtime_checkable
-class InferenceConfig(Protocol, Generic[T_InferenceState, T_Input, T_Output]):
+class InferenceConfig(Protocol, Generic[T_State, T_Input, T_Output]):
     @property
-    def initial_state(self) -> T_InferenceState: ...
+    def initial_state(self) -> T_State: ...
     @property
     def data_stream(self) -> Iterable[T_Input]: ...
-    inference: InferenceFn[T_InferenceState, T_Input]
-    consume: ConsumeFn[T_InferenceState, T_Output]
+    inference: Callable[[T_State, T_Input], T_State]
+    consume: Callable[[T_State],T_Output]
 
 
 @dataclass(frozen=True)
@@ -46,7 +36,7 @@ class ImageLabelProviderImpl(ImageLabelProvider):
 
     @staticmethod
     def from_frame(
-        frame, image_columns: tuple[tuple[str, str], ...]
+            frame: Any, image_columns: tuple[tuple[str, str], ...]
     ) -> list[ImageLabelProviderImpl]:
         frame_index = frame["frame_index"].item()
         data = [
@@ -98,7 +88,7 @@ class LeRobotConfig(
         self,
     ) -> Iterable[tuple[list[ImageLabelProvider], tuple[tuple[str, str], ...]]]:
         return (
-            (sum(win, []), self.prompt)
+            (list(chain.from_iterable(x for x in win if x is not None)), self.prompt)
             for win in windowed(
                 [
                     ImageLabelProviderImpl.from_frame(
@@ -110,7 +100,7 @@ class LeRobotConfig(
                     )
                 ],
                 self.window_size,
-                self.step,
+                step = self.step,
             )
         )
 
@@ -134,17 +124,14 @@ class LeRobotConfig(
                 state.data + ((state.frame_index + 1, result),),
             )
 
-        def handle_state(
-            state: Result[InferenceState, str],
-        ) -> Result[InferenceState, str]:
-            return (
-                state.and_then(lambda state: state.vlm.question(*input_data).inspect(print).map(partial(update_state, state=state)))
-            )
+        def run(st: InferenceState) -> Result[InferenceState, str]:
+            return st.vlm.question(*input_data).inspect(print).map(
+                    lambda result: update_state(result, st)
+                    )
+        return state.and_then(run)
 
-        return state.and_then(handle_state)
-
-    def consume(self, state: Result[InferenceState, str]):
-        def save(state: InferenceState):
+    def consume(self, state: Result[InferenceState, str]) -> None:
+        def save(state: InferenceState) -> None:
             with open(self.output_file, "w") as file:
                 json.dump(state.data, file)
 
@@ -152,7 +139,8 @@ class LeRobotConfig(
 
 
 @cache
-def get_configs() -> dict[str, tuple[str, InferenceConfig[T_InferenceState, T_Input, T_Output]]]:
+#def get_configs() -> dict[str, tuple[str, InferenceConfig[Result[T_InferenceState, str], tuple[list[ImageLabelProvider], tuple[tuple[str, str],...]],None],],]:
+def get_configs() -> dict[str, tuple[str, LeRobotConfig]]:
     AIWorkerColumns = (
         (
             "observation.images.cam_head",
@@ -300,6 +288,17 @@ def get_configs() -> dict[str, tuple[str, InferenceConfig[T_InferenceState, T_In
                 ),
                 image_columns=AIWorkerColumns,
                 output_file=Path("./test_conveyor.json"),
+            ),
+        ),
+        "test": (
+            "test",
+            LeRobotConfig(
+                repo_id="physical-intelligence/libero",
+                episode_index=0,
+                model=test_model,
+                prompt=libero_prompt("test"),
+                image_columns=LiberoColumns,
+                output_file=Path("./test.json"),
             ),
         ),
     }
