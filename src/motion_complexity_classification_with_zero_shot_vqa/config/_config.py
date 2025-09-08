@@ -1,4 +1,5 @@
-from typing import Protocol, TypeVar, runtime_checkable
+from typing import Protocol, TypeVar, runtime_checkable, Iterable
+from more_itertools import windowed
 from dataclasses import dataclass
 import tyro
 from functools import cache
