@@ -56,7 +56,7 @@ python_version = "3.13"
 strict = true
 
 [[tool.mypy.overrides]]
-module = ["torchvision.*", "lerobot.*"]
+module = ["torchvision.*", "lerobot.*", "decord.*"]
 ignore_missing_imports = true
 
 [project.scripts]
@@ -65,4 +65,4 @@ ignore_missing_imports = true
 2_grounding_dino = "motion_complexity_classification_with_zero_shot_vqa.run_grounding_dino:entrypoint"
 3_sam2 = "motion_complexity_classification_with_zero_shot_vqa.run_sam2:entrypoint"
 4_movement_vqa = "motion_complexity_classification_with_zero_shot_vqa.movement_vqa:entrypoint"
-load_proprioception = "motion_complexity_classification_with_zero_shot_vqa.load_proprioception:entrypoint"
+load_column = "motion_complexity_classification_with_zero_shot_vqa.load_column:entrypoint"

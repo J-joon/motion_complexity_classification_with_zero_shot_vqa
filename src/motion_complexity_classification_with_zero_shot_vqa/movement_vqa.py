@@ -1,13 +1,13 @@
-from .configs import set_seed, get_configs, Config
 from functools import reduce
 from more_itertools import take
+from motion_complexity_classification_with_zero_shot_vqa.configs import MovementVQAConfig, set_seed, get_configs
 import tyro
 
 # Input Definition
-_TEST = True
+_TEST = False
 
 
-def main(config: Config) -> None:
+def main[S, I, O](config: MovementVQAConfig[S, I, O]) -> None:
     initial_state = config.initial_state
     inference = config.inference
     consume = config.consume

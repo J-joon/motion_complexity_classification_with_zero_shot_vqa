@@ -9,23 +9,23 @@ class Config:
     repo_id: str = tyro.MISSING
     episode_index: int = tyro.MISSING
     output_path: Path = tyro.MISSING
-    proprioception_column: str = "state"
+    column_name: str = tyro.MISSING
     frame_index_column: str = "frame_index"
 
-def get_proprioception(frame, frame_index_column, proprioception_column):
-    return (frame[frame_index_column].item(), frame[proprioception_column].tolist())
+def get_column(frame, frame_index_column, column_name):
+    return (frame[frame_index_column].item(), frame[column_name].tolist())
 
-def save_proprioceptions(proprioceptions, output_path):
+def save_column(column, output_path):
     with open(output_path, "w") as file:
-        json.dump(proprioceptions, file)
+        json.dump(column, file)
 
 def get_dataset(repo_id, episode_index):
     return LeRobotDataset(repo_id, episodes=[episode_index])
 
 def main(config: Config):
     dataset = get_dataset(config.repo_id, config.episode_index)
-    proprioceptions = dict(map(lambda frame: get_proprioception(frame, config.frame_index_column, config.proprioception_column), dataset))
-    save_proprioceptions(proprioceptions, config.output_path)
+    column = tuple(map(lambda frame: get_column(frame, config.frame_index_column, config.column_name), dataset))
+    save_column(column, config.output_path)
 
 def entrypoint():
     _CONFIGS = {
