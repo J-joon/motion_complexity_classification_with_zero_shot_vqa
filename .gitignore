@@ -6,7 +6,12 @@ videos
 utils
 ws
 trash
-
+config
+results
+/*.json
+/*.py
+/*.sh
+/*.npy
 uv.lock
 
 
