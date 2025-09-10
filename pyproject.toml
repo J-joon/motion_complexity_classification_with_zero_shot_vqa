@@ -61,8 +61,6 @@ ignore_missing_imports = true
 
 [project.scripts]
 1_object_detection = "motion_complexity_classification_with_zero_shot_vqa.object_detection:entrypoint"
-1_object_detection_new = "motion_complexity_classification_with_zero_shot_vqa.object_detection_new:entrypoint"
 2_grounding_dino = "motion_complexity_classification_with_zero_shot_vqa.run_grounding_dino:entrypoint"
-3_sam2 = "motion_complexity_classification_with_zero_shot_vqa.run_sam2:entrypoint"
+#3_sam2 = "motion_complexity_classification_with_zero_shot_vqa.run_sam2:entrypoint"
 4_movement_vqa = "motion_complexity_classification_with_zero_shot_vqa.movement_vqa:entrypoint"
-load_column = "motion_complexity_classification_with_zero_shot_vqa.load_column:entrypoint"
