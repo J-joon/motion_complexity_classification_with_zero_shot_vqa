@@ -32,6 +32,7 @@ def entrypoint():
             "libero": ("libero", Config(repo_id = "physical-intelligence/libero")),
             "aloha_sim_insertion_scripted": ("aloha sim insertion scripted", Config(repo_id="J-joon/sim_insertion_scripted")),
             "aloha_sim_transfer_cube_scripted": ("aloha sim transfer cube scripted", Config(repo_id="J-joon/sim_transfer_cube_scripted")),
+            "aloha_sim_insertion_human": ("aloha sim transfer cube human", Config(repo_id="lerobot/aloha_sim_insertion_human")),
             }
     config = tyro.extras.overridable_config_cli(_CONFIGS)
     main(config)
