@@ -8,6 +8,9 @@ from motion_complexity_classification_with_zero_shot_vqa.configs._movement_vqa_p
 from motion_complexity_classification_with_zero_shot_vqa.configs._object_detection_protocol import (
         ObjectDetectionConfig,
         )
+from motion_complexity_classification_with_zero_shot_vqa.configs._bbox_protocol import (
+        BBoxConfig,
+        )
 from motion_complexity_classification_with_zero_shot_vqa.configs._set_seed import (
     set_seed,
 )
@@ -22,6 +25,7 @@ from ._config import (
     ObjectDetectionConfigImpl,
     InferenceState,
     ImageLabelProviderImpl,
+    BBoxConfigImpl,
 )
 from pathlib import Path
 from static_error_handler import Ok, Err, Result
@@ -31,6 +35,7 @@ __all__ = [
     "set_seed",
     "InferenceConfig",
     "MovementVQAConfig",
+    "BBoxConfig",
     "ObjectDetectionConfig",
     "VLMProtocol",
 ]
@@ -142,9 +147,6 @@ def get_configs() -> Mapping[str, tuple[str, ConfigImpl]]:
                 episode_index=0,
                 image_columns=AlohaColumns,
                 object_detection_vlm_model="OpenGVLab/InternVL3-78B",
-                object_detection_output_file=Path(
-                    "./aloha_sim_insertion_human_object_detection.json"
-                ),
                 object_detection_prompt=(
                     (
                         "test",
@@ -164,7 +166,10 @@ def get_configs() -> Mapping[str, tuple[str, ConfigImpl]]:
                 ),
                 movement_vqa_window_size=4,
                 movement_vqa_step=1,
-                movement_vqa_output_file=Path("test_1.json"),
+                bbox_column_name = "observation.images.top",
+                movement_vqa_output_file=Path("results/aloha_sim_insertion_human/movement_vqa.json"),
+                object_detection_output_file=Path( "results/aloha_sim_insertion_human/object_detection.json"),
+                bbox_output_file = Path("results/aloha_sim_insertion_human/bbox.json"),
             ),
         ),
     }

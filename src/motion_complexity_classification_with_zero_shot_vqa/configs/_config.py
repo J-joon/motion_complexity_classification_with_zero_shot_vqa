@@ -17,7 +17,8 @@ import tyro
 from functools import cache, partial
 from torchvision.transforms.functional import to_pil_image
 from PIL import Image
-from vqa_pipeline.vlm import VLM, ImageLabelProvider, InternVL3
+from vqa_pipeline.vlm import VLM, ImageLabelProvider, InternVL3, BBoxProvider, GroundingDino, ImageProvider
+from vqa_pipeline import Box 
 from static_error_handler import Ok, Err, Result
 from pathlib import Path
 from lerobot.datasets.lerobot_dataset import LeRobotDataset
@@ -25,7 +26,32 @@ from motion_complexity_classification_with_zero_shot_vqa.configs import (
     _movement_vqa_protocol,
 )
 from ._movement_vqa_protocol import MovementVQAConfig
+from ._bbox_protocol import BBoxConfig
 from ._object_detection_protocol import ObjectDetectionConfig
+import re
+
+# for object detection result -> grounding dino query
+def extract_json_from_string(text: str) -> Result[dict[str, str], str]:
+    """
+    Extracts the first JSON object found within a string and returns it as a dictionary.
+    
+    Args:
+        text (str): The input string containing JSON.
+
+    Returns:
+        Result[dict[str, str], str]: Parsed JSON dictionary, or an empty dict if no valid JSON is found.
+    """
+    # Regex to capture JSON block (between curly braces)
+    match = re.search(r"\{.*\}", text, re.DOTALL)
+    if not match:
+        return Err("Empty")
+
+    json_str = match.group(0)
+
+    try:
+        return Ok(json.loads(json_str))
+    except Exception as e:
+        return Err(str(e))
 
 
 # ========
@@ -50,6 +76,16 @@ class ImageLabelProviderImpl(ImageLabelProvider):
         ]
         return data
 
+@dataclass(frozen=True)
+class ImageProviderImpl(ImageProvider):
+    image: Image.Image
+
+    @staticmethod
+    def from_frame(
+            frame: Any, column_name: str
+    ) -> ImageProviderImpl:
+        return ImageProviderImpl(image = to_pil_image(frame[column_name]),)
+
 
 @dataclass(frozen=True)
 class InferenceState:
@@ -57,6 +93,11 @@ class InferenceState:
     frame_index: int
     data: tuple[tuple[int, tuple[tuple[str, str], ...]], ...]
 
+@dataclass(frozen=True)
+class BBoxState:
+    bbox_provider: BBoxProvider
+    frame_index: int
+    data: tuple[tuple[int, tuple[tuple[str, tuple[float, float, float, float]],...]], ...]
 
 # ========
 
@@ -68,6 +109,9 @@ class Config[
     T_ObjectDetection_State,
     T_ObjectDetection_Input,
     T_ObjectDetection_Output,
+    T_BBox_State,
+    T_BBox_Input,
+    T_BBox_Output,
 ](Protocol):
     @property
     def movement_vqa_config(
@@ -87,6 +131,15 @@ class Config[
         T_ObjectDetection_Output,
     ]: ...
 
+    @property
+    def bbox_config(
+        self,
+    ) -> BBoxConfig[
+        T_BBox_State,
+        T_BBox_Input,
+        T_BBox_Output,
+    ]: ...
+
 
 @dataclass(frozen=True)
 class MovementVQAConfigImpl(
@@ -102,7 +155,7 @@ class MovementVQAConfigImpl(
     def initial_state(
         self,
     ) -> Result[InferenceState, str]:
-        model = self._parent.vlm_model
+        model = self._parent.movement_vqa_vlm_model
         return (
             InternVL3.create(model)
             .inspect(lambda _: print(f"{model} created successfully"))
@@ -153,7 +206,6 @@ class MovementVQAConfigImpl(
         def run(st: InferenceState) -> Result[InferenceState, str]:
             return (
                 st.vlm.question(*input_data)
-                .inspect(print)
                 .map(lambda result: update_state(result, st))
             )
 
@@ -178,7 +230,7 @@ class MovementVQAConfigImpl(
         return self._consume
 
     def _consume(self, state: Result[InferenceState, str]) -> None:
-        output_file = self._parent.output_file
+        output_file = self._parent.movement_vqa_output_file
 
         def save(state: InferenceState) -> None:
             with open(output_file, "w") as file:
@@ -288,6 +340,111 @@ class ObjectDetectionConfigImpl(
 
         state.inspect(save)
 
+@dataclass(frozen=True)
+class BBoxConfigImpl(
+    BBoxConfig[
+        Result[BBoxState, str],
+        tuple[ImageProviderImpl, str],
+        None,
+    ]
+):
+    _parent: ConfigImpl
+
+    @property
+    def initial_state(
+        self,
+    ) -> Result[BBoxState, str]:
+        try:
+            grounding_dino = GroundingDino()
+            bbox_state = BBoxState(
+                    bbox_provider = GroundingDino(text_threshold=0.3),
+                    frame_index = -1,
+                    data = (),
+                    )
+            return Ok(bbox_state)
+        except Exception as e:
+            return Err(str(e))
+
+    @property
+    @cache
+    def query(
+            self,
+            ) -> Result[str, str]:
+        with open(
+        self._parent.object_detection_output_file,
+        "r",
+        ) as file:
+            data = json.load(file)
+        content = data[0][1][0][1]
+        return extract_json_from_string(content).map(
+                lambda item_dict: ".".join(( item_dict[key] for key in item_dict))
+                )
+
+    @property
+    @cache
+    def data_stream(
+        self,
+    ) -> Iterable[tuple[ImageProviderImpl, str]]:
+        repo_id = self._parent.repo_id
+        episode_index = self._parent.episode_index
+        query = self.query.unwrap()
+        column_name = self._parent.bbox_column_name
+        return take(
+            1,
+            ( (ImageProviderImpl.from_frame( frame, column_name,), query) for frame in LeRobotDataset(repo_id, episodes=[episode_index], video_backend="pyav") ),
+        )
+
+    def _inference(
+        self,
+        state: Result[BBoxState, str],
+        input_data: tuple[ImageProviderImpl, str],
+    ) -> Result[BBoxState, str]:
+        image, query = input_data
+        def update_state(
+            result: tuple[Box, ...], state: BBoxState
+        ) -> BBoxState:
+            boxes: tuple[tuple[str, tuple[float,float,float,float,],],...] = tuple( ( box.label if box.label is not None else "none", ( box.minimum.x, box.minimum.y, box.maximum.x, box.maximum.y, ), ) for box in result )
+            return BBoxState(
+                state.bbox_provider,
+                state.frame_index + 1,
+                state.data + ((state.frame_index + 1, boxes),),
+            )
+
+        def run(st: BBoxState) -> Result[BBoxState, str]:
+            return (
+                st.bbox_provider.query(image, query)
+                .inspect_err(lambda e: print(f"inference of gdino: {e}"))
+                .map(lambda result: update_state(result, st))
+            )
+
+        return state.and_then(run)
+
+    @property
+    def inference(
+        self,
+    ) -> Callable[
+        [
+            Result[BBoxState, str],
+            tuple[ImageProviderImpl, str],
+        ],
+        Result[BBoxState, str],
+    ]:
+        return self._inference
+
+    @property
+    def consume(
+        self,
+    ) -> Callable[[Result[BBoxState, str]], None]:
+        return self._consume
+
+    def _consume(self, state: Result[BBoxState, str]) -> None:
+        output_file = self._parent.bbox_output_file
+
+        def save(state: BBoxState) -> None:
+            with open(output_file, "w") as file:
+                json.dump(state.data, file)
+
+        state.inspect(save).inspect_err(print)
 
 @dataclass(frozen=True)
 class ConfigImpl(
@@ -297,6 +454,9 @@ class ConfigImpl(
         None,
         Result[InferenceState, str],
         tuple[list[ImageLabelProviderImpl], tuple[tuple[str, str], ...]],
+        None,
+        Result[BBoxState, str],
+        tuple[ImageProviderImpl, str],
         None,
     ]
 ):
@@ -312,6 +472,8 @@ class ConfigImpl(
     movement_vqa_window_size: int
     movement_vqa_step: int
     movement_vqa_output_file: Path
+    bbox_column_name: str
+    bbox_output_file: Path
 
     @property
     @cache
@@ -330,3 +492,12 @@ class ConfigImpl(
         return ObjectDetectionConfigImpl(
             _parent=self,
         )
+
+    @property
+    @cache
+    def bbox_config(
+            self,
+            ) -> BBoxConfigImpl:
+        return BBoxConfigImpl(
+                _parent = self,
+                )
