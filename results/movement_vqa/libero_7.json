@@ -1,0 +1,2423 @@
+[
+  [
+    0,
+    [
+      [
+        "motion",
+        "```json\n{\n    \"scene\": \"The scene shows a virtual environment where a robotic assistant is positioned to perform tasks on a wooden table. Various items, such as a washing basket, cleaning liquids, a bottle of dish soap, a bowl of ingredients, a container of cream cheese, and a container of liquid cleaner, are scattered around it.\",\n    \"right arm motion\": \"The robotic right arm picks up and moves the dish soap bottle from its original position.\",\n    \"left arm motion\": \"The robotic left arm places the dish soap bottle into the washing basket.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    1,
+    [
+      [
+        "motion",
+        "```json\n{\n  \"scene\": \"A digital scene depicting a bathroom setting with a toilet, several cans and a soap bottle, and a basket filled with tissues. A robotic arm is positioned over the scene, ready to perform tasks.\",\n  \"right arm motion\": \"The right arm reaches out toward the soap bottle and places it into the container on the table.\",\n  \"left arm motion\": \"The left arm moves into position to grasp the can of cream cheese next to the soap bottle and places it into the same basket.\",\n  \"Task completion\": \"The right arm successfully placed the can of cream cheese into the basket, completing the task of moving the cream cheese box into the basket.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    2,
+    [
+      [
+        "motion",
+        "```json\n{\n  \"scene\": \"A robotic arm is positioned to place a bottle of alphabet soup and a box of cream cheese on a wooden surface next to a dish rack with several other items.\",\n  \"right arm motion\": \"The right arm lowered and placed the container next to the dish rack.\",\n  \"left arm motion\": \"The left arm positioned to hold the alphabet soup bottle. The arm lifted slightly, allowing the container and the bottle to be placed one after the other, ensuring they are correctly aligned near the dish rack.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    3,
+    [
+      [
+        "motion",
+        "```json\n{\n    \"scene\": \"A robot is in a room with various items placed on a table, including a white toilet tank holder, an alphabet soup bottle, a small blue box, two blue and multicolored can lids, and a larger orange and green can.\",\n    \"right arm motion\": \"The right arm raised and lowered to grasp and pick up items.\",\n    \"left arm motion\": \"The left arm positioned and adjusted to hold the objects in place.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    4,
+    [
+      [
+        "motion",
+        "```json\n{\n    \"scene\": \"A virtual depiction of a robot cleaning a wooden table with a white sink positioned above. It arranges various cleaning materials, including a laundry basket, a bottle of dish soap, a small box, a blue container with a jar, and a red and green container.\",\n    \"right arm motion\": \"The right arm moves methodically to lift and place items into the laundry basket located on the left side of the table.\",\n    \"left arm motion\": \"The left arm is not observed moving in the frames provided, keeping the sink and objects in position.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    5,
+    [
+      [
+        "motion",
+        "```json\n{\n  \"scene\": \"A robotic toilet is positioned on a wooden surface with various cleaning supplies: a silver wicker basket, an orange bottle, a green can, a blue can, and a small blue box.\",\n  \"right arm motion\": \"The right arm moves slightly to the right, positioning the orange bottle near the toilet.\",\n  \"left arm motion\": \"The left arm moves slightly to the left, positioning the green can to the right of the orange bottle and the blue can. The box is moved to the right.\",\n  \"general task\": \"The robot has placed the orange bottle, green can, and blue can into the basket while moving the box. It maintains this arrangement on the table.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    6,
+    [
+      [
+        "motion",
+        "```json\n{\n    \"scene\": \"In a bathroom setting, a robot handles various cleaning supplies on a wooden surface with a sink and bathtub visible in the background.\",\n    \"right arm motion\": \"The right arm lifted and positioned to grasp an orange bottle labeled 'alphabet soup'.\",\n    \"left arm motion\": \"The left arm positioned the bottle onto the wooden surface.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    7,
+    [
+      [
+        "motion",
+        "```json\n{\n    \"scene\": \"A robot positioned to perform an interaction on a table with various objects: a white container, a smaller orange bottle, a larger orange and blue bottle, a stack of white and blue cylindrical objects, a metal basket, a smaller blue object, and two plastic cans with labels.\",\n    \"right arm motion\": \"The right arm lifts and places an orange and blue bottle into the stack of cylindrical objects.\",\n    \"left arm motion\": \"The right arm secures and places the orange and blue bottle in the stack. The left arm then handles the smaller orange bottle and the orange and blue bottle, positioning them next to the stack and other objects. It places the blue object into the metal basket and the orange and blue bottle into the larger can on the table.\",\n    \"right arm motion\": \"The right arm lifts another orange and blue bottle into the table and sorts it into the metal basket.\",\n    \"left arm motion\": \"The left arm lifts the smaller orange bottle and the second orange and blue bottle and places them into the two plastic cans. It also interacts with the smaller blue object and moves the orange and blue bottle into the larger orange and blue can.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    8,
+    [
+      [
+        "motion",
+        "```json\n{\n    \"scene\": \"The scene shows a robotic hand holding a white container with its base resting on a wooden surface. On the table, there are various items including cleaning liquids and a basket with several rolls of paper towels. The goal is to transfer the alphabet soup and the cream cheese box to the basket.\",\n    \"right arm motion\": \"The right arm of the robot lowers and positions itself over the alphabet soup bottle.\",\n    \"left arm motion\": \"The left arm lifts and picks up the cream cheese box, placing it into the basket.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    9,
+    [
+      [
+        "motion",
+        "```json\n{\n    \"scene\": \"The scene shows a robot on a wooden table with various items including a washing machine, a bucket, a small bottle of dish soap, two cans of dishwashing liquid with different designs, and a basket. A small square piece of paper is also visible.\",\n    \"right arm motion\": \"The right arm moves towards the dish soap bottle and container.\",\n    \"left arm motion\": \"The left arm grabs the dish soap bottle and container, then moves them to the bucket. The right arm then moves towards the large can, possibly to use it or place it elsewhere.\",\n    \"right arm motion\": \"The right arm reaches for the dish soap bottle and moves it toward the bucket.\",\n    \"left arm motion\": \"The left arm grabs the dish soap container and places it into the bucket, and later, the left arm also appears to move the large dishwashing liquid container into the bucket.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    10,
+    [
+      [
+        "motion",
+        "```json\n{\n  \"scene\": \"The scene shows a robotic setup on a wooden table with a soap dispenser, a can of cream cheese, a can of dish soap, a silver basket, and a blue box on the table.\",\n  \"right arm motion\": \"Right arm places a can of dish soap into the basket.\",\n  \"left arm motion\": \"Left arm picks up a blue box and places it into the basket.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    11,
+    [
+      [
+        "motion",
+        "```json\n{\n    \"scene\": \"The scene features a white robotic arm holding a bottle labeled 'alphabet soup', positioning various cleaning supplies on a surface including a spray bottle, a jar, and another container. The robotic arm then transfers the 'alphabet soup' bottle into a metal basket.\",\n    \"right arm motion\": \"The right arm moves up, holds the 'alphabet soup' bottle, and lowers it into the metal basket.\",\n    \"left arm motion\": \"The left arm picks up the metal basket, places it to the side, and positions it where the cleaning supplies are located.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    12,
+    [
+      [
+        "motion",
+        "```json\n{\n  \"scene\": \"A bimanual robot is positioned on a wooden surface with various cleaning supplies around it, including a stainless steel basket, two bottles (one orange, one blue), and two cans.\", \n  \"right arm motion\": \"The right arm lifts and moves towards the orange bottle, presumably to place it on the table or as part of the task sequence.\",\n  \"left arm motion\": \"The left arm remains stationary throughout the frames, maintaining its position on the table.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    13,
+    [
+      [
+        "motion",
+        "```json\n{\n  \"scene\": \"The scene shows a robot holding a can of liquid soap over a sink with various items: a basket, a small box, another box of something, a can with a blue and brown design, and another can with an orange and green design. The robot places the can of soap in the sink.\",\n  \"right arm motion\": \"The right arm positions the can of liquid soap in the sink near the basket.\",\n  \"left arm motion\": \"The left arm moves to the right to interact with the other items, positioning the blue and brown and orange/green cans.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    14,
+    [
+      [
+        "motion",
+        "```json\n{\n    \"scene\": \"The scene shows a bimanual robot in a workspace with various items including a plastic container, a bottle of dish soap, and two containers of cream cheese with different colored lids. The robot is positioned between these items.\",\n    \"right arm motion\": \"The right arm picks up the bottle of dish soap and places it into the plastic dish.\",\n    \"left arm motion\": \"The left arm rearranges the two containers of cream cheese with different lids into a stacked configuration inside the plastic dish.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    15,
+    [
+      [
+        "motion",
+        "```json\n{\n  \"scene\": \"The scene depicts a white bimanual robot situated on a wooden surface, surrounded by various cleaning supplies, including a metal basket, a bottle of detergent, a blue can, and an orange can. The robot needs to move the alphabet soup and the cream cheese box into the metal basket.\",\n  \"right arm motion\": \"The right arm moves to the top and lowers to grasp the orange can and the blue can respectively.\",\n  \"left arm motion\": \"The left arm positioned above the basket reaches to pick up the object from an elevated position.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    16,
+    [
+      [
+        "motion",
+        "```json\n{\n  \"scene\": \"The scene depicts a white bimanual robot standing in front of a wooden table with various items including a large stainless steel basket, a bottle of orange liquid, a small blue bottle, an orange drink can, and a large container with green and red contents.\",\n  \"right arm motion\": \"The right arm of the robot moves to pick up the small blue bottle from the table.\",\n  \"left arm motion\": \"The left arm of the robot moves to hold the blue bottle while positioning it on the table for storage.\",\n  \"scene\": \"A robot with two arms stands in front of a table, preparing to move items. Initially, the robot does not interact with any of the items. After picking up the blue bottle, the robot moves it from the table to a storage location under the table.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    17,
+    [
+      [
+        "motion",
+        "```json\n{\n  \"scene\": \"The scene shows a robotic setup with a microscope, various items on a wooden table including a silver basket filled with a white substance, a blue object, a bottle of orange liquid, two colored cans, and another container. The right arm is positioned above the table, and the left arm is positioned on the right side of the frame.\",\n  \"right arm motion\": \"The right arm moves downward and to the right to pick up the bottle of orange liquid.\",\n  \"left arm motion\": \"The left arm remains stationary throughout the scene.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    18,
+    [
+      [
+        "motion",
+        "```json\n{\n    \"scene\": \"A robotic environment with a white microscope on a wooden table. Various items are present: a wire basket, a small rectangular box, two small containers with different contents, and two bottles of cleaning products.\",\n    \"right arm motion\": \"The right arm of the robot moves upwards, positioning itself in front of the items on the table to operate the microscope.\",\n    \"left arm motion\": \"The left arm lowers slightly to reach the position of the bottle and pick up the box. It then moves to place the box into the wire basket.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    19,
+    [
+      [
+        "motion",
+        "```json\n{\n    \"scene\": \"The scene shows a robotic arm operating in a kitchen environment with a microscope on a wooden table, several items including a silver basket, a blue block, a bottle of liquid soap, a container with a painted container, and a can labeled 'Cream Cheese Box'. The task involves arranging these items.\",\n    \"right arm motion\": \"The right arm moves to pick up the blue block from the table and places it into the basket.\",\n    \"left arm motion\": \"The left arm moves to pick up the liquid soap bottle and the painted container, placing them into the basket, and arranging the cans.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    20,
+    [
+      [
+        "motion",
+        "```json\n{\n    \"scene\": \"A robotic arm is shown in the center of a room with various items, including a white bowl, a silver container, a small blue box, two colored cans, and a softsoap bottle.\",\n    \"right arm motion\": \"The right arm extends to the left and adjusts the position of the softsoap bottle.\",\n    \"left arm motion\": \"The left arm positions the blue and orange cans into the silver container to the right of the softsoap bottle.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    21,
+    [
+      [
+        "motion",
+        "```json\n{\n  \"scene\": \"A robotic arm is in focus, positioning itself among items on a wooden table including a silver basket, a box of alphabet soup, and cans of milk or cream cheese.\",\n  \"right arm motion\": \"The right arm extends and moves to position itself over the box of alphabet soup.\",\n  \"left arm motion\": \"The left arm moves in parallel to the right arm to grasp the alphabet box securely, positioning it into the basket.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    22,
+    [
+      [
+        "motion",
+        "```json\n{\n    'scene': 'The scene depicts a robotic arm in a room holding an orange bottle of liquid soap, a blue canister, a red and green canister, a silver basket, and a small blue square object. The robotic arm is positioned to handle the orange bottle and place the blue canister into the silver basket. There is a secondary computer monitor visible in the background.\\n\\nThe right arm motion involves the robotic arm placing the orange bottle of liquid soap and another canister into the silver basket. The left arm motion involves the manipulation of the blue square object and the other objects within the frame.\\n\\nRight Arm Motion: The robotic arm lifts the orange bottle of liquid soap and places it into the silver basket. The arm bends the right arm to grip and move the object out of the frame.\\n\\nLeft Arm Motion: The robotic arm moves the blue square object to the right, and the handle of the blue canister in the frame is placed into the silver basket by the left arm.\\n',\n    'right arm motion': 'The right arm picks up an orange bottle of liquid soap and places it into the silver basket.\\n',\n    'left arm motion': 'The left arm holds and moves the blue square object, placing the blue canister partially into the silver basket.'\n}\n```"
+      ]
+    ]
+  ],
+  [
+    23,
+    [
+      [
+        "motion",
+        "```json\n{\n    \"scene\": \"A robotic arm with a pair of binoculars is holding a dish soap and placing it on a wooden table. Alongside it, there are two cans—one with a blue liquid and the other with a green and yellow liquid, and a boxed set of spoon tips.\",\n    \"right arm motion\": \"The right arm retracts away from the scene and supports the dish soap.\",\n    \"left arm motion\": \"The left arm moves to the right side of the table, placing a colored container into an empty metallic basket.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    24,
+    [
+      [
+        "motion",
+        "```json\n{\n    \"scene\": \"The scene shows a robot holding various items on a wooden surface, including a basket, a block of soap, two cans (one alphabet soup and one cream cheese), and a cleaning bottle.\",\n    \"right arm motion\": \"The right arm slowly extends to pick up the alphabet soup and cream cheese box from the surface.\",\n    \"left arm motion\": \"The left arm is stable and does not move significantly in this sequence, serving as a supportive hold for the object being transported.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    25,
+    [
+      [
+        "motion",
+        "```json\n{\n    \"scene\": \"A robotic arm is holding multiple containers on a wooden surface in a room with a television in the background. A basket and some other objects are also present on the surface. The setting appears to be a simulated environment for demonstrating robotic tasks.\",\n    \"right arm motion\": \"The right arm is in an elevated position holding one of the containers.\",\n    \"left arm motion\": \"The left arm is positioned below the right arm for stability, with an orange object in the basket possibly being placed next to it.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    26,
+    [
+      [
+        "motion",
+        "```json\n{\n  \"scene\": \"A white and black bimanual robot is positioned on a wooden table near a television. The table contains items such as a metallic basket, a small blue box, a large blue and green container, a small orange container with a green label, and a can partially filled with a white substance, possibly shampoo or dish soap. The robot is in the process of transferring or arranging one of the objects on the table.\",\n  \"right arm motion\": \"The right arm of the robot is moving upward and slightly to the right to grasp and manipulate the large blue and green container.\",\n  \"left arm motion\": \"The left arm is holding and pushing the blue and green container to its side, positioning it near the basket and other containers on the table.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    27,
+    [
+      [
+        "motion",
+        "```json\n{\n    \"scene\": \"The scene shows a robotic arm on a wooden table with various objects, including a metal basket, a small blue box, a blue and orange cup, and a green and yellow cup. A bottle of substance is also in the background.\",\n    \"right arm motion\": \"The right arm moves slightly upwards, adjusting its position to bring closer to the object it is interacting with.\",\n    \"left arm motion\": \"The left arm moves slightly downward, preparing to reach for the objects on the table.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    28,
+    [
+      [
+        "motion",
+        "```json\n{\n  \"scene\": \"A robotic arm is positioned on a table next to a basket, three containers, and two cups with different containers and colors. The robot appears to be manipulating the objects.\",\n  \"right arm motion\": \"The right arm extends to pick up the orange and cream cheese box from the table.\",\n  \"left arm motion\": \"The left arm retrieves the yellow and orange cup from the table and places it on top of the orange and white cup.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    29,
+    [
+      [
+        "motion",
+        "```json\n{\n  \"scene\": \"A robotic setup with a white and black arm interacting with various items on a wooden table, including a metal basket, a blue cup, a can of alphabet soup, and a can of cream cheese.\",\n  \"right arm motion\": \"The right arm moves upward and slightly forward to grasp the can labeled with the alphabet soup and place it into the metal basket. The arm then returns to its initial position.\",\n  \"left arm motion\": \"The left arm remains stationary while the right arm focuses on placing the can into the basket, indicating a coordinated effort.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    30,
+    [
+      [
+        "motion",
+        "```json\n{\n  \"scene\": \"The scene shows a robotic arm on a wooden table with a basket, two cans (one with an alphabet soup and another with cream cheese), and small boxes placed around them.\",\n  \"right arm motion\": \"The right arm moves towards the alphabet soup can, grasps it, and places it into the basket.\",\n  \"left arm motion\": \"The left arm unloads the empty basket and moves the cream cheese can and the small boxes out of the frame.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    31,
+    [
+      [
+        "motion",
+        "```json\n{\n    \"scene\": \"A bimanual robot is in the scene, observed with three containers (alpaca soup cans, cream cheese box, and other items) on a wooden table. An alphabet soup container is to be placed in a basket. The robot has one arm extended, holding the alphabet soup can.\",\n    \"right arm motion\": \"The right arm lifts and positions the alphabet soup can into the basket without moving its own arm.\",\n    \"left arm motion\": \"The left arm lifts and places the cream cheese box into the basket.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    32,
+    [
+      [
+        "motion",
+        "```json\n{\n    \"scene\": \"A bimanual robot station is present with an alphabet soup container, cream cheese box, and two cans of sauce on a table. The robot is positioned with hands ready for the task of transferring items.\",\n    \"right arm motion\": \"The right arm moves downward to grasp the alphabet soup container.\",\n    \"left arm motion\": \"The left arm extends toward the cream cheese box and pushes it toward the basket on the table.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    33,
+    [
+      [
+        "motion",
+        "```json\n{\n  \"scene\": \"A robot is seen with several objects on a wooden surface: three cans (one with blue contents, one with cream cheese, one with multicolored contents), a stack of utensils, a basket, and a tablet.\",\n  \"right arm motion\": \"The right arm moves towards the right, placing an empty tray or container.\",\n  \"left arm motion\": \"The left arm moves towards the right, placing the cream cheese can in the basket.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    34,
+    [
+      [
+        "motion",
+        "```json\n{\n    \"scene\": \"A bimanual robot is standing on a wooden table. It has two containers: a yellow alphabet soup box and a green and orange cream cheese box, as well as a silver basket with items. The robot is holding a white object resembling scissors and has a camera mounted on its head. Other objects include a white pot and a smaller blue container.\",\n    \"right arm motion\": \"The robot's right arm moves to grasp the white object resembling scissors and secures it to its upper body. It then moves the silver basket containing items towards where the letters might be placed.\",\n    \"left arm motion\": \"The robot's left arm, attached to the camera holding device, is positioned to assist in organizing the alphabet soup and cream cheese boxes. It moves the yellow and green containers next to the silver basket, ready to place them within the basket.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    35,
+    [
+      [
+        "motion",
+        "```json\n{\n  \"scene\": \"A large, black-and-white humanoid robot is positioned on a wooden surface next to some containers and a basket. Various items, such as a basket with a box and two colored cans, are partially visible.\",\n  \"right arm motion\": \"The right arm of the robot moves to pick up the two colored cans and places them into the basket.\",\n  \"left arm motion\": \"The left arm of the robot moves to grasp the two colored cans and places them into the basket as well.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    36,
+    [
+      [
+        "motion",
+        "```json\n{\n  \"scene\": \"A bimanual robot stands on a desk with a white basket, two colored cans, and a small white box. There is an alphabet soup visible in a can on the right and a cream cheese box in a separate container on the left.\",\n  \"right arm motion\": \"The right arm of the bimanual robot moves to pick up the colored cans and place them into the basket.\",\n  \"left arm motion\": \"The left arm moves to handle the alphabet soup from the can to the basket, completing the task of placing both containers into the basket.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    37,
+    [
+      [
+        "motion",
+        "```json\n{\n    \"scene\": \"A bimanual robot is standing on a wooden table with an alphabet container, a cream cheese box, and two cans. Tools for placing items are included: a basket, a box for alphabet containers, two cans, and a microscope.\",\n    \"right arm motion\": \"The right arm of the robot moves down and grabs a box with alphabet containers.\",\n    \"left arm motion\": \"The left arm moves to scoop the alphabet containers into the box, placing them inside.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    38,
+    [
+      [
+        "motion",
+        "```json\n{\n    \"scene\": \"A bimanual robot with a white body and black and gray segments is positioned on a wooden table. Various items are on the table, including a metal basket filled with packets, a cup with \"alphabet soup,\" another with \"cream cheese,\" and a cup with a colorful design. The robot's arms are resting on the table.\",\n    \"right arm motion\": \"The right arm moves downward and to the side, grasping an \"alphabet soup\" cup.\",\n    \"left arm motion\": \"The left arm moves backward and upward, placing the cup of \"alphabet soup\" into the metal basket.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    39,
+    [
+      [
+        "motion",
+        "```json\n{\n  \"scene\": \"In this virtual room, there is a humanoid robot holding a large object and a white tray. On the table next to it, there are two cylindrical containers: one with alphabet soup and the other with cream cheese. The robot manipulates these items to put them in the tray.\",\n  \"right arm motion\": \"The right arm of the robot moves towards the tray and then pulls it upwards to grip the alphabet soup container.\",\n  \"left arm motion\": \"The left arm follows through, using its hand to place the alphabet soup container into the tray, while the right arm moves towards the cream cheese container and places it next to the alphabet soup.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    40,
+    [
+      [
+        "motion",
+        "```json\n{\n    \"scene\": \"A bimanual robot is placing some items on a wooden table. There is a white robotic arm on the right side with a cylindrical device and other scattered objects, including a small box with cans of different colored containers and a basket.\",\n    \"right arm motion\": \"The right arm moves upwards and downwards to interact with the cylindrical device and the other objects on the table.\",\n    \"left arm motion\": \"The left arm moves up to the basket and places the small box and cans of containers into it.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    41,
+    [
+      [
+        "motion",
+        "```json\n{\n  \"scene\": \"The scene shows a robot standing on a wooden table with various items around it, including a basket with cheese, cans labeled alphabet soup and cream cheese, and small electronic devices. A second robot is in the background.\",\n  \"right arm motion\": \"The right arm of the second robot moves slightly forward.\",\n  \"left arm motion\": \"The left arm of the second robot moves into position above the basket.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    42,
+    [
+      [
+        "motion",
+        "```json\n{\n  \"scene\": \"The scene shows a robotic arm on a wooden table with various items: a basket holding pasta, a blue object, several colored cans, other stacked items, and a robotic arm-like humanoid body.\",\n  \"right arm motion\": \"The right arm performs no motion.\",\n  \"left arm motion\": \"The left arm reaches down and places the alphabet soup and the cream cheese box into the basket with the pasta.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    43,
+    [
+      [
+        "motion",
+        "```json\n{\n  \"scene\": \"A bimanual robot stands on a wooden table surrounded by objects, including a silver basket, a small blue rectangle, two colored cans, a black and white jar, and a black container. The robot appears to be handling these objects and moving them around.\",\n  \"right arm motion\": \"The right arm moves to pick up the blue rectangle and a colorful can.\",\n  \"left arm motion\": \"The left arm picks up the silver basket, holding the blue rectangle and a green and red can, and places them within the basket.\",\n  \"right arm\": \"No motion observed for the right arm related to the scene.\",\n  \"left arm\": \"The left arm moves to adjust containers and boxes within the basket.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    44,
+    [
+      [
+        "motion",
+        "```json\n{\n    \"scene\": \"A digitally rendered room with a robotic arm on a wooden table. The robotic arm's end effector holds a basket with alphabet soup and two cans. The scene depicts the robotic arm preparing to place the cans into the basket.\",\n    \"right arm motion\": \"No motion observed. Arm is stationary near the basket.\",\n    \"left arm motion\": \"The left arm moves the cans from the table towards the basket. The cans are lifted and positioned into the basket lined above the alphabet soup.\",\n    \"robotic arm motion\": \"The robot moves its left arm to pick up one of the cans from the table and positions it in the basket.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    45,
+    [
+      [
+        "motion",
+        "```json\n{ 'scene': 'A bimanual robot robot is seen working on a wooden table with various objects including a metal basket, a blue packet, two colored containers, and a stack of items resembling food. The background shows an unlit television and a plain wall. The scene depicts the robot's tasks to put two alphabet soup and cream cheese boxes in the basket.', 'right arm motion': 'The right arm moves to pick up the blue packet located on the table and place it into the metal basket.', 'left arm motion': 'The left arm moves to the colored container on the table while holding it, possibly to transport the container or place it into the basket.'}\n```"
+      ]
+    ]
+  ],
+  [
+    46,
+    [
+      [
+        "motion",
+        "```json\n{\n  \"scene\": \"The scene depicts a bimanual robot with two robotic hands on a wooden table. There is a basket in the background, and the robot has several items including cans of drink and small containers on the table. The focus is on the robot's right and left robotic arms.\",\n  \"right arm motion\": \"The right arm extended to grasp one of the cans and moved it towards the basket.\",\n  \"left arm motion\": \"The left arm positioned holding a box and moved it towards the basket.\",\n  \"total scene change\": \"The robot successfully placed items into the basket, completing the task of putting away the alphabet soup and cream cheese box.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    47,
+    [
+      [
+        "motion",
+        "```json\n{\n  \"scene\": \"A robotic arm is positioned on a table with various objects including a basket, bottles, and small containers\", \n  \"right arm motion\": \"The right arm moves horizontally to hold one of the small containers and place it inside the basket.\",\n  \"left arm motion\": \"The left arm moves to the support of the robotic arm, positioning it to close the opening of the container and place it in the basket.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    48,
+    [
+      [
+        "motion",
+        "```json\n{ \n  \"scene\": \"A robotic setup is present with a basket, two cans, and the alphabet soup box, accompanied by other small blue objects. The scene shows different positions of a robot's robotic arm and the containers placed on a workspace.\",\n  \"right arm motion\": \"The right arm extended forward to pick up an alphabet soup box.\",\n  \"left arm motion\": \"The left arm moved upward and positioned to hold the alphabet soup box.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    49,
+    [
+      [
+        "motion",
+        "```json\n{\n  \"scene\": \"In the scene, there is a white and gray robotic hand holding an eyepiece mounted device. To its left is a metal basket, a cylindrical container filled with cans, a square object, and a second cylindrical container. The robot is positioned on a wooden table, with a television visible in the background.\",\n  \"right arm motion\": \"The right arm moves to grasp and open the eyepiece mounted device.\",\n  \"left arm motion\": \"The left arm reaches out towards the cylindrical containers and transfers contents to the basket.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    50,
+    [
+      [
+        "motion",
+        "```json\n{\n  \"scene\": \"A bimanual robot is operating on a wooden table with various items, including a basket of napkins, a blue rectangular object, two colorful cylindrical cans, and a camera equipped with a viewing platform. An alphabet soup and a cream cheese box are not present.\",\n  \"right arm motion\": \"The right arm moves to grasp the blue rectangular object near the camera.\",\n  \"left arm motion\": \"The left arm maneuvers to lift the blue rectangular object and place it into the basket filled with napkins.\",\n  \"additional context\": \"After placing the blue object in the basket, the left arm takes the cream cheese box and positions it adjacent to the other blue object. Subsequently, both objects are relocated into the basket.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    51,
+    [
+      [
+        "motion",
+        "```json\n{\n  \"scene\": \"A bimanual robot is positioned on a table, with a bowl, two small containers (a stack of alphabet soup and a container with cream cheese), and two cans placed around it. There is a larger metal basket nearby. The robot's arms are visible, with one arm raised holding the stack of alphabet soup and the other holding the can of cream cheese and the can with two cans.\",\n  \"right arm motion\": \"The right arm is extended upward and to the right to grasp the stack of alphabet soup.\",\n  \"left arm motion\": \"The left arm is extended backward and downward to hold the other container with two cans while simultaneously reaching for the stack of alphabet soup.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    52,
+    [
+      [
+        "motion",
+        "```json\n{\n    \"scene\": \"The scene shows a robot on a wooden table with various items: a metal mesh basket, a blue box, a container with a yellow item, and a container with colored items. A human hand places an alphabet soup and a cream cheese box into the basket. There is also a white robotic arm positioned above the items.\",\n    \"right arm motion\": \"The right arm lifts and moves the alphabet soup from the table towards the basket.\",\n    \"left arm motion\": \"The left arm lifts and moves the cream cheese box from the table towards the basket.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    53,
+    [
+      [
+        "motion",
+        "```json\n{\n    \"scene\": \"The scene shows a robot vacuum cleaner operating in a room with various items, including a stack of aluminum tape boxes, a stack of small blocks, a canister, and a container with colorful objects. The robot has a robotic hand and a camera, positioned to interact with the objects on the desk.\",\n    \"right arm motion\": \"The right arm of the vacuum cleaner reaches out towards the stack of aluminum tape boxes and successfully places them into the designated basket.\",\n    \"left arm motion\": \"The left arm of the vacuum cleaner remains stationary, holding the camera and positioned for the task of transferring objects.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    54,
+    [
+      [
+        "motion",
+        "```json\n{\n    \"scene\": \"The scene depicts a robotic environment with a robotic arm on a wooden table. There's a stack of cans, a blue alphabet soup box, a red and green can, and a metallic basket on the table. The robotic arm appears to be positioned to pick up the items.\",\n    \"right arm motion\": \"The right arm extends slowly toward the stack of cans, preparing to pick them up.\",\n    \"left arm motion\": \"The left arm moves horizontally away from the table, likely to assist the right arm in retrieving the cans.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    55,
+    [
+      [
+        "motion",
+        "```json\n{\n  \"scene\": \"The bimanual robot is placed on a table with a set of alphabet soup and cream cheese boxes, as well as several containers of different colors. The robot is positioned to interact with the items on the table.\",\n  \"right arm motion\": \"The right arm moves slightly leftward, bringing the objects closer to the left side of the table.\",\n  \"left arm motion\": \"The left arm extended to the right and performs gentle swiveling motions, positioning the objects into the stainless steel basket on the left side of the table.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    56,
+    [
+      [
+        "motion",
+        "```json\n{\n    \"scene\": \"A robot arm is positioned over a desk holding a silver basket filled with items, a blue block, and a colorful box. The device is analyzing the contents on the table, with a flat screen in the background displaying some content.\",\n    \"right arm motion\": \"The robot's right arm is positioned over the silver basket, lifting the item in its hand.\",\n    \"left arm motion\": \"The robot's left arm moves to pick up the blue block and place it into the basket. It also lifts the colorful box and places it into the basket alongside the silver items.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    57,
+    [
+      [
+        "motion",
+        "```json\n{\n    \"scene\": \"A bimanual robot is operating on a table with various kitchen items and a basket. The robot has both arms positioned around containers, with one arm on each side of the scene.\",\n    \"right arm motion\": \"The right arm performs an upward movement, reaching towards a container with colorful elements and positioning it on the table.\",\n    \"left arm motion\": \"The left arm moves towards a small blue box on the table, attempting to grasp or place it.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    58,
+    [
+      [
+        "motion",
+        "```json\n{\n    \"scene\": \"A robotic arm is positioned on a desk with a basket of baskets, a blue block, an orange and green container, and a white container. The background includes a flat-screen TV.\",\n    \"right arm motion\": \"The right arm extends to grasp the orange and green container, moves upward and to the right to place it in the basket.\",\n    \"left arm motion\": \"The left arm raises to lift the white container from the desk and places it into the basket of baskets.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    59,
+    [
+      [
+        "motion",
+        "```json\n{\n    \"scene\": \"A robotic arm with the end effector is positioned to pick up two different objects on a table: a stack of cookies in a basket, a blue square piece of paper, and two cans—one with multi-colored contents and one with plain colors—aimed towards a tray for placing the collected items.\",\n    \"right arm motion\": \"The right arm extends and grasps the stack of cookies from the basket, positioning it towards the tray to place it beside the other items.\",\n    \"left arm motion\": \"The left arm, initially empty, reaches for the blue square piece of paper placed next to the cans. Subsequently, the left arm moves to pick up the paper and places it in the tray while the right arm handles the cans.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    60,
+    [
+      [
+        "motion",
+        "```json\n{\n    \"scene\": \"In the initial frame, there is an arm visible in the foreground with a basket, a three-section box in the background, and two cylindrical objects on a wooden table. In subsequent frames, the arm manipulates the container and the box within a similar setup.\",\n    \"right arm motion\": \"The right arm moves upwards and to the right to place the three-section box inside the basket.\",\n    \"left arm motion\": \"The left arm moves downwards to the right to pick up the two cylindrical objects and place them on top of the three-section box.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    61,
+    [
+      [
+        "motion",
+        "```json\n{\n  \"scene\": \"In the scene, a bimanual robot is positioned on a wooden surface with various objects: a basket, a box, two small containers, and an upright can.\",\n  \"right arm motion\": \"The right arm moves to the left side and lifts the top can with a small blue box inside it.\",\n  \"left arm motion\": \"The left arm places the small box into the basket.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    62,
+    [
+      [
+        "motion",
+        "{'scene': 'The scene shows a robotic arm interacting with various items on a desk, including a basket, two colorful containers (one with green and one with orange pieces), and small boxes. The background features a television and a table surface.'}, 'right arm motion': 'The right arm lifts and maneuvers to place one of the colorful containers into a basket.'}, 'left arm motion': 'The left arm assists in adjusting and positioning the container within the basket.'}"
+      ]
+    ]
+  ],
+  [
+    63,
+    [
+      [
+        "motion",
+        "{\n  \"scene\": \"A robotic arm is positioned on a table with a basket, an alphabet soup, and a cream cheese box. The arm moves to place the alphabet soup and the cream cheese box into the basket.\",\n  \"right arm motion\": \"The right arm extends upwards and retracts to grasp the alphabet soup, then extends downwards to place it into the basket.\",\n  \"left arm motion\": \"The left arm reaches up to grasp the cream cheese box and places it into the same basket.\"\n}"
+      ]
+    ]
+  ],
+  [
+    64,
+    [
+      [
+        "motion",
+        "```json\n{\n    \"scene\": \"A bimanual robot with a camera arm is positioned on a wooden table. It has a container of alphabet soup on the left, a cream cheese box in the center, and two different colored cans on the right. There is also a wire basket on the left side.\",\n    \"right arm motion\": \"The right arm of the robot moves closer to the containers to pick up the cream cheese box.\",\n    \"left arm motion\": \"The left arm of the robot moves to assist in picking up the cream cheese box from the container of alphabet soup.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    65,
+    [
+      [
+        "motion",
+        "```json\n{\n  \"scene\": \"In a workspace, the robot is positioned as part of a bimanual system in a room with a television monitor and a wooden table. On the table, there are various items including a basket, a blue box, two colored cans, and a yellow cream cheese box. The robot's right arm is holding the blue box and the robot's left arm is positioned to move the items.\",\n  \"right arm motion\": \"The right arm moves the blue box from the table to the left side.\",\n  \"left arm motion\": \"The left arm is also positioned to move items, but no specific actions are captured in the frames provided.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    66,
+    [
+      [
+        "motion",
+        "{'scene': 'A robot is positioned on a wooden table, with a basket, a blue box, a can with colorful contents, and two cans in the background. The robot is interacting with these objects in an arrangement for some unspecified task.', 'right arm motion': 'The right arm of the robot reaches for the can, lifting it slightly and bringing it closer to the basket.', 'left arm motion': 'The left arm is not visible in these frames, but assuming the right arm is in its usual position, this motion implies it is either stable or adjusting to the movement of the can.'}"
+      ]
+    ]
+  ],
+  [
+    67,
+    [
+      [
+        "motion",
+        "```json\n{\n  \"scene\": \"The scene shows a robot with a camera on the right arm aiming at some objects on a wooden table. There is a basket with white containers, a blue object, a cylinder with colorful contents on the table, and a small container to the right of the robot.\",\n  \"right arm motion\": \"The right arm moves upwards, potentially to aim or adjust its position to interact with the objects. However, the arm does not perform any specific action as the initial setup shows the robot's orientation and the presence of the camera component.\",\n  \"left arm motion\": \"The left arm remains stationary throughout the sequence, indicating no movement in this action.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    68,
+    [
+      [
+        "motion",
+        "```json\n{\n  \"scene\": \"A robot is positioned on a wooden table, picking up a blue object and a colorful container. There are a basket with rolled papers, some containers, and a plastic container with an alphabet soup on the table.\",\n  \"right arm motion\": \"Reaches towards the right.\",\n  \"left arm motion\": \"Reaches towards the right.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    69,
+    [
+      [
+        "motion",
+        "```json\n{\n    \"scene\": \"The scene shows a robotic arm on a wooden table with various small objects, including a basket at the bottom left, a blue box, a yellow-lidded container with fruits, and an orange lidded container. The robotic arm holds a stack of aluminum cans and uses its other arm to assist in picking up the blue box. No other actions take place.\",\n    \"right arm motion\": \"The right arm moves upward to grasp the stack of cans and extends to the left to hold the blue box.\",\n    \"left arm motion\": \"The left arm assists in positioning the blue box into the basket.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    70,
+    [
+      [
+        "motion",
+        "```json\n{ 'scene': 'A white robotic arm is positioned on a wooden table, aiming at a pile of food items including cups and a box. A large metal basket sits nearby as the task of placing all items requires attention to the left side.', 'right arm motion': 'Severe deviation of the robotic arm from its initial position, indicating an attempt to interact more systematically with items, possibly reaching for or interacting with a specific object.', 'left arm motion': 'Reconfiguration of the position and orientation, moving in a more controlled manner to hold or move the items such as cups or containers from the table towards or within the basket.', 'additional actions': 'The left arm maneuvers the plastic box inside the basket while the right arm guides the cups into their respective places, ensuring the final arrangement matches the original setup.' }\n```"
+      ]
+    ]
+  ],
+  [
+    71,
+    [
+      [
+        "motion",
+        "```json\n{\n    \"scene\": \"In a mock-up kitchen setup, a robot manipulates various items including a wasing basket, a small blue object, a milk bottle, and a colorful container. The robot's right arm appears to lift the milk bottle above its head, while its left arm places a colorful box on the table.\",\n    \"right arm motion\": \"Right arm lifts a milk bottle from its base, positioning it to the top of the table.\",\n    \"left arm motion\": \"Left arm lifts a colorful container, placing it on the table next to the milk bottle.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    72,
+    [
+      [
+        "motion",
+        "```json\n{\n    \"scene\": \"A bimanual robot is seen on a wooden table with various objects including a white basket with straws, a blue box, a cylindrical container with vegetables, an open can, and a large cylindrical object with an attached camera. The robot's goal is to place all items from the right side into the basket.\",\n    \"right arm motion\": \"The right arm lifts the blue box and places it into the basket.\",\n    \"left arm motion\": \"The left arm picks up the cylindrical container with vegetables and places it into the basket.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    73,
+    [
+      [
+        "motion",
+        "```json\n{\n    \"scene\": \"A robotic arm is positioned on a table with a basket, a small container, and a can on it. The scene is set against a wooden table and a modern background.\",\n    \"right arm motion\": \"The right arm moves to grasp the can with the cream cheese box and lifts it towards the basket.\",\n    \"left arm motion\": \"The left arm moves to place the can and the cream cheese box into the basket along with the small container.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    74,
+    [
+      [
+        "motion",
+        "```json\n{\n    \"scene\": \"A robotic arm is positioned on a wooden table with various items including a basket, a can of food (with a colorful design), and a can of soup. The background includes a flat screen TV and a plain wall.\",\n    \"right arm motion\": \"The right arm moves down, picks up the can of soup near the basket, and places it in the basket.\",\n    \"left arm motion\": \"The left arm is initially off the table and does not move during this sequence.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    75,
+    [
+      [
+        "motion",
+        "```json\n{\n  \"scene\": \"A humanoid robot is shown with various objects on a wooden surface, including a metal basket, a light blue container, a colorful container with a cartoon character, another small container with a colorful object, and what appears to be a box of alphabet soup.\",\n  \"right arm motion\": \"The right arm moves to pick up the small container with the colorful object and place it into the metal basket.\",\n  \"left arm motion\": \"The left arm moves to pick up the colorful container with a cartoon character and place it similarly into the basket.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    76,
+    [
+      [
+        "motion",
+        "```json\n{\n  \"scene\": \"A robotic arm is positioned over a table with a basket, two cans, a small box, and a larger colored can. The robot is aiming to place objects into the basket.\",\n  \"right arm motion\": \"The right arm moves down to grasp a larger can positioned near the basket.\",\n  \"left arm motion\": \"The left arm moves up to pick up a small box and place it into the basket.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    77,
+    [
+      [
+        "motion",
+        "```json\n{\n    \"scene\": \"The scene shows a robotic arm on a wooden table with three cans and a basket. The robotic arm has a white and black body and appears to operate with its gripper possibly to pick up the cans. Throughout the frames, the action involves the robotic arm moving to place cans into a basket.\",\n    \"right arm motion\": \"The right arm is initially held above the table. It then descends and positions to grasp one of the cans.\",\n    \"left arm motion\": \"The left arm remains stationary as the right arm grasps the can to place it into the shelf. The right arm lifts the can from its original position and places it into the basket. This action follows, moving the can from its current position on the table to the shelf and positioning it in the basket.\",\n    \"alphabet soup and cream cheese box\": \"There are no alphabet soup or cream cheese boxes in this scene. The frames focus solely on the robotic arm moving cans to the basket.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    78,
+    [
+      [
+        "motion",
+        "```json\n{\n  \"scene\": \"A robotic arm positioned on a wooden table, holding two different items: an alphabet soup tube, a blue container, and a can of cream cheese on its right side. The background includes a TV and various other containers.\",\n  \"right arm motion\": \"The right arm moves upward to grasp the alphabet soup tube.\",\n  \"left arm motion\": \"The left arm lowers and moves to the left, positioning the blue container near the robot's hand.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    79,
+    [
+      [
+        "motion",
+        "{ 'scene': 'A robotic arm is positioned on a wooden table with various items, such as a basket of items, bottles, and a cream cheese box. There is also an alphabet soup bottle.'}, 'right arm motion': 'The right arm moves towards the alphabet soup bottle and places it in the basket.', 'left arm motion': 'The left arm moves towards the alphabet soup bottle and places it in the basket.'}"
+      ]
+    ]
+  ],
+  [
+    80,
+    [
+      [
+        "motion",
+        "```json\n{\n  \"scene\": \"A robotic arm places various household items on a wooden table, including a stack of cans, a bottle of liquid soap, and a box.\",\n  \"right arm motion\": \"The right arm picks up the blue and yellow can and places it on the table next to the soap bottle.\",\n  \"left arm motion\": \"The left arm also picks up and positions the box near the others, aligning it with other objects on the table.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    81,
+    [
+      [
+        "motion",
+        "```json\n{\n  \"scene\": \"The robot is placed on a wooden table displaying various items, including a stack of items, a colorful container with liquid, an orange bottle, a small metal basket, a can, and a box. The robot is positioned near these items.\",\n  \"right arm motion\": \"The right arm raises and moves forward to grasp the colorful container with liquid and the orange bottle.\",\n  \"left arm motion\": \"The left arm lowers and moves to place the colorful container with liquid into the stack of items near the basket. The orange bottle and the can remain on the table.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    82,
+    [
+      [
+        "motion",
+        "```json\n{\n    \"scene\": \"A scene showing a robotic arm on a wooden table with various items including a metal basket, a plastic container with liquid soap, a bottle of baking soda, a can of cream cheese, and a box of alphabet soup. The arm is reaching towards the objects on the table to manipulate them for a task.\",\n    \"right arm motion\": \"The right arm reaches towards the plastic container with liquid soap and lifts it slightly while the left arm touches the plastic container.\",\n    \"left arm motion\": \"The left arm reaches towards the can of cream cheese, touches it, and moves it away from the table, placing it aside. Next, the left arm moves to touch and lift the box of alphabet soup and places it into the metal basket.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    83,
+    [
+      [
+        "motion",
+        "```json\n{\n    \"scene\": \"A bimanual robot is placed on a wooden table with various objects including a small metal basket, three spray bottles (one with orange liquid, one with blue and yellow, and one with green and red liquids), and a can with multiple colors.\",\n    \"right arm motion\": \"The right arm of the robot moves upward to grasp the spray bottle with blue and yellow liquids.\",\n    \"left arm motion\": \"The left arm of the robot moves upward to grasp the spray bottle with orange liquid.\",\n    \"right arm motion\": \"The right arm lowers and then moves forward to carefully place the blue and yellow spray bottle into the small metal basket.\",\n    \"left arm motion\": \"The left arm lowers and then moves forward to place a small blue and white box into the small metal basket.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    84,
+    [
+      [
+        "motion",
+        "```json\n{\n    \"scene\": \"The scene depicts a robotic arm on a wooden table with various items including a container of alphabet soup, a bottle of cream cheese, a bottle of orange liquid (likely mustard or dish soap), a small blue cube, and a can with green, red, and orange colors. The robotic arm is positioned above these items.\",\n    \"right arm motion\": \"The right arm is positioned at a 45-degree angle to the table and starts moving downwards towards the can of the green, red, and orange container with the right hand, while the left arm tilts upwards to reach the can.\",\n    \"left arm motion\": \"The left arm adjusts its position to hold the right arm overhead and simultaneously reaches upward to grasp the can positioned above the right arm, while the right arm is lowered to grasp the green, red, and orange can.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    85,
+    [
+      [
+        "motion",
+        "```json\n{\n  \"scene\": \"A robotic arm is positioned on a wooden table with various items including a bowl of alphabet soup, a spray bottle labeled 'cream cheese box', a container with a multicolored design, a small blue object, another container with a multicolored design, and a can of orange liquid.\",\n  \"right arm motion\": \"Reversing its position slightly backward to reach for the bowl of alphabet soup.\",\n  \"left arm motion\": \"Moving the spray bottle positioned on top of the alphabet soup container towards the white basket.\",\n  \"left arm motion\": \"Moving the container with the multicolored design from the center to beside the spray bottle.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    86,
+    [
+      [
+        "motion",
+        "```json\n{\n    \"scene\": \"The scene shows a robotic arm with a white head and a metallic structure, interacting with various objects on a wooden table. There is a basket-like object, a spray bottle, a bottle of detergent, and a colorful can on the table. The robotic arm is positioned to perform an action labeled \\\"put both the alphabet soup and the cream cheese box in the basket\\\".\",\n    \"right arm motion\": \"The right arm reaches down and lifts the spray bottle and the colorful can from the table and places them into the basket-like object in the left foreground. The left arm moves upwards to hold the spray bottle and the container with the colorful labels in their respective positions.\",\n    \"left arm motion\": \"The left arm moves to place the container with the colorful labels into the basket-like object. It holds the object steady while moving it toward the basket, positioning both containers within the basket.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    87,
+    [
+      [
+        "motion",
+        "```json\n{\n    \"scene\": \"A white bimanual robot is positioned on a wooden surface holding various items, including a can of alphabet soup, a bottle of cream cheese box, a stack of cards, and another can. The robot is trying to arrange these items in a metal basket.\",\n    \"right arm motion\": \"The right arm of the robot moves to pick up the alphabet soup can.\",\n    \"left arm motion\": \"The left arm of the robot picks up the cream cheese box and the stack of cards, and then places them into the basket.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    88,
+    [
+      [
+        "motion",
+        "```json\n{\n    \"scene\": \"A robotic arm is positioned at a wooden table, searching for items including a blue can, an orange bottle, a blue card, a silver basket, and a red and green cup. The background features a television.\",\n    \"right arm motion\": \"The right arm of the robot is placed over an empty blue can, attempting to pick it up.\",\n    \"left arm motion\": \"The left arm moves to pick up the orange bottle from the table.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    89,
+    [
+      [
+        "motion",
+        "```json\n{\n    \"scene\": \"The scene depicts a robot arm positioned on a desk with various items including a laundry basket, a colored bag, a bottle of cleaning substance, and a small box, ready to perform a task.\",\n    \"right arm motion\": \"The right arm moves slightly upward and to the left, lifting a container labeled 'alphabet soup', possibly positioning it for stacking.\",\n    \"left arm motion\": \"The left arm moves down and to the right, picking up the small blue book or box from the desk.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    90,
+    [
+      [
+        "motion",
+        "```json\n{\n    \"scene\": \"A robotic arm places a blue and orange can and an orange bottle of liquid into a stack of other items placed on a wooden table, while a silver basket and other objects are nearby. The task involves moving the alphabet soup and cream cheese box to the basket.\",\n    \"right arm motion\": \"The right arm moves down to pick up the orange bottle of liquid from the table and places it into a can. The right arm then moves forward with the blue and orange can to stack it on top of the cream cheese box.\",\n    \"left arm motion\": \"The left arm picks up the silver basket and stacks the items from the table into it, positioning the blue and orange can and the alphabet soup into the basket.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    91,
+    [
+      [
+        "motion",
+        "```json\n{\n    \"scene\": \"The scene contains an arm holding a blue container with food items and utensils, including a cup, a sauce bottle, a cream cheese box, and a metal basket on a wooden table. The arm positions the container and some objects onto the table next to the basket.\",\n    \"right arm motion\": \"The right arm remains stationary, supporting the bowl and providing a steady position. It gently opens to pick up an orange item.\",\n    \"left arm motion\": \"The left arm places the orange item on top of the metal basket and adjusts the blue container, ensuring all its items are visible and oriented correctly.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    92,
+    [
+      [
+        "motion",
+        "```json\n{\n  \"scene\": \"The scene depicts a robot holding a bucket of liquid, with other items like a can, a cleaner, a box of alphabet soup, and a box of cream cheese on a wooden surface. The robot's goal is to place some items into a basket and a can.\",\n  \"right arm motion\": \"The right arm grips the bucket of liquid and moves downwards to pour it into the basket.\",\n  \"left arm motion\": \"The left arm moves slightly to support the basket and assist in positioning items.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    93,
+    [
+      [
+        "motion",
+        "```json\n{\n  \"scene\": \"The scene shows a bimanual robot with an arm positioned over a table, interacting with items including a paint can, a bottle of dishwashing liquid, a small rectangular block, and a cup and a box. The robot's left arm is holding the paint can, while the right arm is positioned above, seemingly in the process of placing an item into a basket.\",\n  \"right arm motion\": \"The right arm extended downward to pick up the paint can and move it towards the container.\",\n  \"left arm motion\": \"The left arm extended upward to grasp the paint can and successfully place it into the basket.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    94,
+    [
+      [
+        "motion",
+        "```json\n{\n  \"scene\": \"A robotic hand is actively engaged in pouring liquid from a bottle into a container, with another smaller object around on a wooden table. The entire setup suggests an activity involving cleaning or food preparation.\",\n  \"right arm motion\": \"The right arm is positioned to hold the bottle and is in the process of pouring the liquid from it into the container.\",\n  \"left arm motion\": \"The left arm places the container on top of the stack of folded cloth or tissue paper, ready to receive the liquid.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    95,
+    [
+      [
+        "motion",
+        "```json\n{\n    \"scene\": \"The scene depicts a robotic arm positioned in a kitchen setting with various items around, including a soap bottle, a baking pan, a carton of juice, a cup, and a box with letters inside a basket on a wooden table.\",\n    \"right arm motion\": \"The right arm moves to grasp and place the soap bottle upright.\",\n    \"left arm motion\": \"The left arm moves to hold and then lower the baking pan onto the handle of the robotic arm.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    96,
+    [
+      [
+        "motion",
+        "```json\n{\n  \"scene\": \"The scene shows a robotic kitchen setup with a mixer, a trash can, a bottle of liquid soap, a small box, and a can filled with items. The robot must place both the alphabet soup and the cream cheese box into the trash can.\",\n  \"right arm motion\": \"The right arm moves to pick up the bottle of liquid soap from the table.\",\n  \"left arm motion\": \"The left arm moves to place the can of items into the trash can.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    97,
+    [
+      [
+        "motion",
+        "{ 'scene': 'A bimanual robot is situated in a room while holding a cup, surrounded by various cleaning supplies like a spray bottle, a container of cleaning materials, and a box.', 'right arm motion': 'The right arm raises slightly to the left to pick up the spray bottle.', 'left arm motion': 'The left arm lowers and extends to place the spray bottle into a basket located below.' }"
+      ]
+    ]
+  ],
+  [
+    98,
+    [
+      [
+        "motion",
+        "```json\n{\n    'scene': \"The scene shows a robot standing on a wooden table with a laundry machine, various cleaning supplies, and a basket. An orange bottle, a cream cheese box, and a cylindrical container are visible。\",\n    'right arm motion': \"The right arm moves towards the laundry machine and the orange bottle, bringing it closer to the floor.\",\n    'left arm motion': \"The left arm moves to the orange bottle, placing it into a nearby compartment within the machine.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    99,
+    [
+      [
+        "motion",
+        "```json\n{\n  \"scene\": \"The scene shows a gray robotic arm with white parts positioned on a wooden table. Various objects, including a stack of wicker basket, two spray bottles, and two cans, are present on the table. In the initial frames, the robot's right arm operates towards a blue container and a small rectangular object while the left arm interacts with orange and orange and red cans.\",\n  \"right arm motion\": \"The right arm reaches towards the blue container and subsequently towards the small rectangular object, attempting to manipulate these items.\",\n  \"left arm motion\": \"The left arm is positioned on the table and does not interact directly with the items, but part of the setup and positioning of other objects may be inferred.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    100,
+    [
+      [
+        "motion",
+        "```json\n{\n    \"scene\": \"A bimanual robot cleaning a room. There is a white pipe on the table, several cleaning products (spray bottle, cleaning cans), and a basket.\",\n    \"right arm motion\": \"The right arm moves to grasp a blue and orange cleaning product container and lifts it away from the table.\",\n    \"left arm motion\": \"The left arm moves to pick up the stack of cleaning supplies, specifically the blue and orange product and the orange cleaning container.\",\n    \"right arm motion\": \"The right arm moves to gather the items near the cleaning products, placing them in the basket.\",\n    \"left arm motion\": \"The left arm lifts the stack, organizing the items into the basket as part of the task\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    101,
+    [
+      [
+        "motion",
+        "```json\n{\n  \"scene\": \"A robotic arm is positioned at a table with a basket, two bottles, a cup, and a box of alphabet soup, with a washing machine covered by a gray sleeve in the background.\",\n  \"right arm motion\": \"The right arm moves toward the bottle of orange liquid and places it in the basket.\",\n  \"left arm motion\": \"The left arm moves towards and positions the box of alphabet soup in the basket.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    102,
+    [
+      [
+        "motion",
+        "```json\n{\n    \"scene\": \"A bimanual robot is on a wooden table with several items including a paint can, detergent bottle, and a small box. Some spray paint and cans are positioned around the table. A basket appears in the frame.\",\n    \"right arm motion\": \"The right arm extends downwards towards the paint can and places it into the basket.\",\n    \"left arm motion\": \"The left arm is positioned to facilitate the removal of the paint can and additional items from the table.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    103,
+    [
+      [
+        "motion",
+        "```json\n{\n    \"scene\": \"The scene shows a robotic arm holding and placing various items including an orange soup can, a blue box, and a small container with cream cheese next to a basket, and a gray and white robotic structure resembling a cleaning apparatus. The environment is an indoor setting with a flat wooden surface.\",\n    \"right arm motion\": \"The right arm holds the orange soup can of the cleaning apparatus, places it into the open silver basket placed at the table.\",\n    \"left arm motion\": \"The left arm positions the blue box to the side and the small container with cream cheese in the basket, ensuring all items are placed correctly for the next task.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    104,
+    [
+      [
+        "motion",
+        "```json\n{ 'scene': 'The scene shows a humanoid robot cleaning an area with tools like a white washing machine, a container of sponges, an orange bottle of dishwashing liquid, and a can of sauce on a wooden surface. The robot appears focused on sorting through items.', 'right arm motion': 'The right arm moves to pick up the orange bottle of dishwashing liquid.', 'left arm motion': 'The left arm moves to place the container of sponges and the can of sauce into the basket.'}\n```"
+      ]
+    ]
+  ],
+  [
+    105,
+    [
+      [
+        "motion",
+        "```json\n{\n  \"scene\": \"A bimanual robot with two white robotic arms is working on placing objects on a table. The right arm holds an orange bottle and positions it next to a can, the left arm is positioned near a basket and a blue object.\",\n  \"right arm motion\": \"The right arm moves to pick up the beige block above the table.\",\n  \"left arm motion\": \"The left arm moves down to grasp the silver object in the basket.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    106,
+    [
+      [
+        "motion",
+        "```json\n{\n  \"scene\": \"A white robot is seen placing items into a basket on a wooden table. Other items on the table include a cream cheese box, a bottle of liquid, and a can. The robot successfully places these items into the basket.\",\n  \"right arm motion\": \"The right arm reaches towards the left side of the table, grasps a cream cheese box, and moves it towards the basket.\",\n  \"left arm motion\": \"The left arm is positioned above the basket, with its part likely for suction or placement, but the movement is not visible during this sequence.\",\n}\n```"
+      ]
+    ]
+  ],
+  [
+    107,
+    [
+      [
+        "motion",
+        "```json\n{\n  \"scene\": \"The scene features a table with a washing machine, some cleaning supplies, and an empty metal basket. The robot is focused on the task of putting alphabet soup from a bottle into the basket and a cream cheese box into another basket.\",\n  \"right arm motion\": \"The right arm is positioned to hold the bottle of alphabet soup vertically.\",\n  \"left arm motion\": \"The left arm moves to pick up the cream cheese box and begins placing it into the metal basket.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    108,
+    [
+      [
+        "motion",
+        "```json\n{\n  \"scene\": \"The scene features a robot holding a carton of alphabet soup and a small box of cream cheese beside a sink with bottles of cleaning supplies and a metal basket on a wooden table.\",\n  \"right arm motion\": \"The right arm of the robot moves towards the carton of alphabet soup.\",\n  \"left arm motion\": \"The left arm of the robot moves towards the small box of cream cheese.\",\n  \"action chunk\": \"The right arm of the robot approaches the carton of alphabet soup while the left arm reaches the smaller cream cheese box, which is then placed into the basket.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    109,
+    [
+      [
+        "motion",
+        "```json\n{\n  \"scene\": \"The scene features a white bimanual robot at a wooden table in an indoor setting with a white toilet and various objects like a spray bottle and a can of cream cheese on the table, with a television in the background. The robot attempts to place the alphabet soup and the cream cheese box in a basket.\",\n  \"right arm motion\": \"The right arm of the robot moves toward the basket.\",\n  \"left arm motion\": \"The left arm reaches toward the container near the toilet, attempting to grasp it.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    110,
+    [
+      [
+        "motion",
+        "```json\n{\n    \"scene\": \"A virtual kitchen scene shows a sink, a bottle of dish soap, a can of orange and green food, and a bag of chips on a wooden table. A futuristic robot with a human-like arm and head is interacting with the scene.\",\n    \"right arm motion\": \"The right arm reaches towards the bottle of dish soap and lifts it.\",\n    \"left arm motion\": \"The left arm does not show any movement, maintaining the fixed position of the sink basket.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    111,
+    [
+      [
+        "motion",
+        "```json\n{\n    \"scene\": \"In a virtual environment, there is a metallic trash can, a spray bottle, and a cream cheese box on a table, along with an automated device that seems to be dispensing liquid into the trash can. The automated device is holding a smaller object.\",\n    \"right arm motion\": \"The right arm moves upwards from the side to grasp the small object.\",\n    \"left arm motion\": \"The left arm lowers to place the small object into the trash can that is filled with a straw-like object.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    112,
+    [
+      [
+        "motion",
+        "```json\n{ 'scene': 'The scene shows a robotic setup on a wooden table, including a soap dispenser, a bottle of orange liquid, a block of butter, a can of jam or candy, and a basket. The robot's arms are positioned to interact with these objects.', 'right arm motion': 'The right arm of the robot raised to grasp the can of jam or candy', 'left arm motion': 'The left arm placed the orange liquid bottle into the soap dispenser'}\n```"
+      ]
+    ]
+  ],
+  [
+    113,
+    [
+      [
+        "motion",
+        "```json\n{\n    \"scene\": \"The scene depicts a virtual setup with a robotic arm holding an orange bottle labeled 'alphabet soup'. The arm is positioned next to two objects: a small blue box, a white jar containing a white object (possibly tissue or sand), and a can with fruits.\",\n    \"right arm motion\": \"The right arm moves to grasp the orange bottle and place it into the white jar located on the table.\",\n    \"left arm motion\": \"The left arm follows by holding the jar containing the white object and placing it into the basket on the table.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    114,
+    [
+      [
+        "motion",
+        "```json\n{\n  \"scene\": \"A bimanual robot is placed on a wooden surface with a laundry basket full of dirty laundry, other items including a bottle of dish soap, a container of cream cheese, and a box of scissors.\",\n  \"right arm motion\": \"The right arm lifted to grasp the laundry basket.\",\n  \"left arm motion\": \"The left arm raised to position the other arm above the basket.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    115,
+    [
+      [
+        "motion",
+        "```json\n{\n    \"scene\": \"The scene shows a robot with a sink, a soap dispenser, a metal bucket, a small open book, a bottle of orange liquid, and a can with two-colored caps on a wooden table. There's a white plumbing system in the background.\",\n    \"right arm motion\": \"The right arm of the robot moves downwards, approaching the soap dispenser and its bottle.\",\n    \"left arm motion\": \"The left arm of the robot moves upwards towards the metal bucket, placing its contents into the bucket.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    116,
+    [
+      [
+        "motion",
+        "```json\n{\n  \"scene\": \"In the scene, there is a white plastic washing machine with a brush attached to its stand, a small silver basket, two bottles (one orange and one blue), and a canned food item on a wooden table.\",\n  \"right arm motion\": \"To the left of the washing machine, the right arm moves to pick up the blue box from the table.  The right arm then interacts with both containers—first placing the orange bottle into a sink, then lifting and moving the blue box inside the basket.\",\n  \"left arm motion\": \"The right arm continues positioning items inside the basket in sequence.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    117,
+    [
+      [
+        "motion",
+        "```json\n{\n  \"scene\": \"A bimanual robot is positioned on a wooden table with various items including a spray bottle, a can of orange and green juice, and a small blue box. The robot has two white mechanical arms.\",\n  \"right arm motion\": \"The right arm moves closer to the objects on the table, possibly to grasp or manipulate them.\",\n  \"left arm motion\": \"The left arm moves slightly outward to the side of the table, likely to stabilize the position of the right arm.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    118,
+    [
+      [
+        "motion",
+        "```json\n{ 'scene': 'A robotic kitchen set up with a bucket containing a piece of bread, a soap bottle, and a can of sauce on a table, alongside a white robotic cat faucet. A television screen is visible in the background. The scene shows a set of instruction blocks on the table. The task involves placing the alphabet soup and the cream cheese box into the basket.', 'right arm motion': 'No visible motion by the right arm in these frames.', 'left arm motion': 'The robotic cat faucet placed the bottle of soap on the table, possibly to use for dispensing the solution or to use its own function with the item in the bottle.', 'left arm motion': 'The robotic cat faucet also manipulated another bottle, possibly pouring the liquid into an adjacent container or using it for a purpose, but the specific motion was not clearly shown in the frames provided.'}\n```"
+      ]
+    ]
+  ],
+  [
+    119,
+    [
+      [
+        "motion",
+        "{ 'scene': 'A robot assembly line setup with a spray gun, a basket, a bottle of detergent, a bottle of alcohol, and a can of cream cheese. A box of alphabet soup is on the table. The robot needs to place the alphabet soup and the cream cheese box into the basket.', 'right arm motion': 'The right arm moves to lift the box of alphabet soup from the table and places it into the basket.', 'left arm motion': 'The left arm places the can of cream cheese into the basket.' }"
+      ]
+    ]
+  ],
+  [
+    120,
+    [
+      [
+        "motion",
+        "```json\n{\n    'scene': 'A bimanual robot is positioned at a wooden table with various objects including a bottle of liquid soap, a container of cream cheese box, and a white basket filled with items. In the background, there is a white pipe and a TV.\",\n    'right arm motion': 'The right arm lifts and maneuvers the bottle of liquid soap from the table, placing it into the basket.',\n    'left arm motion': 'The left arm assists by holding the blue item on the table and placing the cream cheese box into the basket.'\n}\n```"
+      ]
+    ]
+  ],
+  [
+    121,
+    [
+      [
+        "motion",
+        "```json\n{\n    \"scene\": \"The scene shows a workspace with various objects: an artificial \"garbage bin\" with stacked garbage, a washing machine, a spray bottle, a box of alphabet soup, and a can with some fruits.\",\n    \"right arm motion\": \"The right arm lifts the spray bottle from the table, places it back into the bin, and moves it further away from the workspace.\",\n    \"left arm motion\": \"The left arm remains stationary, holding the box of alphabet soup and moving it across the table towards the workspace.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    122,
+    [
+      [
+        "motion",
+        "```json\n{\n  \"scene\": \"The scene shows a robotic arm positioned over a trash bin with various items such as an orange bottle, a blue box, and a can of sliced cheese. A toilet brush is also in the foreground, indicating a cleaning task.\",\n  \"right arm motion\": \"The right arm lifts and positions to grasp the orange bottle.\",\n  \"left arm motion\": \"The left arm extends to hold and lift the box.\",\n  \"right arm motion\": \"The right arm places the orange bottle into the trash bin.\",\n  \"left arm motion\": \"The left arm releases the blue box and positions it into the basket behind the orange bottle.\",\n  \"right arm motion\": \"The right arm places the sliced cheese can into the basket.\",\n  \"right arm motion\": \"The right arm adjusts its grip to hold the trash bin securely.\",\n  \"left arm motion\": \"The left arm moves to adjust the position of the blue box inside the basket.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    123,
+    [
+      [
+        "motion",
+        "```json\n{\n    \"scene\": \"The scene shows a robotic interface with an arm holding a metal object, possibly a part of a cleaning station. A white cleaning pipe is present, and on a wooden table, there is an orange liquid detergent bottle, a small blue object (which might be a battery or screwdriver), a can with a colorful design, and another smaller blue rectangular object placed nearby.\",\n    \"right arm motion\": \"The right arm of the robotic interface moves upwards and to the right to pick up the orange liquid detergent bottle.\",\n    \"left arm motion\": \"The left arm of the robotic interface remains stationary, not performing any action.\",\n    \"scene\": \"After the right arm grabs the orange liquid detergent bottle, the scene does not change, and a different robotic action is not observed, suggesting the right arm performs another task or simply moved out of the frame.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    124,
+    [
+      [
+        "motion",
+        "```json\n{\n  \"scene\": \"A robotic arm is placing items on a wooden table: an oil bottle, a cream cheese box, a basket of toilet paper, and a soda can. There is a white water purifier and a vacuum cleaner situated behind.\",\n  \"right arm motion\": \"The right arm picked up and lowered the oil bottle, positioning it into the basket of toilet paper.\",\n  \"left arm motion\": \"The left arm moved to hold the cream cheese box and placed it into the basket as well.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    125,
+    [
+      [
+        "motion",
+        "{ 'scene': 'The scene depicts a robotic setting on a wooden table. In the foreground, there is a grey and silver robotic arm positioned near a basket filled with white and light-colored materials, possibly sand or wood pieces. In the background, there is a white robotic arm and a TV screen, with various objects including a bottle of orange liquid (likely dish soap), a blue box, and a can with colors suggesting fruits. The basket remains stationary with the robotic arm actively manipulating a smaller object within it.', 'right arm motion': 'The right arm slowly moves toward the brown box and releases it into the basket. This action is aimed at placing the box down as part of the initial task.', 'left arm motion': 'The left arm remains largely stationary with no noticeable movement, allowing the right arm to complete the motion of placing the box into the basket.' }"
+      ]
+    ]
+  ],
+  [
+    126,
+    [
+      [
+        "motion",
+        "```json\n{\n  \"scene\": \"A robotic arm is shown holding white toilet tissue, with two containers on a table and a spray bottle in the background. Another basket is also on the table.\",\n  \"right arm motion\": \"The right arm moves towards the two containers on the table to place an orange bottle of liquid and a cream cheese box into the basket.\",\n  \"left arm motion\": \"The left arm moves to support the basket holding the tissues while the right arm organizes the contents of the table, including the container with the orange bottle.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    127,
+    [
+      [
+        "motion",
+        "```json\n{\n  \"scene\": \"The scene shows a robot handling various items on a table including a container with a brush handle, a small box, a bottle of liquid soap, a can, and an additional item that resembles a box of letters. The background includes a white structure and a monitor.\",\n  \"right arm motion\": \"The right arm is lifted and moved towards the can, possibly to place the can into the basket.\",\n  \"left arm motion\": \"The left arm initially supports the container while moving it towards the basket.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    128,
+    [
+      [
+        "motion",
+        "```json\n{ 'scene': 'A bimanual robot is cleaning an area with a vacuum cleaner, holding various cleaning supplies. The scene shows a wooden table with cleaning tools, including a soap dispenser, bottle of liquid, and a can with a green filter.', 'right arm motion': 'The right arm is positioned as the robot picks up a can with a green filter from the table and places it into a cylindrical basket.', 'left arm motion': 'The left arm lowers the vacuum cleaner and the container to assist in placing the object into the basket, maintaining balance.' }\n```"
+      ]
+    ]
+  ],
+  [
+    129,
+    [
+      [
+        "motion",
+        "```json\n{\n  \"scene\": \"The scene depicts a robotic arm interacting with various items on a wooden table, including a basket containing a bottle, a small blue bowl, a spray can, and a can of cream cheese. The arm reaches for a bottle and moves towards a basket, suggesting the task of placing these items.\",\n  \"right arm motion\": \"The right arm moves from the top left to the middle of the frame, approaching the basket holding the bottle.\",\n  \"left arm motion\": \"The left arm moves from the top right towards the right, where it reaches for the bottle that the right arm is bringing closer.\",\n  \"right arm motion\": \"The right arm lifts a bottle to grasp it, then moves away from the bottle and places it into the basket.\",\n  \"left arm motion\": \"The left arm is not significantly involved in this action but supports the placement of the bottle into the basket.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    130,
+    [
+      [
+        "motion",
+        "```json\n{\n    \"scene\": \"In a room with a wooden table, a robotic arm positions itself to place two objects into a small basket located near a toilet and some bottles.\",\n    \"right arm motion\": \"The right arm reaches towards the right object positioned in the same area and places it into the basket.\",\n    \"left arm motion\": \"The left arm reaches towards the left object and places it into the basket.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    131,
+    [
+      [
+        "motion",
+        "```json\n{\n  \"scene\": \"The scene depicts a robotic setup on a wooden table with various items: an alphabet soup can, a small package, an orange bottle (likely soap), and a can containing green and blue objects. There's also a robotic arm holding an empty basket.\",\n  \"right arm motion\": \"The right arm moved slightly downward.\",\n  \"left arm motion\": \"The left arm held and then placed the basket down.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    132,
+    [
+      [
+        "motion",
+        "```json\n{\n    \"scene\": \"The scene shows a robot arm manipulating various objects on a wooden table. There is a wicker basket with an object, a beer bottle, a small blue box, a can with a sticker, and a white structure to the right. The robot uses its right arm to move the blue box towards the wicker basket, and its left arm to hold its position and facilitate the transport of the blue box. The beer bottle and other items remain stationary.\",\n    \"right arm motion\": \"The right arm moves towards the wicker basket and places the blue box into it.\",\n    \"left arm motion\": \"The left arm remains stationary, holding the blue box as it is being placed into the wicker basket.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    133,
+    [
+      [
+        "motion",
+        "```json\n{ 'scene': 'A robotic environment with a toilet brush, cleaning spray, a cream cheese box, and a can on a table. The scene describes an unorganized arrangement of objects for an indoor cleaning task.', 'right arm motion': 'The right arm raised and moved towards the cleaning spray container.', 'left arm motion': 'The left arm placed a box on the table, moving towards the right.' }\n```"
+      ]
+    ]
+  ],
+  [
+    134,
+    [
+      [
+        "motion",
+        "```json\n{\n    \"scene\": \"The scene depicts a clean workspace with various objects on a wooden tabletop including a silver basket, a bottle of liquid cleaner, another bottle and a container with orange and green elements.\",\n    \"right arm motion\": \"The right arm extends towards the silver basket, places the label-containing object inside the basket as if to place it there.\",\n    \"left arm motion\": \"The left arm moves in an upward motion to stabilize the basket and its contents, positioning their placement appropriately on the table.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    135,
+    [
+      [
+        "motion",
+        "```json\n{\n    'scene': 'A robotic arm is placed over a wooden table with several objects: a bottle of liquid soap, a small blue box, a small orange and green can, a metal basket, and a white toilet. The scene depicts a setting where a robotic arm is working in preparation for organizing items on the table.\",\n    'right arm motion': \"The right arm of the robot is raised and positioned above the table to grasp and start placing the objects.\",\n    'left arm motion': \"The left arm extends outwards and then moves into the frame to pick up the small blue box and the small orange and green can. It places each item into the metal basket.\",\n    'alphabet soup and cream cheese box placement': 'The right arm completes placing the alphabet soup bottle and the cream cheese box into the basket.'\n}\n```"
+      ]
+    ]
+  ],
+  [
+    136,
+    [
+      [
+        "motion",
+        "```json\n{\n    \"scene\": \"The scene shows the robot's hands placed on a wooden surface with various items. There is a basket, a bottle of disinfectant, a small box, and two cans. The robot's left and right arms are positioned in a manner suggesting it is about to interact with these items.\",\n    \"right arm motion\": \"The right arm extended slightly to the left, positioned as if reaching to grab the small box placed to the right of the disinfectant bottle.\",\n    \"left arm motion\": \"The left arm also extended slightly to the left, positioned as if reaching for the basket containing the cans. Both arms are partially elevated, suggesting an intermediate step in this action sequence.\",\n    \"task completion\": \"The left arm successfully picked up the cream cheese box. The right arm returned to holding the small box and moved slightly away, preparing to place the other items in the basket.\",\n    \"final action\": \"The right arm grasped the can, indicating the start of the task to place the alphabet soup in the basket.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    137,
+    [
+      [
+        "motion",
+        "```json\n{\n  \"scene\": \"The scene shows a bimanual robot on a table with a wicker basket, a bottle of orange liquid soap, a small blue square, and a can of cereal or liquid. The robot's right arm is interacting with the soap bottle on the right side of the table, while the left arm holds a box and is positioned near the basket.\",\n  \"right arm motion\": \"The right arm moves up towards the soap bottle and then manipulates it, placing it inside the wicker basket.\",\n  \"left arm motion\": \"The left arm positions a box near the basket and holds it for stability as the right arm moves towards the right side of the table.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    138,
+    [
+      [
+        "motion",
+        "```json\n{\n  \"scene\": \"The scene includes a robotic arm, a trash bin filled with items, a bottle of orange liquid cleaner, a bottle of green liquid, and a can.\", \"right arm motion\": \"The right arm lifts the trash bin slightly to place the empty plastic bag inside the bin.\", 'left arm motion': 'The left arm moves to position the orange liquid cleaner bottle and green liquid can next to the orange liquid cleaner bottle, placing them within the scene area.'\n}\n```"
+      ]
+    ]
+  ],
+  [
+    139,
+    [
+      [
+        "motion",
+        "```json\n{\n  \"scene\": \"A room with various objects on a wooden table including a machine, a bowl, a bottle of dish soap, an alphabet soup container, a milk carton, and a small box. The scene depicts an indoor setting.\",\n  \"right arm motion\": \"Swinging the right arm towards the alphabet soup container and positioning it into the basket.\",\n  \"left arm motion\": \"Folding its left arm to the side and preparing to grab the box resting on the table.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    140,
+    [
+      [
+        "motion",
+        "```json\n{\n    \"scene\": \"A bimanual robot is placed on a wooden table with various items including a white toilet, an orange lotion bottle, a blue box, and a can. There's also a woven basket.\",\n    \"right arm motion\": \"Raised with an outward pointing position and making a slight downward motion.\",\n    \"left arm motion\": \"Raised with an upward pointing position and moving slightly to the side.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    141,
+    [
+      [
+        "motion",
+        "```json\n{\n    \"scene\": \"The scene shows a bimanual robot cleaning a table with a bucket, a bottle, and a box on it. There is also a can with fruit in it. The robot has one arm visible and the other extended beyond the frame.\",\n    \"right arm motion\": \"The right arm moves to a new position to assist with placement of the alphabet soup and the cream cheese box into the basket.\",\n    \"left arm motion\": \"The left arm moves to pick up the alphabet soup bottle and the cream cheese box from the table.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    142,
+    [
+      [
+        "motion",
+        "```json\n{\n    \"scene\": \"A white bimanual robot is placed on a wooden table. It has a basket and several small bottles and a can placed around it. There is also a black speaker in the background.\",\n    \"right arm motion\": \"The right arm of the robot lifts the white handle from the table and places it above the black speaker.\",\n    \"left arm motion\": \"The left arm lowers the silver basket to a level on the table and places it next to the white container.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    143,
+    [
+      [
+        "motion",
+        "```json\n{\n  \"scene\": \"The scene shows a domestic setting with a toilet, cleaning supplies, and a metal basket on a wooden table. In the background, there's a TV and a wall.\",\n  \"right arm motion\": \"The right arm moves down and to the left slightly to grasp and lift the orange liquid bottle.\",\n  \"left arm motion\": \"The left arm moves down and to the right slightly with the object's placement aimed at the basket.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    144,
+    [
+      [
+        "motion",
+        "{\n    \"scene\": \"A robotic setup on a wooden table with various objects including a gray stool, a white spray bottle, a small can, a blue box, a silver basket with items, and a second bottle of orange liquid.\",\n    \"right arm motion\": \"The right arm placed the white spray bottle into the basket.\",\n    \"left arm motion\": \"The left arm placed the blue box next to the container.\",\n    \"right arm motion\": \"The right arm lifted from the table to the gray stool and positioned the orange spray bottle into the right basket.\"\n}"
+      ]
+    ]
+  ],
+  [
+    145,
+    [
+      [
+        "motion",
+        "```json\n{\n    \"scene\": \"The scene shows a table with a mixing bowl, an orange liquid bottle, a can with colorful contents, a white mixing device, and a basket. A second frame includes only the orange liquid bottle and can, while the first frame includes a blue rectangular box on the table.\",\n    \"right arm motion\": \"No explicit movement observed in the right arm.\",\n    \"left arm motion\": \"The left arm picks up the blue rectangular box from the table.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    146,
+    [
+      [
+        "motion",
+        "```json\n{\n  \"scene\": \"A room with a white appliance, a small basket, a bottle of orange liquid (likely laundry detergent), a small can and a white box on a wooden table. The scene shows two instances without change.\",\n  \"right arm motion\": \"The right arm of the robot is extended towards the small basket and objects on the table.\",\n  \"left arm motion\": \"The left arm grasps the bottle of orange liquid and moves it towards the small basket.\",\n  \"right arm motion\": \"The right arm adjusts the basket containing the items to hold the bottle of orange liquid.\",\n  \"left arm motion\": \"The left arm moves towards the small can and white box, preparing to place them in the basket.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    147,
+    [
+      [
+        "motion",
+        "```json\n{\n    \"scene\": \"The scene depicts a workspace with a sink, a cleaning bottle, a small box, and a small container on a wooden table, with a kitchen appliance in the background.\",\n    \"right arm motion\": \"The robot's right arm raised to grasp the orange cleaning bottle.\",\n    \"left arm motion\": \"The robot's left arm moved to place the cleaning bottle into a metal basket.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    148,
+    [
+      [
+        "motion",
+        "```json\n{\n  \"scene\": \"The scene depicts a table with a white washing machine, a bottle of orange liquid detergent, a small stack of white cardboard, a small metal basket, and a canned food item. The bimanual robot is positioned near the washing machine and attempting to organize these objects.\",\n  \"right arm motion\": \"The right arm reaches towards the bottle of orange liquid detergent and grasps it.\",\n  \"left arm motion\": \"The left arm brings two other objects, presumably the stacked white cardboard and the can of food item, into position.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    149,
+    [
+      [
+        "motion",
+        "```json\n{\n  \"scene\": \"A robot is placed on a brown wooden surface with various items around it, including a sink, a brush, a bottle of orange liquid, a blue box, and a can.\",\n  \"right arm motion\": \"The right arm moves down to pick up the orange liquid bottle.\",\n  \"left arm motion\": \"The left arm moves up to grasp the blue box near the sink.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    150,
+    [
+      [
+        "motion",
+        "```json\n{\n  \"scene\": \"The scene shows a wooden table with a white laundry brush, a spray bottle, a cream cheese box, and a basket with other items. There is no significant movement during these frames.\",\n  \"right arm motion\": \"The right arm moves upwards to position a spray bottle next to the table.\",\n  \"left arm motion\": \"The left arm moves to the right to grasp and place a cream cheese box in the basket.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    151,
+    [
+      [
+        "motion",
+        "```json\n{\n  \"scene\": \"The scene depicts a white robotic vacuum cleaner positioned on a wooden surface. Various objects are scattered around, including a vacuum bag, a blue block, a bottle of orange liquid soap, and a can with a green and orange label. The scene portrays the environment after an unspecified activity.\",\n  \"right arm motion\": \"The right arm reaches towards and picks up the blue block from the surface.\",\n  \"left arm motion\": \"The left arm moves to place the blue block into the wicker basket.\",\n  \"right arm motion\": \"The right arm then manipulates the vacuum bag, possibly to place it into the basket or adjust its position.\",\n  \"left arm motion\": \"The left arm moves to pick up the can with the green and orange label from the surface and place it into the basket.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    152,
+    [
+      [
+        "motion",
+        "```json\n{\n    \"scene\": \"A bimanual robot is at a wooden table surrounded by various items, including a white machine, an orange bottle, a blue box, a silver basket, and a can with colorful contents. The task involves placing both the alphabet soup and the cream cheese box into the basket.\",\n    \"right arm motion\": \"The right arm brings the yellow liquid from the orange bottle and positions it into the silver basket.\",\n    \"left arm motion\": \"The left arm holds the blue box and places it into the silver basket.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    153,
+    [
+      [
+        "motion",
+        "{'scene': 'The scene depicts a robot positioned at a table with various items around it, including a woven basket, a bottle of orange liquid, a blue block, a can with stripes, and a white embroidery hoop. The robotic hand operates to place the orange liquid bottle and the blue block into the basket.', 'right arm motion': 'Right arm raised to grasp and place the orange liquid bottle into the basket.', 'left arm motion': 'Left arm placed on the basket to secure the object, and then moves to grasp and place the blue block into the basket.'}"
+      ]
+    ]
+  ],
+  [
+    154,
+    [
+      [
+        "motion",
+        "```json\n{\n    \"scene\": \"The scene shows a setup with a sewing machine, a metal basket, a bottle of orange liquid, and a can on a wooden surface. A blue object is also on the table.\",\n    \"right arm motion\": \"The right arm of the sewing machine moves downward to pick up the orange liquid.\",\n    \"left arm motion\": \"The left arm of the sewing machine remains stationary and does not interact with any objects.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    155,
+    [
+      [
+        "motion",
+        "```json\n{\n    'scene': 'A white industrial-style robotic arm is positioned on a wooden table, surrounded by various items including a basket, a blue plastic bottle, an orange liquid bottle, and a can of some food product. The task involves placing alphabet soup and the cream cheese box into the basket.',\n    'right arm motion': 'The right arm extended and moved slightly to the side, positioning itself above the basket and other items.',\n    'left arm motion': 'The left arm grasped an orange bottle and moved it lower into the basket. It then picked up the blue plastic bottle which was placed inside the basket, closing the slots in the basket.'\n}\n```"
+      ]
+    ]
+  ],
+  [
+    156,
+    [
+      [
+        "motion",
+        "```json\n{ 'scene': 'A white bimanual robot is on a wooden table with various items including a basket, a bottle of orange liquid, a blue block, a can with two colored segments, a can of lemonade, and a bowl. The robot's right arm and left arm are visible, each performing actions to accomplish the task of putting the alphabet soup and the cream cheese box into the basket.', 'right arm motion': 'The right arm lifts and brings the right arm to grasp the blue block and moves it towards the right side of the table.', 'left arm motion': 'The left arm raises, grabs the orange liquid bottle, and positions it near the basket. The left arm then lifts and places the cream cheese box into the basket, which already contains some other items.', 'right arm motion': 'The right arm assists by lifting the orange liquid bottle and positioning it near the basket. The right arm also lifts and places the can with two colored segments into the basket, ensuring all items are properly arranged.'}\n```"
+      ]
+    ]
+  ],
+  [
+    157,
+    [
+      [
+        "motion",
+        "```json\n{\n    \"scene\": \"The scene shows a mechanical arm on a wooden surface with various objects including a basket, a bottle of liquid soap, a can of jam, and a box. The arm is positioned above these objects.\",\n    \"right arm motion\": \"The right arm extends upward and positions itself over the objects.\",\n    \"left arm motion\": \"The left arm moves downward and to the left to grasp the box and place it into the basket.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    158,
+    [
+      [
+        "motion",
+        "{\n    \"scene\": \"A robotic arm with one hand holding an empty metal basket, next to various items: a bottle of dish soap, a blue box, a can of food, and a woven basket on a wooden table. The robot needs to place the alphabet soup and the cream cheese box into the basket.\",\n    \"right arm motion\": \"The right arm moves slightly to the left, seemingly preparing to place the blue box into the basket.\",\n    \"left arm motion\": \"The left arm remains stationary, holding the basket while the right arm moves to assist or position the blue box in the basket.\"\n}"
+      ]
+    ]
+  ],
+  [
+    159,
+    [
+      [
+        "motion",
+        "```json\n{\n    'scene': 'A bimanual robot is positioned on a wooden table with various items including a basket, a bottle of alphabet soup, a bottle of cream cheese box, and a can. The robot's right arm manipulates the alphabet soup and cream cheese bottle while the left arm handles the basket and can.',\n    'right arm motion': 'The right arm picks up the orange bottle of alphabet soup from the table and places it into the basket on the left side.',\n    'left arm motion': 'The left arm lifts the can, moves it to the right side of the table, and places it into the basket. Additionally, the left arm grasps and places the blue box near the alphabet soup bottle.'\n}\n```"
+      ]
+    ]
+  ],
+  [
+    160,
+    [
+      [
+        "motion",
+        "```json\n{\n  \"scene\": \"A bimanual robot is positioned on a wooden table with various kitchen items, including a metal basket, a bottle of orange liquid, a blue object, and a can.\",\n  \"right arm motion\": \"The right arm moves slightly upwards and to the right.\",\n  \"left arm motion\": \"The left arm moves to pick up the orange liquid bottle and places it into the metal basket.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    161,
+    [
+      [
+        "motion",
+        "```json\n{\n    \"scene\": \"A white bimanual robot is located on a wooden table with various items including a basket, bottles, and a can. The robot is in the process of placing a blue box and an orange bottle into the basket.\",\n    \"right arm motion\": \"The right arm is shown approaching the orange bottle and placing it into the basket.\",\n    \"left arm motion\": \"The left arm moves to the right, interacting with the blue box placed on the table.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    162,
+    [
+      [
+        "motion",
+        "```json\n{\n    \"scene\": \"A robotic arm is positioned above a table with various items, including a tray, a can of Alimenta, a bottle of liquid soap, and a box of cream cheese.\",\n    \"right arm motion\": \"The right arm moves upward and manipulates the bottle of liquid soap to place it into a basket.\",\n    \"left arm motion\": \"The left arm remains stationary, holding the box of cream cheese and maintaining its position above the bed of items.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    163,
+    [
+      [
+        "motion",
+        "```json\n{\n    \"scene\": \"A bimanual robot with one arm holding a stack of milk boxes labeled with letters, the other arm positioned on the table with various items including a bottle of orange liquid and a small orange and green can.\",\n    \"right arm motion\": \"The right arm moves upward and away from the table, holding the stack of milk boxes.\",\n    \"left arm motion\": \"The left arm moves upward, picking up the orange liquid and small orange and green can, then moves slightly to the right.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    164,
+    [
+      [
+        "motion",
+        "```json\n{\n    \"scene\": \"A robotic arm is positioned on a wooden table placing items into a basket; there are a bottle of liquid soap, a rectangular box, a can of food, and a closed metal basket in the initial setup.\",\n    \"right arm motion\": \"The right arm moves downwards slightly to grasp the bottle of liquid soap located to the right.\",\n    \"left arm motion\": \"The left arm moves up and adjusts its position to bring the rectangular box into place, aligning it with the right arm.\",\n    \"right arm motion\": \"The right arm moves to the left, placing the right arm into holding the rectangular box above the opened basket.\",\n    \"left arm motion\": \"The left arm moves downwards to grip the box, positioning it for placement in the basket.\",\n    \"right arm motion\": \"The right arm moves upward, placing the box inside the basket, where it previously was initially positioned.\",\n    \"left arm motion\": \"The left arm releases the box and moves back to hold the opened metal basket in place.\",\n    \"right arm motion\": \"The right arm moves to the right, placing the bottle of liquid soap into the basket.\",\n    \"left arm motion\": \"The left arm moves to the right, placing the box inside the same basket.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    165,
+    [
+      [
+        "motion",
+        "```json\n{\n    \"scene\": \"A bimanual robot is assembling a wooden table on which various objects are placed, including a metal basket filled with cream cheese, a bottle of orange liquid soap, a small blue box, and a can of orange and green juice.\",\n    \"right arm motion\": \"The robot's right arm moves downward and to the right, positioning a blue box near the metal basket.\",\n    \"left arm motion\": \"The robot's left arm moves upward and to the right, aligning the orange and green juice can with the metal basket.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    166,
+    [
+      [
+        "motion",
+        "```json\n{\n    \"scene\": \"A bimanual robot with a white body and legs is positioned on a wooden table. The scene features an empty basket on the left, a can of oranges, a bottle with orange liquid, and a blue box.\",\n    \"right arm motion\": \"The right arm moves to pick up the orange liquid bottle and places it in the basket.\",\n    \"left arm motion\": \"The left arm moves to pick up the blue box and places it into the basket.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    167,
+    [
+      [
+        "motion",
+        "```json\n{\n  \"scene\": \"The scene features a bimanual robot assembly in front of a computer monitor on a wooden surface, with various items including a basket with a sleeping animal, a blue box, a large orange bottle of dish soap, and a small orange and green container. The video shows the robot's arms positioned across these objects without any intentional movements.\",\n  \"right arm motion\": \"The right arm is not moved in these frames; it appears to be in its default stationary position.\",\n  \"left arm motion\": \"The left arm remains stationary across the frames, with no discernible action taking place.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    168,
+    [
+      [
+        "motion",
+        "```json\n{\n    'scene': 'A bimanual robot is seen assembling a wooden surface where various objects are placed: a basket containing an item, a bottle of liquid soap, a blue block, and a can, possibly a bottle of dressing, both being prepared for placement. The robot's arms are positioned to interact with these objects. The task is to place both a liquid soap bottle and a blue block into the basket.',\n    'right arm motion': 'The right arm of the robot is positioned to grasp the orange liquid soap bottle and place it into the basket. The left arm is also positioned to pick up the blue block from the surface.',\n    'left arm motion': 'The left arm of the robot moves to position the blue block into the basket while the right arm handles the orange liquid soap bottle. Both arms adjust their placement to ensure both items are properly placed into the basket.'\n}\n```"
+      ]
+    ]
+  ],
+  [
+    169,
+    [
+      [
+        "motion",
+        "```json\n{\n  \"scene\": \"A robotic arm is in a kitchen setting holding an alphabet soup bottle and a cream cheese box, respectively, and then places them into a basket on a wooden table beside a bottle of dish soap.\",\n  \"right arm motion\": \"The right arm moves to grasp the alphabet soup bottle near the basket.\",\n  \"left arm motion\": \"The left arm releases the alphabet soup bottle and places it into the basket. The left arm also moves to place the cream cheese box into the basket.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    170,
+    [
+      [
+        "motion",
+        "```json\n{\n  \"scene\": \"The scene depicts a bimanual robot with one arm standing and interacting with items on a wooden table, including a metal basket, an orange bottle, and a cylindrical container.\",\n  \"right arm motion\": \"The right arm of the robot moves to grasp the orange bottle and then moves to the side holding the cylindrical container, positioning both items into the basket.\",\n  \"left arm motion\": \"The left arm remains stationary, holding the metal basket, during the action of placing the remaining items into the basket.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    171,
+    [
+      [
+        "motion",
+        "{\n    \"scene\": \"A bimanuclear robot on a table is positioned next to various items including a metal basket with an empty space, a bottle of liquid soap, a can of orange-colored food, and a small blue box. The robot's right arm is extended toward the center, and its left arm is positioned near the right arm.\",\n    \"right arm motion\": \"The right arm moves toward the center of the table to grasp the metal basket.\",\n    \"left arm motion\": \"The left arm moves slightly forward to pick up the blue box from the table.\"\n}"
+      ]
+    ]
+  ],
+  [
+    172,
+    [
+      [
+        "motion",
+        "```json\n{\n  \"scene\": \"A robotic arm is positioned on a wooden table, surrounded by a kitchen setting. The table holds various objects including a sink basket, a bottle of orange liquid labeled 'Alcohol', a can with orange and green design, a small blue box, and other items.\",\n  \"right arm motion\": \"The right arm moves downward to grab the orange liquid bottle.\",\n  \"left arm motion\": \"The left arm moves upward to place the orange liquid bottle into the sink basket.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    173,
+    [
+      [
+        "motion",
+        "```json\n{ 'scene': 'An indoor scene with a white robotic arm positioned on a wooden table. Various objects are scattered around: a small gray basket, a bottle of baking soda, a can of orange and green soda, and a blue box. A secondary set of objects, including a bottle of alphabet soup and a box of cream cheese, are also visible on the table.', 'right arm motion': 'The right arm moves upward from the ground to grasp the bottle of baking soda and the blue box, positioning them into the basket.', 'left arm motion': 'The left arm lifts the can of orange and green soda higher into the same basket, positioning it next to the blue box and baking soda.', 'left arm motion': 'The left arm extends downwards to place the orange and green soda box into the basket. Afterward, it lowers the blue box as part of the same basket operation.', 'right arm motion': 'The right arm lowers the orange and green soda box and positions it within the basket along with the baking soda and blue box.'}\n```"
+      ]
+    ]
+  ],
+  [
+    174,
+    [
+      [
+        "motion",
+        "```json\n{\n  \"scene\": \"The scene depicts a workspace with a robotic arm placing various objects for an alphabet soup and cream cheese box.\", \"right arm motion\": \"The right arm moves slightly to the left, positioning a bottle and a can to the right of the basket.\", 'left arm motion': \"The left arm moves to pick up and place an orange bottle, positioning it into the box next to a blue one, and arranging the two items in the workspace.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    175,
+    [
+      [
+        "motion",
+        "```json\n{\"scene\": \"A robotic arm manipulates various items such as a metal basket, a bottle of dishwashing liquid, a box of tissue, and a canned item onto a wooden surface in a well-lit room.\", \"right arm motion\": \"The right arm moves to place the metal basket labeled with a black silhouette on the surface.\", \"left arm motion\": \"The left hand places the orange bottle of dishwashing liquid and the blue box of tissue into the metal basket.\", 'position_after': {'bottle of dishwashing liquid': 'in a trash can', 'box of tissue': 'in the trash can', 'canned item': 'on the surface', 'basket': 'empty'}}\n```"
+      ]
+    ]
+  ],
+  [
+    176,
+    [
+      [
+        "motion",
+        "```json\n{\n    \"scene\": \"A robotic arm is positioned on a table with a basket, a bottle of liquid, a box, and a can of food. The arm begins with its right side touching the basket.\",\n    \"right arm motion\": \"The right arm moves downward, interacting with the basket, possibly to place or pick items from it.\",\n    \"left arm motion\": \"The left arm moves downward and to the side, possibly to move the bottle and box into the scene.\",\n    \"scene\": \"The robotic arm interacts with the basket, bottle, box, and can, demonstrating initial positioning of the items.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    177,
+    [
+      [
+        "motion",
+        "```json\n{\n  \"scene\": \"A bimanual robot is positioned on a wooden surface with a laptop in front. The robot has a workspace with various items including a basket, an orange liquid bottle, a blue box, and a can with fruit pieces. The robot's left arm is extending upward to hold the orange liquid bottle, possibly preparing to pour it.\",\n  \"right arm motion\": \"The robot's right arm extends upward to grasp the orange liquid bottle, bringing it below the workspace. The right arm then rotates to pick up the orange liquid bottle and places it into the basket.\",\n  \"left arm motion\": \"The robot's left arm extends downward to grasp the blue box, opening it to reveal its contents. This motion is likely initiated to access the blue box, as the right arm moves to handle the orange liquid bottle.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    178,
+    [
+      [
+        "motion",
+        "```json\n{\n    \"scene\": \"A bimanual robot is on a wooden table working with various objects including a basket, a bottle of liquid, a small box, and a can. The task requires putting the alphabet soup and the cream cheese box into the basket.\",\n    \"right arm motion\": \"The right arm moves upward to grasp the small box.\",\n    \"left arm motion\": \"The left arm moves forward to place the alphabet soup and the cream cheese box into the basket located on the left side of the table.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    179,
+    [
+      [
+        "motion",
+        "```json\n{\n  \"scene\": \"A bimanual robot on a wooden table with a basket, alphabet soup, a bottle of orange liquid soap, and a tub of cream cheese visible. The robot is positioned to pick up some items.\",\n  \"right arm motion\": \"The right arm moves downward to grasp a bottle of orange liquid soap placed on the table.\",\n  \"left arm motion\": \"The left arm moves upward and forward to place the orange liquid soap into a basket on the table.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    180,
+    [
+      [
+        "motion",
+        "```json\n{\n    'scene': 'The scene shows a robotic arm on a wooden table with a wicker basket, an orange bottle, and a bottle of liquid, along with a can of sauce placed nearby. The robot's hands are poised over a table surface with various small objects.',\n    'right arm motion': 'The right arm moves to pick up the orange bottle from its current position and place it into the wicker basket.',\n    'left arm motion': 'The left arm moves to return the remaining items to its respective positions, including placing the can of sauce into the wicker basket.'\n}\n```"
+      ]
+    ]
+  ],
+  [
+    181,
+    [
+      [
+        "motion",
+        "```json\n{\n    'scene': 'A bimanual robot is positioned on a wooden table. It handles a bowl of a liquid food item and operates with an orange bottle and a packaged food item. The scene aims to place specific items into a basket.',\n    'right arm motion': 'The right arm adjusts and brings the orange bottle closer to the basket',\n    'left arm motion': 'The left arm manipulates the package of food item from a can to place in the basket'\n}\n```"
+      ]
+    ]
+  ],
+  [
+    182,
+    [
+      [
+        "motion",
+        "```json\n{\n    \"scene\": \"A robotic arm is positioned on a wooden table to place items into a basket. On the table, there is a bottle of orange liquid soap, a can with a green and orange design, and a wrapped object. The background features a computer monitor and a white wall.\",\n    \"right arm motion\": \"The right arm moves up to grasp and place the bottle of orange liquid soap into the basket on the left.\",\n    \"left arm motion\": \"The left arm moves to the right to pick up the wrapped object and place it into the basket.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    183,
+    [
+      [
+        "motion",
+        "```json\n{\n  \"scene\": \"A simulated environment featuring a robotic arm on a wooden table, positioned over an alphabet soup bottle and a cream cheese box. The arm is interacting with objects, initially holding a dish.\",\n  \"right arm motion\": \"The right arm moves to grasp the orange bottle of alphabet soup and then places it into a metal basket.\",\n  \"left arm motion\": \"The left arm then holds the cream cheese box and subsequently places it into the metal basket.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    184,
+    [
+      [
+        "motion",
+        "{ 'scene': 'A bimanual robot is positioned on a wooden table with various objects, including a basket, a bottle of orange liquid, a bottle of liquid soap, a can with two colored slices, and another unidentifiable object. The robotic arms are initially stationary and out of place on the table. The scene depicts an empty basket and other items in the background.', 'right arm motion': 'The right arm extended towards the right and lowered towards the basket, positioning itself to pick up the orange liquid bottle.', 'left arm motion': 'The left arm moved horizontally to grasp the bottle of liquid soap and lifted it from the table, while simultaneously extending the left arm vertically to stabilize the bottle and align it with the orange liquid bottle.', 'right arm motion': 'The right arm placed the orange liquid bottle into the basket, completing the task of placing the alphabet soup.' }"
+      ]
+    ]
+  ],
+  [
+    185,
+    [
+      [
+        "motion",
+        "```json\n{\n    \"scene\": \"The scene shows a robot arm on a table with various items: a wicker basket, a bottle of orange liquid, a bottle of yellow liquid, and an orange and green can. The robot's right arm picks up one of the orange liquid bottles, and its left arm moves toward the can to place it into the basket.\",\n    \"right arm motion\": \"The right arm picks up the bottle of orange liquid from the table.\",\n    \"left arm motion\": \"The left arm reaches for the orange and green can on the table and places it into the wicker basket.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    186,
+    [
+      [
+        "motion",
+        "```json\n{ \n  \"scene\": \"A bimanual robot is seen manipulating items on a wooden surface. The robot has one arm raised to pick up an orange bottle and the other arm positioned to handle items.\",\n  \"right arm motion\": \"The right arm moves to pick up the orange bottle.\",\n  \"left arm motion\": \"The left arm initially holds a plastic basket and then raises it to hold the orange bottle. After completing this, the left arm moves the plastic basket to the right and moves the orange bottle to the right as well.\",\n  \"task completed\": \"The two items labeled 'alphabet soup' and 'cream cheese box' have been moved to the left basket.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    187,
+    [
+      [
+        "motion",
+        "```json\n{\"scene\": \"A robotic arm is positioned on a wooden table with various objects including a metal basket, a bottle of orange liquid, a bottle of liquid, and a metal can with a colorful lid.\", \"right arm motion\": \"The right arm pulls the metal basket towards itself to place the alphabet soup.\", \"left arm motion\": \"The left arm moves away from the existing objects on the table to assist in placing the alphabet soup into the basket.\"}\n```"
+      ]
+    ]
+  ],
+  [
+    188,
+    [
+      [
+        "motion",
+        "```json\n{\n  \"scene\": \"The scene shows a robotic arm on a wooden table in front of a TV. The arm is holding a bottle of liquid and a can. On the left, there is a basket with some items, and on the right, there's a bottle of orange liquid and a can with green and red content.\",\n  \"right arm motion\": \"The right arm moves to pick up the orange bottle of liquid and place it in the basket.\",\n  \"left arm motion\": \"The left arm moves to position the can with green and red content inside the basket.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    189,
+    [
+      [
+        "motion",
+        "```json\n{\n    \"scene\": \"A robotic arm is positioned on a wooden surface with various items including a basket, a bottle of liquid cleaner, and a container with colorful objects. The task is to place the alphabet soup bottle and cream cheese box into the basket.\",\n    \"right arm motion\": \"The right arm moves up and to the left to grasp the can of liquid cleaner.\",\n    \"left arm motion\": \"The left arm moves up and to the left to grasp the alphabet soup bottle and the cream cheese box respectively. After the bottles and container are placed, the right arm remains stationary.\",\n    \"total right arm motion\": \"The right arm moves vertically in the opposite direction of its initial position.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    190,
+    [
+      [
+        "motion",
+        "```json\n{\n    \"scene\": \"The scene depicts an armless robotic arm positioned on a wooden table with several objects including a basket, a bottle of orange liquid, and a can of orange-colored food items.\",\n    \"right arm motion\": \"There is no motion observed in the right arm of the robotic arm, suggesting it remains stationary throughout.\",\n    \"left arm motion\": \"The left arm initiates movement to place an orange-colored food item into the basket located to its left.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    191,
+    [
+      [
+        "motion",
+        "```json\n{\n    \"scene\": \"The scene shows a robotic arm on a wooden table with a can of alphabet soup, a bottle of orange liquid, and a woven basket. The robotic arm is positioned to pick up one of the elements.\",\n    \"right arm motion\": \"The right arm appears to be slightly moving further forward, bringing more items towards the robotic arm.\",\n    \"left arm motion\": \"The left arm extends upward to grasp a bottle of orange liquid, successfully placing it near the robotic arm.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    192,
+    [
+      [
+        "motion",
+        "```json\n{\n    \"scene\": \"The scene shows a robotic arm in a workspace with a can of alphabet soup, a bottle of orange liquid, and a metal basket on a wooden table. The setting appears to be a demonstration or training scenario for robotic manipulation.\",\n    \"right arm motion\": \"The right arm of the robot picks up the can of alphabet soup.\",\n    \"left arm motion\": \"The left arm is positioned to assist in handling the can, with the gripper likely opened to grasp it.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    193,
+    [
+      [
+        "motion",
+        "```json\n{\n    \"scene\": \"A robot is in a setting with a white robotic arm, a metal basket, a bottle of orange liquid (likely liquid soap or detergent), and an orange and green canister on a wooden table. The robot seems to be positioned to place an item into the basket.\",\n    \"right arm motion\": \"The right arm extends upwards, approaching the canister and the orange bottle.\",\n    \"left arm motion\": \"The left arm extends downwards and manipulates the canister to place it inside the metal basket.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    194,
+    [
+      [
+        "motion",
+        "```json\n{\n    \"scene\": \"A robot positioned on a wooden table with a silver basket, an orange bottle, a can with multicolored segments, and a white bottle. The scene shows objects ready for the task of moving.\",\n    \"right arm motion\": \"The right arm extends upwards to grasp the orange bottle.\",\n    \"left arm motion\": \"The left arm holds the can with multicolored segments as it moves towards the basket while supporting the orange bottle.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    195,
+    [
+      [
+        "motion",
+        "```json\n{\n    \"scene\": \"A robotic arm positioned at a table, holding a small orange bottle labeled 'alcohol' and a small can, and next to a basket, a can with yellow flowers in it. There is also a bottle labeled 'cream cheese box', presumably for storage.\",\n    \"right arm motion\": \"The right arm moves up in an outward motion to grasp the orange alcohol bottle.\",\n    \"left arm motion\": \"The left arm moves down in a parallel motion to keep the orange alcohol bottle stationary while positioned next to the basket.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    196,
+    [
+      [
+        "motion",
+        "```json\n{\n    'scene': 'A robotic arm is positioned on a wooden table with a basket, an orange liquid bottle, and a can. The task requires moving the orange liquid bottle and the can to a basket. The robot starts by picking up the can and the bottle, then places them into the basket, leaving the remaining items on the table.',\n    'right arm motion': 'The right arm moves to grasp the orange liquid bottle, lifting it and placing it into the basket. The right arm also lowers the can, positioning it in the basket as instructed by the task.',\n    'left arm motion': 'The left arm moves to grab the can, positioning it into the basket. It then adjusts the orange liquid bottle into the same basket.'\n}\n```"
+      ]
+    ]
+  ],
+  [
+    197,
+    [
+      [
+        "motion",
+        "```json\n{\n  \"scene\": \"The scene shows an end-effector at a table with a basket, a bottle of orange liquid (likely cooking oil), a bottle of cream cheese, and a can of soup. The scene is set in a room with a plain wall and a monitor.\",\n  \"right arm motion\": \"The right arm reaches out and places the orange liquid bottle into the basket.\",\n  \"left arm motion\": \"The left arm retrieves the cream cheese box and places it into the basket. Additionally, the can of soup is also moved into the basket.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    198,
+    [
+      [
+        "motion",
+        "{'scene': 'The scene shows a robot positioned on a wooden table with a basket, an orange cleaning bottle, and a can of ingredients. Its right arm is extended towards the cleaning bottle, and its left arm extends towards the can of ingredients. The robot then moves to retrieve the can and the cleaning bottle.', 'right arm motion': 'The right arm moves upwards and to the left slightly, preparing to grasp the orange cleaning bottle.', 'left arm motion': 'The left arm moves upwards and to the right, likely to pick up the can of ingredients.'}"
+      ]
+    ]
+  ],
+  [
+    199,
+    [
+      [
+        "motion",
+        "```json\n{\n    \"scene\": \"A bimanual robot is positioned on a wooden table with various objects including a basket, a bottle of orange liquid and some cans, and a basket containing eggs. The robot manipulates the orange liquid and cans to move them to the basket.\",\n    \"right arm motion\": \"The right arm moves up to grasp the orange liquid bottle and proceeds to pour it into the silver basket.\",\n    \"left arm motion\": \"The left arm adjusts the position of the cans, placing them into the basket.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    200,
+    [
+      [
+        "motion",
+        "```json\n{\n    \"scene\": \"A robotic arm is positioned on a wooden table, surrounded by items including a basket, a bottle of orange liquid, and a small orange and green container. The scene represents an interface with computer-generated objects.\",\n    \"right arm motion\": \"The right arm moves to pick up the orange liquid bottle and place it into the basket.\",\n    \"left arm motion\": \"The left arm moves to position the small orange and green container and the large basket into the basket, ensuring all items are placed.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    201,
+    [
+      [
+        "motion",
+        "```json\n{\n    \"scene\": \"The scene shows a robot arm positioned on a table with a basket, a bottle of liquid soap, a bottle of cream cheese, and a can. The robot aims to gather items into the basket. In each subsequent frame, the robot's left arm moves upwards and slightly to the right, while its right arm moves to the left and slightly downwards.\",\n    \"right arm motion\": \"The right arm is lowered to grab the bottle of liquid soap.\",\n    \"left arm motion\": \"The left arm moves to the left to retrieve the can and the bottle of cream cheese.\",\n    \"purpose\": \"The purpose was to gather the items into the basket.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    202,
+    [
+      [
+        "motion",
+        "{ 'scene': 'A robot arm is positioned on a wooden table with a basket, a bottle of liquid soap, a bottle with a can of fruit sauce, and a basket on the table. The task is to place the alphabet soup and the cream cheese box into the basket.', 'right arm motion': 'The right arm moves up slightly and stabilizes its position.', 'left arm motion': 'The left arm moves forward to pick up one of the fruit sauce can and places it into the basket.' }"
+      ]
+    ]
+  ],
+  [
+    203,
+    [
+      [
+        "motion",
+        "```json\n{\n  \"scene\": \"The scene shows a robotic arm standing on a wooden table next to various objects including a basket, a bottle of liquid and an empty canister.\",\n  \"right arm motion\": \"The right arm moved backward to pick up the bottle of liquid from the table.\",\n  \"left arm motion\": \"The left arm moved backward to place the bottle of liquid into the basket on the table.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    204,
+    [
+      [
+        "motion",
+        "```json\n{\n    \"scene\": \"The robotic arm is positioned on a wooden table with a carton of alphabet soup to the right, a bottle of orange liquid to the right, a stack of items in a woven basket in the left, and the robot’s head is visible.\",\n    \"right arm motion\": \"The right arm moves down and places the orange liquid into the woven basket on the table.\",\n    \"left arm motion\": \"The left arm moves left and holds the stack of items in the woven basket, positioning them as part of the task.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    205,
+    [
+      [
+        "motion",
+        "```json\n{\n    \"scene\": \"A bimanual robot is seen interacting with various objects on a wooden table, including a basket, a clear liquid in a small container, and a red and green container. The scene focuses on demonstrating the robot's ability to place various items in a specific location.\",\n    \"right arm motion\": \"The right arm lowers and positions itself near the small collection of orange liquid bottles. The right arm then places two separate bottles into the basket located to the left.\",\n    \"left arm motion\": \"The left arm moves horizontally to place the red and green container into the basket located to the right.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    206,
+    [
+      [
+        "motion",
+        "```json\n{\n  \"scene\": \"The scene shows a robotic arm positioned on a wooden surface with various objects. Nearby is a neatly stacked basket, an orange bottle labeled \"alphabet soup,\" and a can of \"cream cheese.\"\n\",\n  \"right arm motion\": \"The right arm lifts the orange \"alphabet soup\" bottle and places it onto the stack of items near the basket.\",\n  \"left arm motion\": \"The left arm moves slightly to stabilize the orange bottle and then handles the \"cream cheese\" can, positioning it beside the rest of the objects.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    207,
+    [
+      [
+        "motion",
+        "```json\n{\n    'scene': 'A bimanual robot is positioned on a wooden table with various items like a basket, a container of alphabet soup, and a can of cream cheese. The robot aims to place the alphabet soup and the cream cheese box into the basket.',\n    'right arm motion': 'The right arm extends from its current position to pick up the alphabet soup container and place it into the basket.',\n    'left arm motion': 'The left arm moves to the right to assist in placing the container of alphabet soup into the basket.'\n}\n```"
+      ]
+    ]
+  ],
+  [
+    208,
+    [
+      [
+        "motion",
+        "{ \n  'scene': 'A bimanual robot is positioned on a wooden table, with various items including a basket, an orange detergent bottle, and a container with an orange and green round item. The robot can be seen utilizing its two arms to interact with the items. The task involves moving the alphabet soup and the cream cheese box into the basket.', \n  'right arm motion': 'The right arm lifts and reaches towards the orange detergent bottle, positioning it near the robot's base. It then moves the orange and green object into the basket area on the left side of the table.', \n  'left arm motion': 'The left arm moves to the right to assist by grasping and positioning the orange and green object into the basket. It then moves to hold and lower the orange detergent bottle, positioning it within the basket area on the left side of the table.' \n}"
+      ]
+    ]
+  ],
+  [
+    209,
+    [
+      [
+        "motion",
+        "```json\n{\n    \"scene\": \"The robotic arm is positioned on a table, picking up an alphabet soup bottle and a cream cheese box, placing them in a basket. An orange soap bottle and a cup of juice are also present on the table.\",\n    \"right arm motion\": \"The right arm picks up the alphabet soup bottle from the table.\",\n    \"left arm motion\": \"The left arm moves to place the alphabet soup bottle into the basket, while the right arm holds the bottle and then adjusts the position for the box.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    210,
+    [
+      [
+        "motion",
+        "```json\n{\n  \"scene\": \"A robot is positioned on a wooden table with various objects including a basket, an orange liquid bottle, a container with cream cheese, and an alphabet soup.\",\n  \"right arm motion\": \"The right arm moves slightly forward.\",\n  \"left arm motion\": \"The right arm performs no significant motion in this sequence.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    211,
+    [
+      [
+        "motion",
+        "{'scene': 'A white bimanual robot is placing items on a table: a small basket with a black object, a bottle of orange liquid, another bottle of a green, orange, and white drink (likely a juice or soup), and a canned drink. The scene shows the robot moving the right arm and placing the items into the left bin', 'right arm motion': 'The right arm moves its joint lower, lifting the bottle of orange liquid and placing it into the basket. The right arm's other joint moves to place the black object into the basket. By positioning the orange liquid bottle into the basket and completing the placement of the black object, the task of moving all items into the bin is fulfilled.', 'left arm motion': 'The left arm is initially at rest above the table. Its joint moves upward to place the orange bottle into the basket. The left arm then moves downward to position the small can in the basket, moving the left arm around the table to place the items into the bin.'}"
+      ]
+    ]
+  ],
+  [
+    212,
+    [
+      [
+        "motion",
+        "```json\n{\n  \"scene\": \"A robot with a basket and an orange bottle is seen, and later it positions a red-colored canister with green and yellow on the table.\",\n  \"right arm motion\": \"The robot moves its right arm closer to a canister, placing it into a basket.\",\n  \"left arm motion\": \"The robot's left arm adjusts the orange bottle and positions it next to the canister.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    213,
+    [
+      [
+        "motion",
+        "```json\n{ 'scene': 'A white robot moves its arm towards the alphabet soup bottle and cream cheese box on a desk, then positions the alphabet soup bottle inside a basket, while the cream cheese container is already placed to the right of the robot.', 'right arm motion': 'The right arm picks up the bottle of orange liquid.', 'left arm motion': 'The left arm grabs the cream cheese container and positions it next to the alphabet soup bottle and the basket.'}\n```"
+      ]
+    ]
+  ],
+  [
+    214,
+    [
+      [
+        "motion",
+        "```json\n{\n    \"scene\": \"The scene shows a robotic arm on a wooden surface with a cup of fruit juice, a spray bottle, and a metal container with a lid. The robot is positioned to open the metal container, and the task is to place two items into it.\",\n    \"right arm motion\": \"The right arm moves upwards to grasp the spray bottle with precision.\",\n    \"left arm motion\": \"The left arm opens the lid of the metal container and grasps the cup of fruit juice, transferring it into the container.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    215,
+    [
+      [
+        "motion",
+        "```json\n{ 'scene': 'A robotic arm is positioned on a wooden table, with a can of orange juice, a bottle of yellow liquid (possibly oil), and a metal basket containing various items. The scene describes the setup for filling the basket.', 'right arm motion': 'The right arm moves upward and slightly inward, grasping the label visible on the orange juice can.', 'left arm motion': 'The left arm moves towards the metal basket and the yellow bottle, positioning it appropriately, possibly for placement or interaction.' }\n```"
+      ]
+    ]
+  ],
+  [
+    216,
+    [
+      [
+        "motion",
+        "```json\n{\n    \"scene\": \"A robot with a white body is positioned on a wooden table and interacts with several objects including a basket, a bottle of orange liquid, a can of an orange-patch colored can, and a black object. It is preparing to put a blue object into the basket.\",\n    \"right arm motion\": \"The right arm reaches towards the orange liquid bottle and lifts it.\",\n    \"left arm motion\": \"The left arm places the blue object into the basket made of interwoven materials.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    217,
+    [
+      [
+        "motion",
+        "```json\n{\n    \"scene\": \"The scene shows a robot positioned on a wooden table with various objects: a basket with a roll of tape, a small orange bottle of liquid, and a red can of food.\",\n    \"right arm motion\": \"The right arm moves to pick up the small orange bottle of liquid.\",\n    \"left arm motion\": \"The left arm moves to pick up the red can of food.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    218,
+    [
+      [
+        "motion",
+        "```json\n{\n    \"scene\": \"The scene shows a robot with its hands on a wooden table, with a wicker basket, a bottle of orange liquid (labelled alphabet soup), and a can of food (labelled cream cheese box) on the table. The robot's right arm appears to be manipulating the orange liquid while its left arm is positioned next to the basket and can.\",\n    \"right arm motion\": \"The right arm of the robot extends and moves towards the orange liquid bottle, positioning it above the table and ready for interaction.\",\n    \"left arm motion\": \"The left arm of the robot remains stationary and supports the positioning of the can and basket on the table.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    219,
+    [
+      [
+        "motion",
+        "```json\n{\n    \"scene\": \"A white robotic arm is positioned on a wooden table, which contains a woven basket, a bottle of orange liquid, and a bottle of cream cheese.\",\n    \"right arm motion\": \"The right arm moves downward and slightly to the left, approaching the orange liquid bottle. The right arm then extends slightly upward.\",\n    \"left arm motion\": \"The left arm moves upward, positioning itself to grasp the orange liquid bottle, as well as to extend forward slightly.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    220,
+    [
+      [
+        "motion",
+        "```json\n{\n  \"scene\": \"A white bimanual robot is positioned on a wooden table with an empty basket, a bottle of orange liquid soap, and a can of apple sauce nearby. The scene depicts the robot's ability to interact with various objects on the table.\",\n  \"right arm motion\": \"The right arm picks up the bottle of orange liquid soap and places it into the basket.\",\n  \"left arm motion\": \"The left arm moves towards the can of apple sauce and places it into the basket.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    221,
+    [
+      [
+        "motion",
+        "```json\n{\n  \"scene\": \"A bimanual robot is tasked with placing two items from a table onto a basket. The table has a bowl, a bottle of yellow liquid, and a can of food.\",\n  \"right arm motion\": \"The robot grasps the bottle of yellow liquid from the right side of the table and lifts it, moving it closer to the basket.\",\n  \"left arm motion\": \"The robot uses its left arm to place the can of food into the basket below the bottle of liquid.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    222,
+    [
+      [
+        "motion",
+        "```json\n{\n  \"scene\": \"The scene features a white robotic arm on a wooden table, next to a basket of spaghetti, a bottle of cleaning liquid, and a can of tomatoes.\",\n  \"right arm motion\": \"The right arm moves upwards and slightly downwards to reach for the cleaning liquid bottle.\",\n  \"left arm motion\": \"The left arm moves up and later shifts its position to pick up the can of tomatoes and place it into the basket.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    223,
+    [
+      [
+        "motion",
+        "```json\n{\n  \"scene\": \"The scene shows a white robotic arm on a wooden table with a basket, a bottle of orange liquid, and a can of orange and white products. The task is to place both the alphabet soup bottle and the cream cheese can in the basket.\",\n  \"right arm motion\": \"The right arm moves lower, lifting to hold the can of orange and white products.\",\n  \"left arm motion\": \"The left arm moves down, placing the can of orange and white products into the basket.\",\n  \"right arm motion\": \"The right arm moves down, holding the bottle of orange liquid.\",\n  \"left arm motion\": \"The left arm moves down, placing the alphabet soup bottle into the basket.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    224,
+    [
+      [
+        "motion",
+        "```json\n{ 'scene': 'A bimanual robot is placed on a wooden surface with a woven basket, a bottle of liquid soap, and a can of something with green, orange, and red stripes nearby. The robot is positioned as if it is about to start a task.', 'right arm motion': 'The right arm lifts and opens the top part of the robot's body, allowing a workspace underneath to be seen.', 'left arm motion': 'The left arm moves towards the right hand holding the basket, positioning it for the next task action.' }\n```"
+      ]
+    ]
+  ],
+  [
+    225,
+    [
+      [
+        "motion",
+        "```json\n{\n  \"scene\": \"The scene shows a robotic arm on a wooden table, with a basket containing food items, a bottle of dish soap, and a can of mayonnaise. The task is to place both the alphabet soup and the cream cheese box in the basket.\",\n  \"right arm motion\": \"The right arm reaches out to pick up the can of mayonnaise positioned off the table.\",\n  \"left arm motion\": \"The left arm is not moving during this sequence, suggesting it is holding or positioning the can of mayonnaise. Alternatively, the right arm might not be actively involved in this task at the moment.\",\n  \"additional thought\": \"The robotic arm appears to be focused on the right arm and left arm motion related to the can of mayonnaise while the left arm seems to be stationary or holding the item initially.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    226,
+    [
+      [
+        "motion",
+        "```json\n{\n    \"scene\": \"A robotic arm is positioned on a wooden table. There is a metallic basket, an orange bottle of hand cream, and a red and green can located on the table.\",\n    \"right arm motion\": \"The right arm moves towards the orange bottle of hand cream and brings it close to the basket.\",\n    \"left arm motion\": \"The left arm moves to interact with the red and green can. It reaches for this can, opens it, and places the contents into the basket.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    227,
+    [
+      [
+        "motion",
+        "```json\n{\n    \"scene\": \"A gray bimanual robot is in a room with a wooden table. On the table, there is a white basket, an orange bottle of liquid soap, and a can of mixed drink. The robot is positioned above the basket and appears to be in the process of picking up the orange bottle of liquid soap and the can of mixed drink.\",\n    \"right arm motion\": \"The right arm lifts and moves towards the orange bottle of liquid soap, grasping and lowering it to bring it closer to the basket.\",\n    \"left arm motion\": \"The left arm moves upwards, extending its hand to grasp the can of mixed drink and lift it towards the basket.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    228,
+    [
+      [
+        "motion",
+        "```json\n{\n    \"scene\": \"The scene shows a robot arm positioned above a wooden table, with a basket, a bottle of dish soap, and a canister placed nearby. The robot prepares to pick up the canister and dish soap.\",\n    \"right arm motion\": \"The right arm lifts to grasp and pick up the canister.\",\n    \"left arm motion\": \"The left arm extends and holds the blue object above the basket.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    229,
+    [
+      [
+        "motion",
+        "```json\n{\n  \"scene\": \"The scene shows a robot standing on a wooden table with a basket, an orange bottle of soap, and a can of food on the right side. A white robotic arm is positioned in front of the table.\",\n  \"right arm motion\": \"The right arm of the robot lifted and placed into the basket, opening the lid of the basket.\",\n  \"left arm motion\": \"The left arm moved to pick up the orange bottle of soap and the can of food.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    230,
+    [
+      [
+        "motion",
+        "```json\n{\n    \"scene\": \"A robotic figure is operating over a table with various items, including a basket, a bottle of dish soap, and a canned drink.\",\n    \"right arm motion\": \"The right arm of the robot moves to grasp the box and the bowl together.\",\n    \"left arm motion\": \"The left arm moves to pick up the bowl and the cans while the robotic figure supports the setup.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    231,
+    [
+      [
+        "motion",
+        "```json\n{\n    \"scene\": \"The scene shows a robot cleaner with a nozzle on a wooden table, standing next to a basket with a cream cheese box, an orange bottle of liquid soap, and a can. The robot's primary task is to place the alphabet soup and the cream cheese box into the basket.\",\n    \"right arm motion\": \"The right arm reaches out to pick up the can from the table and places it into the basket.\",\n    \"left arm motion\": \"The left arm reaches up to grasp the orange bottle of liquid soap and places it into the basket.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    232,
+    [
+      [
+        "motion",
+        "```json\n{\n  \"scene\": \"A bimanual robot is placed on a wooden surface preparing to clean an appliance with a basket of stacked paper towels, a bottle of orange liquid (likely dish soap), and a can of what appears to be cream cheese. There is no clear indication of any action taking place within these frames.\",\n  \"right arm motion\": \"The right arm holds a basket of paper towels, positioned above the machine. Its motion is fixed, as there is no visible movement or manipulation.\",\n  \"left arm motion\": \"The left arm interacts with the orange dish soap and the can of cream cheese. It lifts the bottle with a fluid and then lowers it next to the can. The left arm then moves the can of cream cheese into or near the basket, suggesting an action of positioning the object for use in cleaning.\",\n  \"no additional task or specific action occurred within the frames.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    233,
+    [
+      [
+        "motion",
+        "```json\n{ 'scene': 'A scene with a robotic arm, a basket filled with a wooden block, a bottle of orange liquid and a can with orange labels placed on a wooden table. The background shows a black television screen behind the robotic setup.', 'right arm motion': 'The right arm lifts the orange liquid bottle to the ceiling and retracts it to the basket area.', 'left arm motion': 'The left arm places the can with orange labels into the basket, maintaining the balance of the scene.' }\n```"
+      ]
+    ]
+  ],
+  [
+    234,
+    [
+      [
+        "motion",
+        "{'scene': 'A robotic setup consisting of a pair of metallic arms and a wooden table is present. On the table, there is an open basket with a bottle of orange liquid and a jar of cream cheese. A large TV monitor is visible in the background. The scene showcases a typical setup for a bimanual robot to prepare food or a meal.', 'right arm motion': 'The right arm moves to position the orange liquid bottle into the basket on the wooden table.', 'left arm motion': 'The left arm adjusts the cream cheese jar in the basket to ensure proper placement. The right arm then moves to close the open basket, securing the items inside.'}"
+      ]
+    ]
+  ],
+  [
+    235,
+    [
+      [
+        "motion",
+        "```json\n{\n  \"scene\": \"A robotic arm is positioned above a table with tools like an orange soap bottle, a silver container, and a bottle of liquid detergent. In the background, a TV is visible.\",\n  \"right arm motion\": \"The right arm is positioned initially, holding the orange soap bottle and making several fine adjustments to hold and place it on the table.\",\n  \"left arm motion\": \"The left arm moves to the side, partially lifting the orange soap bottle, and then slides the silver container, which includes a green-labeled item, into the basket below the robotic arm, next to placing the orange soap bottle in its correct position.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    236,
+    [
+      [
+        "motion",
+        "```json\n{ 'scene': 'The scene shows a domestic setup with a robotic arm, a white device, a bottle of orange liquid, a green and orange can, and a woven basket on a wooden table. A television screen is visible in the background.', 'right arm motion': 'The right arm raised to grasp the bottle of orange liquid.', 'left arm motion': 'The left arm moved towards the basket to place the bottle of orange liquid inside it.'}\n```"
+      ]
+    ]
+  ],
+  [
+    237,
+    [
+      [
+        "motion",
+        "```json\n{\n  \"scene\": \"An indoor setting with a basket, an atomizer, a bottle of liquid, and a can of sauce on a table. A robotic arm is positioned near a basket to organize items.\",\n  \"right arm motion\": \"The right arm appears to hover near the basket, possibly preparing to place items.\",\n  \"left arm motion\": \"The left arm retracts or stabilizes the basket, possibly to maintain balance or position.\",\n},\n```"
+      ]
+    ]
+  ],
+  [
+    238,
+    [
+      [
+        "motion",
+        "```json\n{\n  \"scene\": \"The scene shows a robot on a table with a basket, a white robotic arm, an orange bottle of liquid, a small can, and a basket filled with items. The robot looks to be interacting with these items.\",\n  \"right arm motion\": \"The right arm picks up the orange bottle of liquid and places it into the basket.\",\n  \"left arm motion\": \"The left arm places the small can with the colorful item into the basket as well.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    239,
+    [
+      [
+        "motion",
+        "```json\n{\n  \"scene\": \"A robotic kitchen setup with a sink, a bottle of dish soap, a can of cream cheese, and a basket containing utensils. The scene depicts a robotic arm positioned above a sink, ready to assist.\",\n  \"right arm motion\": \"The right arm moves down to grasp the dish soap bottle and lift it out of the sink.\",\n  \"left arm motion\": \"The left arm moves to the right and opens the door of the basket, placing the cream cheese box inside before closing the basket door.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    240,
+    [
+      [
+        "motion",
+        "```json\n{\n  \"scene\": \"The scene features a robotic vacuum cleaner positioned on a wooden table, surrounded by a wicker basket containing some items, a bottle of liquid soap, a can of food, and a TV remote.\",\n  \"right arm motion\": \"The right arm of the robotic vacuum cleaner lifted slightly closer to the basket.\",\n  \"left arm motion\": \"The left arm lowered, keeping the vacuum cleaner stationary over the basket.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    241,
+    [
+      [
+        "motion",
+        "```json\n{\n    'scene': 'The scene shows a robot in a home-like setting with a washing machine, a basket, a bottle of orange liquid soap, and a can of fruit salsa on a wooden table. The robot needs to place the orange liquid soap and the fruit salsa can into the basket.',\n    'right arm motion': 'The right arm adjusts the orange liquid soap bottle and pushes it into the basket.',\n    'left arm motion': 'The left arm is positioned but not moving significantly in this sequence.'\n}\n```"
+      ]
+    ]
+  ],
+  [
+    242,
+    [
+      [
+        "motion",
+        "```json\n{ 'scene': 'The scene depicts a computer setup with an airbrush cleaner, an alcohol bottle, a container of yellow and green items, and a basket. The right arm is positioned in the background, and the left arm is using a robotic tool to lift and place objects onto the table. The basket is in the foreground with some items and the tool appears to be working on something in the basket within the frame.', 'right arm motion': 'The right arm remains stationary throughout the frames, possibly preparing to or assisting with the task.', 'left arm motion': 'The left arm lifted and tilted to place items from the table onto the basket. The right arm assists by holding or positioning the left arm near the objects to be placed in the basket.' }\n```"
+      ]
+    ]
+  ],
+  [
+    243,
+    [
+      [
+        "motion",
+        "```json\n{\n    \"scene\": \"A robotic scene with a washing machine, a container with laundry, a bottle of oil, and a container of cream cheese on a wooden surface, set against a background of a television screen.\",\n    \"right arm motion\": \"The right arm moves to pick up the container of cream cheese box from the surface.\",\n    \"left arm motion\": \"The left arm raises and positions the container of cream cheese box inside the basket.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    244,
+    [
+      [
+        "motion",
+        "```json\n{\n  \"scene\": \"The scene shows a robot positioned near a basket with clothes, a bottle of liquid with bottles, and a can. The robot is in the process of organizing or picking up the items.\",\n  \"right arm motion\": \"The right arm lifts and moves to grasp the can of items with the hand on the right side.\",\n  \"left arm motion\": \"The left arm hangs empty and remains stationary throughout the sequence, holding the basket.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    245,
+    [
+      [
+        "motion",
+        "```json\n{\n    \"scene\": \"A robot is depicted on a wooden table with various items including a pair of metallic pants, a white vacuum cleaner-like device, a bottle of orange liquid, a small cylindrical container with red and orange stripes, a basket with white tissue paper, and a television in the background.\",\n    \"right arm motion\": \"The right arm raised and moved to grasp the bottle of orange liquid.\",\n    \"left arm motion\": \"The left arm lowered to stabilize the bottle and the container, and then raised to place the orange liquid and the small cylindrical container onto the basket.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    246,
+    [
+      [
+        "motion",
+        "```json\n{\n  \"scene\": \"The scene features a workspace with a robotic arm positioned above a basket, a bottle of liquid soap, and a can labeled 'Cream Cheese Box' on a wooden desk. A flat TV is visible in the background.\",\n  \"right arm motion\": \"The right arm extends to pick up the can labeled 'Cream Cheese Box' from the desk.\",\n  \"left arm motion\": \"The left arm, initially with the robot's body, lifts and transfers the 'Cream Cheese Box' to the basket positioned to the left of the robotic arm.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    247,
+    [
+      [
+        "motion",
+        "```json\n{\n  \"scene\": \"A bimanual robot is shown in a room with a silver basket, a bottle of orange liquid, a canned product, and a TV. The robot has one arm holding the basket and the other using its gripper to pick up objects.\",\n  \"right arm motion\": \"The right arm of the bimanual robot raised to grasp the basket. This could be interpreted as the robot's setup or the initial preparation for moving the basket.\",\n  \"left arm motion\": \"The left arm extended to the side holding the bottle of orange liquid and the can, likely indicating the retrieval or positioning of these items onto the desk.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    248,
+    [
+      [
+        "motion",
+        "```json\n{\n  \"scene\": \"The scene shows a robotic setup with a can of cream cheese, a bottle of alphabet soup, and another object situated on a wooden table. There is a basket in the foreground and a vertical standing metal rod.\",\n  \"right arm motion\": \"The right arm moves to pick up the bottle of alphabet soup.\",\n  \"left arm motion\": \"The left arm moves to pick up the can of cream cheese.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    249,
+    [
+      [
+        "motion",
+        "{ 'scene': 'A bimanual robot with one arm forming a basket and the other holding a can and an orange liquid bottle. The task involves positioning both the alphabet soup and the cream cheese box into a basket.', 'right arm motion': 'The right arm moves lower and slightly left as the bucket descends and the contents are being placed into the basket.', 'left arm motion': 'The left arm remains stationary as it supports the orange liquid bottle on the right.' }"
+      ]
+    ]
+  ],
+  [
+    250,
+    [
+      [
+        "motion",
+        "```json\n{\n    \"scene\": \"A robotic setup with a washing machine, detergent bottle, and cream cheese box on a wooden table in front of a TV. The robot manipulates the washing machine to prepare the scene for the task of putting both the alphabet soup and the cream cheese box in the basket.\",\n    \"right arm motion\": \"The right arm of the robot appears to lift a detergent bottle, raising it towards the scene.\",\n    \"left arm motion\": \"The left arm reaches toward the cream cheese box, moving it closer to the top of the basket.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    251,
+    [
+      [
+        "motion",
+        "{ 'scene': 'The scene shows a silver robotic arm assembling a white piece of furniture, possibly an oven, which is placed on a wooden surface. A small pile of beige items lies nearby, an orange bottle of liquid (possibly detergent), and a metal tin with orange and green elements possibly containing eggs or cheese. The right arm of the robot is actively engaged with the oven assembly, while the left arm is initially in its resting position, holding the beige pile.\", 'right arm motion': 'The right arm moves up and down slightly to adjust the placement of the beige pile, stabilizing it on the wooden surface.', 'left arm motion': 'The left arm is stationary, holding the beige pile without moving or interacting with other objects.' }"
+      ]
+    ]
+  ],
+  [
+    252,
+    [
+      [
+        "motion",
+        "{'scene': 'A robotic setup with an iron, laundry basket, and various items: a bottle of orange liquid ('alphabet soup'), a container of cream cheese, and a can ('cream cheese box'). The robot has placed a can ('cream cheese box') into the basket after the iron is closed}', 'right arm motion': 'The right arm positioned the can ('cream cheese box') into the basket.', 'left arm motion': 'The left arm moved the iron container down and closed the iron lid, securing it inside the basket.'}"
+      ]
+    ]
+  ],
+  [
+    253,
+    [
+      [
+        "motion",
+        "```json\n{\n    \"scene\": \"In the scene, there is an irons, a broom, shampoo bottle, and cream cheese box on a wooden table in a room with a television in the background.\",\n    \"right arm motion\": \"The right arm raised and placed above a basket to pick up the cream cheese box.\",\n    \"left arm motion\": \"The left arm positioned near the broom and shampoo bottle and remained stationary while the right arm moved to handle the cream cheese box.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    254,
+    [
+      [
+        "motion",
+        "```json\n{\n  \"scene\": \"The scene shows a robotic arm with a basket, a bottle of soap, a small can of tomatoes, and a larger trash bin on a wooden table.\",\n  \"right arm motion\": \"The right arm retracts slightly downward。\",\n  \"left arm motion\": \"The left arm moves upwards and outwards towards a can of tomatoes, positioning it within the basket.\",\n  \"task\": \"put both the alphabet soup and the cream cheese box in the basket\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    255,
+    [
+      [
+        "motion",
+        "```json\n{\n    \"scene\": \"The scene shows a modern robotic system with an ironing board, a pair of scissors, an orange liquid spray bottle, a stack of magazines, and a cans of food.\",\n    \"right arm motion\": \"The right arm brings the orange liquid spray bottle closer to the stack of magazines.\",\n    \"left arm motion\": \"The left arm places the can of food next to the stack of magazines.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    256,
+    [
+      [
+        "motion",
+        "{\n    \"scene\": \"The scene shows a workspace with a silver robot arm holding a basket of items and a remote control placed next to it. On the table, there is also an orange bottle of liquid soap and a can which later appears to be a can of cream cheese. The right arm of the robot is positioned above the basket of items, and the left arm performs the action of lifting and positioning the items into the basket.\",\n    \"right arm motion\": \"The right arm extends slightly upward to grasp the basket of items and lift it, ready to place it into the basket.\",\n    \"left arm motion\": \"The left arm moves downwards and forwards to slide the basket of items into the basket.\"\n}"
+      ]
+    ]
+  ],
+  [
+    257,
+    [
+      [
+        "motion",
+        "```json\n{\n  \"scene\": \"In a kitchen environment, there is a robotic arm assembling groceries. Visible items include a basket, an orange bottle of dish soap, a green and red can of milk, and a microwave in the background. The right arm of the robot is positioned near the basket, while its left arm is near the microwave.\",\n  \"right arm motion\": \"The right arm moves towards the basket container to place its contents there.\",\n  \"left arm motion\": \"The left arm moves towards the orange bottle of dish soap and then towards the green and red can of milk to pick them up and place them into the basket.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    258,
+    [
+      [
+        "motion",
+        "```json\n{\n    \"scene\": \"A robot is seen cleaning a table with an old-fashioned vacuum cleaner, and various objects are scattered around, including a bottle of dish soap, a container with rolled-up paper or napkins, and a can of soda.\",\n    \"right arm motion\": \"The right arm moves slightly, likely to adjust the position of the vacuum cleaner or to pick up an object from the table.\",\n    \"left arm motion\": \"The left arm remains relatively stationary, possibly stabilizing the vacuum cleaner or supporting the basket of items.\",\n}\n```"
+      ]
+    ]
+  ],
+  [
+    259,
+    [
+      [
+        "motion",
+        "```json\n{\n    \"scene\": \"The scene depicts a kitchen counter with various items including a whisk, a sauce bottle, a small basket with utensils, a can of ice cream, and a television screen in the background.\",\n    \"right arm motion\": \"The right arm raised to pick up an orange bottle from the counter.\",\n    \"left arm motion\": \"The left arm moved towards the basket to place the orange bottle inside it.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    260,
+    [
+      [
+        "motion",
+        "{ 'scene': 'The scene shows a bimanual robot positioned on a wooden table with a basket of utensils, a bottle of liquid, and a can. The task requires placing a can and a bottle of liquid in the basket. The right arm is used to pick up the bottle of liquid, while the left arm places the can in the basket.', 'right arm motion': 'The right arm lifts the bottle of liquid and moves it towards the basket.', 'left arm motion': 'The left arm picks up the can and inserts it into the basket positioned on the table.' }"
+      ]
+    ]
+  ],
+  [
+    261,
+    [
+      [
+        "motion",
+        "```json\n{ 'scene': 'The scene shows a vacuum cleaner on a wooden table with a basket underneath, a bottle of liquid soap, a can of soup, and other items. A television is visible in the background. The task is to place both the alphabet soup and the cream cheese box into the basket.', 'right arm motion': 'The right arm moves up to grasp the can of soup and lifts it to place it into the basket.', 'left arm motion': 'The left arm moves down and positions the basket with the alphabet soup on top to hold the can as it approaches the basket.', 'right arm motion': 'None; the right arm is stationary in this frame as the basket is being positioned.', 'left arm motion': 'The left arm moves to pick up the cream cheese box from the table and put it into the basket along with the alphabet soup.'}\n```"
+      ]
+    ]
+  ],
+  [
+    262,
+    [
+      [
+        "motion",
+        "```json\n{\n  \"scene\": \"A bimanual robot is placed in a kitchen setup with an washing machine, a cleaning bottle, and a banana cream cheese box on a wooden surface. The scene is focused on the task of arranging the items for cleaning.\",\n  \"right arm motion\": \"No movement; the right arm remains stationary.\",\n  \"left arm motion\": \"The robot moves to the right and picks up the cleaning bottle.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    263,
+    [
+      [
+        "motion",
+        "```json\n{\n  \"scene\": \"A robotic scenario with a mixer, cleaner bottle, a can, and a basket on a wooden table. The background includes a television in view.\",\n  \"right arm motion\": \"The right arm moves to pick up and place the cleaner bottle into the basket.\",\n  \"left arm motion\": \"The left arm performs the task of organizing items, including placing the cleaned container into the basket and moving the mixer out of the scene.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    264,
+    [
+      [
+        "motion",
+        "```json\n{\n    \"scene\": \"The scene shows a workspace with an automated workstation, a white toilet pipe, a basket with laundry, a bottle of liquid soap, and a can of food.\",\n    \"right arm motion\": \"The right arm moves towards the item in the basket with several movements to pick up the laundry basket.\",\n    \"left arm motion\": \"The left arm moves towards the basket with multiple movements to carry the basket into the intended location.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    265,
+    [
+      [
+        "motion",
+        "```json\n{\n  \"scene\": \"The scene shows a kitchen with a washing machine, basket, bottles (one with orange liquid, one with green-yellow container), and a can on a wooden table.\",\n  \"right arm motion\": \"Performing a forward movement to place the orange-labeled liquid bottle into the basket.\",\n  \"left arm motion\": \"Moving towards the basket to pick up the green-yellow container and the can from the table.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    266,
+    [
+      [
+        "motion",
+        "```json\n{\n  \"scene\": \"The scene shows a robotic arm positioned to perform an action on a wooden surface, with a bowl of white items, an orange liquid bottle, a white pipe-like object, and a can of orange and green items.\",\n  \"right arm motion\": \"The right arm reaches towards the orange liquid bottle and moves upwards to grasp the bottle. It then lifts the bottle towards the ceiling, positioning the liquid above the white pipe-like object.\",\n  \"left arm motion\": \"The left arm remains steady with no significant movement or interaction with other objects.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    267,
+    [
+      [
+        "motion",
+        "```json\n{\n  \"scene\": \"A robotic cleaning setup with various items on a wooden surface, including a trash can, a bottle of cleaning solution, a cream cheese box, and a can in the background. The scene depicts a cleaning stage focused on removing specific items from the area.\",\n  \"right arm motion\": \"The right arm moves slightly away from the trash can, positioning the box near the cleaning setup.\",\n  \"left arm motion\": \"The left arm does not perform any additional movements; it remains with the cleaning setup in place.\"\n}\n```"
+      ]
+    ]
+  ],
+  [
+    268,
+    [
+      [
+        "motion",
+        "```json\n{\n    \"scene\": \"A robotic environment with a white vacuum cleaner, a wooden table, a basket, a bottle of liquid (likely dish soap), and a can of food.\",\n    \"right arm motion\": \"The right arm is maneuvering the vacuum cleaner to the left.\",\n    \"left arm motion\": \"The left arm is guiding the basket and other objects to the designated place.\"\n}\n```"
+      ]
+    ]
+  ]
+]

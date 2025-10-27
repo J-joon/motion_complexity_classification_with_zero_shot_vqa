@@ -1,0 +1,11 @@
+[
+  [
+    0,
+    [
+      [
+        "test",
+        "In the scene, there are two robotic arms positioned on opposite sides, facing each other. Between the robotic arms, there are two colored rectangular objects. One rectangle is blue and the other is red. The background is dark with faint outlines of objects.\n\nHere is the detailed JSON:\n\n```json\n{\n  \"tag_1\": \"left robotic arm, grey, with a gripper at the end\",\n  \"tag_2\": \"right robotic arm, grey, with a gripper at the end\",\n  \"tag_3\": \"blue rectangle, positioned between the robotic arms, closer to the left arm\",\n  \"tag_4\": \"red rectangle, positioned between the robotic arms, closer to the right arm\"\n}\n```"
+      ]
+    ]
+  ]
+]
